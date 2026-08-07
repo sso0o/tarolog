@@ -1,6 +1,6 @@
 // src/lib/cards.test.ts
 import { describe, expect, it } from 'vitest'
-import { searchCards, filterCards } from './cards'
+import { searchCards, filterCards, filterByMemorized } from './cards'
 import type { Card } from '../types/card'
 
 const fixture: Card[] = [
@@ -39,5 +39,19 @@ describe('filterCards', () => {
 
     it('combines arcana and suit filters', () => {
         expect(filterCards(fixture, 'minor', 'wands')).toEqual([fixture[2]])
+    })
+})
+
+describe('filterByMemorized', () => {
+    it('returns all cards when filter is "all"', () => {
+        expect(filterByMemorized(fixture, ['ar00'], 'all')).toEqual(fixture)
+    })
+
+    it('returns only memorized cards when filter is "memorized"', () => {
+        expect(filterByMemorized(fixture, ['ar00', 'cu01'], 'memorized')).toEqual([fixture[0], fixture[3]])
+    })
+
+    it('returns only unmemorized cards when filter is "unmemorized"', () => {
+        expect(filterByMemorized(fixture, ['ar00'], 'unmemorized')).toEqual([fixture[1], fixture[2], fixture[3]])
     })
 })

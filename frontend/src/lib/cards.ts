@@ -22,3 +22,13 @@ export function filterCards(cards: Card[], arcana: Arcana | 'all', suit: Suit | 
         (c) => (arcana === 'all' || c.arcana === arcana) && (suit === 'all' || c.suit === suit),
     )
 }
+
+export function filterByMemorized(
+    cards: Card[],
+    memorizedIds: string[],
+    filter: 'all' | 'memorized' | 'unmemorized',
+): Card[] {
+    if (filter === 'all') return cards
+    const memorizedSet = new Set(memorizedIds)
+    return cards.filter((c) => memorizedSet.has(c.id) === (filter === 'memorized'))
+}
