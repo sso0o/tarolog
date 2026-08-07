@@ -9,6 +9,7 @@ import { DictionaryPage } from './pages/DictionaryPage'
 import { FlashcardPage } from './pages/FlashcardPage'
 import { QuizPage } from './pages/QuizPage'
 import { MatchingPage } from './pages/MatchingPage'
+import { AdBanner } from './components/AdBanner'
 
 const TABS = [
     { path: '/dictionary', label: '사전' },
@@ -54,6 +55,7 @@ export function App() {
                 <Route path="/quiz/*" element={<QuizPage />} />
                 <Route path="/matching/*" element={<MatchingPage />} />
             </Routes>
+            <AdBanner />
         </Box>
     )
 }
