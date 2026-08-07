@@ -7,10 +7,12 @@ import Box from '@mui/material/Box'
 import { Navigate, Route, Routes, useLocation, useNavigate } from 'react-router'
 import { DictionaryPage } from './pages/DictionaryPage'
 import { FlashcardPage } from './pages/FlashcardPage'
+import { QuizPage } from './pages/QuizPage'
 
 const TABS = [
     { path: '/dictionary', label: '사전' },
     { path: '/flashcard', label: '학습' },
+    { path: '/quiz', label: '퀴즈' },
 ] as const
 
 function activeTab(pathname: string): string {
@@ -29,7 +31,10 @@ export function App() {
                     <ToggleButtonGroup
                         value={activeTab(location.pathname)}
                         exclusive
-                        onChange={(_, path: string | null) => { if (path) navigate(path) }}
+                        onChange={(_, path: string | null) => {
+                            if (!path) return
+                            navigate(path === '/quiz' ? '/quiz/setup' : path)
+                        }}
                         aria-label="화면 전환"
                     >
                         {TABS.map((tab) => (
@@ -42,6 +47,7 @@ export function App() {
                 <Route path="/" element={<Navigate to="/dictionary" replace />} />
                 <Route path="/dictionary" element={<DictionaryPage />} />
                 <Route path="/flashcard" element={<FlashcardPage />} />
+                <Route path="/quiz/*" element={<QuizPage />} />
             </Routes>
         </Box>
     )
