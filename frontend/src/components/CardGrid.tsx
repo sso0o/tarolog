@@ -14,7 +14,7 @@ export function CardGrid({ cards, onSelect }: Props) {
         <div className="card-grid">
             {cards.map((card) => (
                 <button key={card.id} type="button" className="card-thumb" onClick={() => onSelect(card)}>
-                    <img src={card.image} alt={card.nameKo} loading="lazy" />
+                    <img src={import.meta.env.BASE_URL + card.image.slice(1)} alt={card.nameKo} loading="lazy" />
                     <span>{card.nameKo}</span>
                 </button>
             ))}

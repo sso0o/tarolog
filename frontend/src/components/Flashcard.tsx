@@ -20,7 +20,7 @@ export function Flashcard({ card, memorized, onToggleMemorized }: Props) {
                         <p>{card.meaningUpKo}</p>
                     </div>
                 ) : (
-                    <img src={card.image} alt="카드를 눌러 의미 확인" />
+                    <img src={import.meta.env.BASE_URL + card.image.slice(1)} alt="카드를 눌러 의미 확인" />
                 )}
             </button>
             <label>

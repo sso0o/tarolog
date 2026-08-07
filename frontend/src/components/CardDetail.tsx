@@ -12,7 +12,7 @@ export function CardDetail({ card, onClose }: Props) {
             <button type="button" onClick={onClose} aria-label="닫기">
                 닫기
             </button>
-            <img src={card.image} alt={card.nameKo} />
+            <img src={import.meta.env.BASE_URL + card.image.slice(1)} alt={card.nameKo} />
             <h2>{card.nameKo}</h2>
             <p className="keywords">{card.keywordsKo.join(', ')}</p>
             <section>

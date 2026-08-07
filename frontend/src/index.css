@@ -109,3 +109,43 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 12px;
+  padding: 16px;
+}
+
+.card-thumb {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: none;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.card-thumb img {
+  width: 100%;
+  max-width: 140px;
+  height: auto;
+  border-radius: 4px;
+}
+
+.card-detail img {
+  width: 100%;
+  max-width: 240px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.flashcard-face img {
+  width: 100%;
+  max-width: 240px;
+  height: auto;
+  border-radius: 8px;
+}
