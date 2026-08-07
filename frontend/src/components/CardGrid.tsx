@@ -1,37 +1,53 @@
 // src/components/CardGrid.tsx
-import type { Card } from '../types/card'
+import Box from '@mui/material/Box'
+import Card from '@mui/material/Card'
+import CardActionArea from '@mui/material/CardActionArea'
+import Typography from '@mui/material/Typography'
+import type { Card as CardType } from '../types/card'
 
 interface Props {
-  cards: Card[]
-  onSelect: (card: Card) => void
+    cards: CardType[]
+    onSelect: (card: CardType) => void
 }
 
 export function CardGrid({ cards, onSelect }: Props) {
-  if (cards.length === 0) {
+    if (cards.length === 0) {
+        return (
+            <Typography variant="body2" color="text.disabled" sx={{ py: 16, textAlign: 'center' }}>
+                검색 결과가 없습니다.
+            </Typography>
+        )
+    }
     return (
-      <p className="text-body-sm text-steel py-section text-center m-0">
-        검색 결과가 없습니다.
-      </p>
-    )
-  }
-  return (
-    <div className="grid grid-cols-[repeat(auto-fill,minmax(140px,1fr))] gap-md max-sm:grid-cols-[repeat(auto-fill,minmax(120px,1fr))]">
-      {cards.map((card) => (
-        <button
-          key={card.id}
-          type="button"
-          className="bg-canvas border border-hairline rounded-xl p-xs flex flex-col items-center gap-xs cursor-pointer hover:shadow-[0px_4px_6px_rgba(0,0,0,0.08)] transition-shadow"
-          onClick={() => onSelect(card)}
+        <Box
+            sx={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))',
+                gap: 4,
+            }}
         >
-          <img
-            src={import.meta.env.BASE_URL + card.image.slice(1)}
-            alt={card.nameKo}
-            loading="lazy"
-            className="w-full max-w-[140px] h-auto rounded-md"
-          />
-          <span className="text-micro text-slate">{card.nameKo}</span>
-        </button>
-      ))}
-    </div>
-  )
+            {cards.map((card) => (
+                <Card
+                    key={card.id}
+                    sx={{ '&:hover': { boxShadow: 2 }, transition: 'box-shadow 0.2s' }}
+                >
+                    <CardActionArea
+                        onClick={() => onSelect(card)}
+                        sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2, p: 2 }}
+                    >
+                        <Box
+                            component="img"
+                            src={import.meta.env.BASE_URL + card.image.slice(1)}
+                            alt={card.nameKo}
+                            loading="lazy"
+                            sx={{ width: '100%', aspectRatio: '2/3', objectFit: 'contain', borderRadius: '8px' }}
+                        />
+                        <Typography variant="caption" color="text.secondary">
+                            {card.nameKo}
+                        </Typography>
+                    </CardActionArea>
+                </Card>
+            ))}
+        </Box>
+    )
 }

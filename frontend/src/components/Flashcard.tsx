@@ -1,40 +1,66 @@
 // src/components/Flashcard.tsx
 import { useState } from 'react'
-import type { Card } from '../types/card'
+import Box from '@mui/material/Box'
+import Card from '@mui/material/Card'
+import CardActionArea from '@mui/material/CardActionArea'
+import Checkbox from '@mui/material/Checkbox'
+import FormControlLabel from '@mui/material/FormControlLabel'
+import Typography from '@mui/material/Typography'
+import type { Card as CardType } from '../types/card'
 
 interface Props {
-  card: Card
-  memorized: boolean
-  onToggleMemorized: () => void
+    card: CardType
+    memorized: boolean
+    onToggleMemorized: () => void
 }
 
 export function Flashcard({ card, memorized, onToggleMemorized }: Props) {
-  const [flipped, setFlipped] = useState(false)
+    const [flipped, setFlipped] = useState(false)
 
-  return (
-    <div className="flex flex-col items-center gap-sm">
-      <button
-        type="button"
-        className="bg-canvas rounded-hero shadow-[0px_4px_6px_rgba(0,0,0,0.08)] min-h-[360px] w-full max-w-[400px] flex items-center justify-center p-xxl cursor-pointer border-0"
-        onClick={() => setFlipped((f) => !f)}
-      >
-        {flipped ? (
-          <div className="flex flex-col items-center gap-md">
-            <h2 className="text-heading-md text-ink m-0">{card.nameKo}</h2>
-            <p className="text-body-md text-charcoal m-0">{card.meaningUpKo}</p>
-          </div>
-        ) : (
-          <img
-            src={import.meta.env.BASE_URL + card.image.slice(1)}
-            alt="카드를 눌러 의미 확인"
-            className="rounded-xl max-w-[240px] w-full h-auto"
-          />
-        )}
-      </button>
-      <label className="flex items-center gap-xs text-body-sm text-slate cursor-pointer">
-        <input type="checkbox" checked={memorized} onChange={onToggleMemorized} className="w-4 h-4" />
-        외웠어요
-      </label>
-    </div>
-  )
+    return (
+        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 3 }}>
+            <Card sx={{ borderRadius: '32px', boxShadow: 2, width: '100%', maxWidth: 400 }}>
+                <CardActionArea
+                    onClick={() => setFlipped((f) => !f)}
+                    sx={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        minHeight: 360,
+                        p: 8,
+                    }}
+                >
+                    {flipped ? (
+                        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4 }}>
+                            <Typography variant="h1" sx={{ m: 0 }}>{card.nameKo}</Typography>
+                            <Typography variant="body1" sx={{ m: 0, color: '#3d3d3d' }}>
+                                {card.meaningUpKo}
+                            </Typography>
+                        </Box>
+                    ) : (
+                        <Box
+                            component="img"
+                            src={import.meta.env.BASE_URL + card.image.slice(1)}
+                            alt="카드를 눌러 의미 확인"
+                            sx={{ borderRadius: '16px', maxWidth: 240, width: '100%', height: 'auto' }}
+                        />
+                    )}
+                </CardActionArea>
+            </Card>
+            <FormControlLabel
+                control={
+                    <Checkbox
+                        checked={memorized}
+                        onChange={onToggleMemorized}
+                        size="small"
+                        sx={{ color: 'text.secondary', '&.Mui-checked': { color: 'text.primary' } }}
+                    />
+                }
+                label={
+                    <Typography variant="body2" color="text.secondary">외웠어요</Typography>
+                }
+                sx={{ m: 0 }}
+            />
+        </Box>
+    )
 }
