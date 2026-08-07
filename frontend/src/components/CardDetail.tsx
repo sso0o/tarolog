@@ -51,13 +51,41 @@ export function CardDetail({ card, onClose }: Props) {
                 <Typography variant="body2" color="text.secondary" sx={{ m: 0 }}>
                     {card.keywordsKo.join(', ')}
                 </Typography>
-                <Box component="section" sx={{ width: '100%', display: 'flex', flexDirection: 'column', gap: 2 }}>
-                    <Typography variant="body2" fontWeight={500}>정방향</Typography>
-                    <Typography variant="body1" sx={{ m: 0, color: '#3d3d3d' }}>{card.meaningUpKo}</Typography>
-                </Box>
-                <Box component="section" sx={{ width: '100%', display: 'flex', flexDirection: 'column', gap: 2 }}>
-                    <Typography variant="body2" fontWeight={500}>역방향</Typography>
-                    <Typography variant="body1" sx={{ m: 0, color: '#3d3d3d' }}>{card.meaningRevKo}</Typography>
+                <Box sx={{ width: '100%', display: 'flex', gap: 2 }}>
+                    <Box
+                        component="section"
+                        sx={{
+                            flex: 1,
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 1.5,
+                            p: 2.5,
+                            borderRadius: '16px',
+                            bgcolor: 'grey.50',
+                            border: '1px solid',
+                            borderColor: 'divider',
+                        }}
+                    >
+                        <Typography variant="body2" fontWeight={600}>정방향</Typography>
+                        <Typography variant="body2" sx={{ m: 0, color: 'text.secondary', lineHeight: 1.7 }}>{card.meaningUpKo}</Typography>
+                    </Box>
+                    <Box
+                        component="section"
+                        sx={{
+                            flex: 1,
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 1.5,
+                            p: 2.5,
+                            borderRadius: '16px',
+                            bgcolor: 'grey.50',
+                            border: '1px solid',
+                            borderColor: 'divider',
+                        }}
+                    >
+                        <Typography variant="body2" fontWeight={600}>역방향</Typography>
+                        <Typography variant="body2" sx={{ m: 0, color: 'text.secondary', lineHeight: 1.7 }}>{card.meaningRevKo}</Typography>
+                    </Box>
                 </Box>
             </CardContent>
         </Card>

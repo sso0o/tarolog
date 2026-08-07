@@ -40,7 +40,7 @@ export function CardGrid({ cards, onSelect }: Props) {
                             src={import.meta.env.BASE_URL + card.image.slice(1)}
                             alt={card.nameKo}
                             loading="lazy"
-                            sx={{ width: '100%', maxWidth: 140, height: 'auto', borderRadius: '8px' }}
+                            sx={{ width: '100%', aspectRatio: '2/3', objectFit: 'contain', borderRadius: '8px' }}
                         />
                         <Typography variant="caption" color="text.secondary">
                             {card.nameKo}
