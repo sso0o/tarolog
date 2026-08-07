@@ -9,6 +9,8 @@ import { QuizSetup } from '../components/QuizSetup'
 import { QuizQuestionCard } from '../components/QuizQuestionCard'
 import { QuizResult } from '../components/QuizResult'
 import type { Card } from '../types/card'
+import { useInterstitialAdGate } from '../lib/useInterstitialAdGate'
+import { AdInterstitialModal } from '../components/AdInterstitialModal'
 
 interface QuizSession {
     questions: QuizQuestion[]
@@ -24,13 +26,15 @@ export function QuizPage() {
     const [index, setIndex] = useState(0)
     const [answers, setAnswers] = useState<number[]>([])
 
-    function handleStart(pool: Card[], quizType: QuizType, direction: MeaningDirection, count: number) {
+    function startQuiz(pool: Card[], quizType: QuizType, direction: MeaningDirection, count: number) {
         const questions = buildQuiz(pool, quizType, direction, count)
         setSession({ questions, pool, quizType, direction })
         setIndex(0)
         setAnswers([])
         navigate('/quiz/playing')
     }
+
+    const { requestStart, modalOpen, handleModalClose } = useInterstitialAdGate(startQuiz)
 
     function handleAnswerChoice(choiceIndex: number) {
         if (!session) return
@@ -60,43 +64,46 @@ export function QuizPage() {
     }
 
     return (
-        <Routes>
-            <Route
-                path="setup"
-                element={<QuizSetup allCards={allCards} memorizedIds={getMemorizedIds()} onStart={handleStart} />}
-            />
-            <Route
-                path="playing"
-                element={
-                    session ? (
-                        <QuizQuestionCard
-                            question={session.questions[index]}
-                            questionNumber={index + 1}
-                            totalQuestions={session.questions.length}
-                            onNext={handleAnswerChoice}
-                        />
-                    ) : (
-                        <Navigate to="/quiz/setup" replace />
-                    )
-                }
-            />
-            <Route
-                path="result"
-                element={
-                    session && answers.length === session.questions.length ? (
-                        <QuizResult
-                            questions={session.questions}
-                            answers={answers}
-                            onMarkMemorized={markAllMemorized}
-                            onRestart={handleRestart}
-                            onBackToSetup={handleBackToSetup}
-                        />
-                    ) : (
-                        <Navigate to="/quiz/setup" replace />
-                    )
-                }
-            />
-            <Route path="*" element={<Navigate to="/quiz/setup" replace />} />
-        </Routes>
+        <>
+            <AdInterstitialModal open={modalOpen} onClose={handleModalClose} />
+            <Routes>
+                <Route
+                    path="setup"
+                    element={<QuizSetup allCards={allCards} memorizedIds={getMemorizedIds()} onStart={requestStart} />}
+                />
+                <Route
+                    path="playing"
+                    element={
+                        session ? (
+                            <QuizQuestionCard
+                                question={session.questions[index]}
+                                questionNumber={index + 1}
+                                totalQuestions={session.questions.length}
+                                onNext={handleAnswerChoice}
+                            />
+                        ) : (
+                            <Navigate to="/quiz/setup" replace />
+                        )
+                    }
+                />
+                <Route
+                    path="result"
+                    element={
+                        session && answers.length === session.questions.length ? (
+                            <QuizResult
+                                questions={session.questions}
+                                answers={answers}
+                                onMarkMemorized={markAllMemorized}
+                                onRestart={handleRestart}
+                                onBackToSetup={handleBackToSetup}
+                            />
+                        ) : (
+                            <Navigate to="/quiz/setup" replace />
+                        )
+                    }
+                />
+                <Route path="*" element={<Navigate to="/quiz/setup" replace />} />
+            </Routes>
+        </>
     )
 }
