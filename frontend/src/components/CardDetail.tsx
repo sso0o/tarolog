@@ -1,41 +1,65 @@
 // src/components/CardDetail.tsx
-import type { Card } from '../types/card'
+import Box from '@mui/material/Box'
+import Card from '@mui/material/Card'
+import CardContent from '@mui/material/CardContent'
+import IconButton from '@mui/material/IconButton'
+import Typography from '@mui/material/Typography'
+import CloseIcon from '@mui/icons-material/Close'
+import type { Card as CardType } from '../types/card'
 
 interface Props {
-  card: Card
-  onClose: () => void
+    card: CardType
+    onClose: () => void
 }
 
 export function CardDetail({ card, onClose }: Props) {
-  return (
-    <div
-      className="bg-canvas rounded-hero shadow-[rgba(36,36,36,0.08)_0px_12px_16px_-4px] p-xxl flex flex-col items-center gap-md mb-md"
-      role="dialog"
-      aria-label={`${card.nameKo} 상세`}
-    >
-      <button
-        type="button"
-        onClick={onClose}
-        aria-label="닫기"
-        className="w-9 h-9 border border-hairline rounded-full flex items-center justify-center self-end text-ink text-body-sm cursor-pointer bg-canvas"
-      >
-        ✕
-      </button>
-      <img
-        src={import.meta.env.BASE_URL + card.image.slice(1)}
-        alt={card.nameKo}
-        className="rounded-xl max-w-[240px] w-full h-auto"
-      />
-      <h2 className="text-heading-sm text-ink m-0">{card.nameKo}</h2>
-      <p className="text-body-sm text-slate m-0">{card.keywordsKo.join(', ')}</p>
-      <section className="w-full flex flex-col gap-xs">
-        <h3 className="text-body-sm-medium text-ink m-0">정방향</h3>
-        <p className="text-body-md text-charcoal m-0">{card.meaningUpKo}</p>
-      </section>
-      <section className="w-full flex flex-col gap-xs">
-        <h3 className="text-body-sm-medium text-ink m-0">역방향</h3>
-        <p className="text-body-md text-charcoal m-0">{card.meaningRevKo}</p>
-      </section>
-    </div>
-  )
+    return (
+        <Card
+            role="dialog"
+            aria-label={`${card.nameKo} 상세`}
+            sx={{ borderRadius: '32px', boxShadow: 4, mb: 4 }}
+        >
+            <CardContent
+                sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    gap: 4,
+                    p: '32px !important',
+                }}
+            >
+                <IconButton
+                    onClick={onClose}
+                    aria-label="닫기"
+                    size="small"
+                    sx={{
+                        alignSelf: 'flex-end',
+                        border: '1px solid',
+                        borderColor: 'divider',
+                        color: 'text.primary',
+                    }}
+                >
+                    <CloseIcon fontSize="small" />
+                </IconButton>
+                <Box
+                    component="img"
+                    src={import.meta.env.BASE_URL + card.image.slice(1)}
+                    alt={card.nameKo}
+                    sx={{ borderRadius: '16px', maxWidth: 240, width: '100%', height: 'auto' }}
+                />
+                <Typography variant="h2" sx={{ m: 0 }}>{card.nameKo}</Typography>
+                <Typography variant="body2" color="text.secondary" sx={{ m: 0 }}>
+                    {card.keywordsKo.join(', ')}
+                </Typography>
+                <Box component="section" sx={{ width: '100%', display: 'flex', flexDirection: 'column', gap: 2 }}>
+                    <Typography variant="body2" fontWeight={500}>정방향</Typography>
+                    <Typography variant="body1" sx={{ m: 0, color: '#3d3d3d' }}>{card.meaningUpKo}</Typography>
+                </Box>
+                <Box component="section" sx={{ width: '100%', display: 'flex', flexDirection: 'column', gap: 2 }}>
+                    <Typography variant="body2" fontWeight={500}>역방향</Typography>
+                    <Typography variant="body1" sx={{ m: 0, color: '#3d3d3d' }}>{card.meaningRevKo}</Typography>
+                </Box>
+            </CardContent>
+        </Card>
+    )
 }
