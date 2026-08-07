@@ -28,3 +28,13 @@ export function toggleMemorized(id: string): void {
         // localStorage unavailable (e.g. disabled/private mode) — progress just won't persist
     }
 }
+
+export function markAllMemorized(ids: string[]): void {
+    try {
+        const existing = new Set(getMemorizedIds())
+        ids.forEach((id) => existing.add(id))
+        localStorage.setItem(STORAGE_KEY, JSON.stringify([...existing]))
+    } catch {
+        // localStorage unavailable (e.g. disabled/private mode) — progress just won't persist
+    }
+}
