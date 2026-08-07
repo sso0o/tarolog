@@ -3,6 +3,8 @@ import { useState } from 'react'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
+import CheckCircleIcon from '@mui/icons-material/CheckCircle'
+import CancelIcon from '@mui/icons-material/Cancel'
 import type { QuizQuestion } from '../lib/quiz'
 
 interface Props {
@@ -43,14 +45,13 @@ export function QuizQuestionCard({ question, questionNumber, totalQuestions, onN
         return {}
     }
 
-    function isWrongChoiceRevealed(index: number): boolean {
-        return question.type === 'name-to-meaning' && selected !== null && index !== question.correctIndex
+    function isRevealed(): boolean {
+        return question.type === 'name-to-meaning' && selected !== null
     }
 
-    function captionColor(index: number): string {
-        if (selected !== null && index === selected && index !== question.correctIndex) {
-            return 'rgba(255,255,255,0.8)'
-        }
+    function answerColor(index: number): string {
+        if (index === question.correctIndex) return 'rgba(255,255,255,0.9)'
+        if (index === selected) return 'rgba(255,255,255,0.8)'
         return 'text.disabled'
     }
 
@@ -92,20 +93,31 @@ export function QuizQuestionCard({ question, questionNumber, totalQuestions, onN
                         onClick={() => handleSelect(index)}
                         disabled={selected !== null && index !== question.correctIndex && index !== selected}
                         sx={{
-                            justifyContent: 'flex-start',
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                            alignItems: 'center',
                             textAlign: 'left',
-                            flexDirection: 'column',
-                            alignItems: 'flex-start',
+                            gap: 2,
                             ...choiceSx(index),
                         }}
                     >
                         <Typography component="span" sx={{ fontSize: 'inherit', fontWeight: 'inherit' }}>
                             {choice.text}
                         </Typography>
-                        {isWrongChoiceRevealed(index) && (
-                            <Typography component="span" variant="caption" sx={{ color: captionColor(index) }}>
-                                {choice.card.nameKo}
-                            </Typography>
+                        {isRevealed() && (
+                            <Box
+                                component="span"
+                                sx={{ display: 'flex', alignItems: 'center', gap: 0.5, color: answerColor(index), flexShrink: 0 }}
+                            >
+                                {index === question.correctIndex ? (
+                                    <CheckCircleIcon fontSize="small" />
+                                ) : (
+                                    <CancelIcon fontSize="small" />
+                                )}
+                                <Typography component="span" variant="caption" sx={{ color: 'inherit' }}>
+                                    {choice.card.nameKo}
+                                </Typography>
+                            </Box>
                         )}
                     </Button>
                 ))}
