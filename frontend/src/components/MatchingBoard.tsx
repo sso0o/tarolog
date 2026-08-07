@@ -21,9 +21,6 @@ export function MatchingBoard({ round, onRoundComplete }: Props) {
     const [wrongAttempts, setWrongAttempts] = useState(0)
     const [wrongCardIds, setWrongCardIds] = useState<Set<string>>(new Set())
 
-    const remainingImages = round.imageItems.filter((item) => !matchedCardIds.has(item.cardId))
-    const remainingMeanings = round.meaningItems.filter((item) => !matchedCardIds.has(item.cardId))
-
     function evaluate(imageId: string, meaningId: string) {
         const imageItem = round.imageItems.find((item) => item.id === imageId)
         const meaningItem = round.meaningItems.find((item) => item.id === meaningId)
@@ -61,6 +58,8 @@ export function MatchingBoard({ round, onRoundComplete }: Props) {
 
     function handleSelectImage(id: string) {
         if (wrongIds) return
+        const item = round.imageItems.find((i) => i.id === id)
+        if (item && matchedCardIds.has(item.cardId)) return
         if (selectedImageId === id) {
             setSelectedImageId(null)
             return
@@ -74,6 +73,8 @@ export function MatchingBoard({ round, onRoundComplete }: Props) {
 
     function handleSelectMeaning(id: string) {
         if (wrongIds) return
+        const item = round.meaningItems.find((i) => i.id === id)
+        if (item && matchedCardIds.has(item.cardId)) return
         if (selectedMeaningId === id) {
             setSelectedMeaningId(null)
             return
@@ -88,44 +89,59 @@ export function MatchingBoard({ round, onRoundComplete }: Props) {
     return (
         <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 4 }}>
             <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 2, flex: 1 }}>
-                {remainingImages.map((item) => (
-                    <Box
-                        key={item.id}
-                        component="img"
-                        src={import.meta.env.BASE_URL + item.label.slice(1)}
-                        alt="카드"
-                        onClick={() => handleSelectImage(item.id)}
-                        sx={{
-                            borderRadius: '16px',
-                            width: '100%',
-                            height: 'auto',
-                            cursor: 'pointer',
-                            border: '3px solid',
-                            borderColor:
-                                wrongIds?.imageId === item.id
-                                    ? 'error.main'
-                                    : selectedImageId === item.id
-                                        ? 'primary.main'
-                                        : 'transparent',
-                        }}
-                    />
-                ))}
+                {round.imageItems.map((item) => {
+                    const isMatched = matchedCardIds.has(item.cardId)
+                    return (
+                        <Box
+                            key={item.id}
+                            component="img"
+                            src={import.meta.env.BASE_URL + item.label.slice(1)}
+                            alt="카드"
+                            onClick={() => handleSelectImage(item.id)}
+                            sx={{
+                                borderRadius: '16px',
+                                width: '100%',
+                                maxWidth: 140,
+                                height: 'auto',
+                                mx: 'auto',
+                                cursor: isMatched ? 'default' : 'pointer',
+                                opacity: isMatched ? 0.35 : 1,
+                                filter: isMatched ? 'grayscale(1)' : 'none',
+                                border: '3px solid',
+                                borderColor:
+                                    wrongIds?.imageId === item.id
+                                        ? 'error.main'
+                                        : selectedImageId === item.id
+                                            ? 'primary.main'
+                                            : 'transparent',
+                            }}
+                        />
+                    )
+                })}
             </Box>
 
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, flex: 1 }}>
-                {remainingMeanings.map((item) => (
-                    <Button
-                        key={item.id}
-                        variant={selectedMeaningId === item.id ? 'contained' : 'outlined'}
-                        color={wrongIds?.meaningId === item.id ? 'error' : 'primary'}
-                        onClick={() => handleSelectMeaning(item.id)}
-                        sx={{ textAlign: 'left', justifyContent: 'flex-start' }}
-                    >
-                        <Typography component="span" sx={{ fontSize: 'inherit', fontWeight: 'inherit' }}>
-                            {item.label}
-                        </Typography>
-                    </Button>
-                ))}
+                {round.meaningItems.map((item) => {
+                    const isMatched = matchedCardIds.has(item.cardId)
+                    return (
+                        <Button
+                            key={item.id}
+                            variant={selectedMeaningId === item.id ? 'contained' : 'outlined'}
+                            color={wrongIds?.meaningId === item.id ? 'error' : 'primary'}
+                            disabled={isMatched}
+                            onClick={() => handleSelectMeaning(item.id)}
+                            sx={{
+                                textAlign: 'left',
+                                justifyContent: 'flex-start',
+                                opacity: isMatched ? 0.35 : 1,
+                            }}
+                        >
+                            <Typography component="span" sx={{ fontSize: 'inherit', fontWeight: 'inherit' }}>
+                                {item.label}
+                            </Typography>
+                        </Button>
+                    )
+                })}
             </Box>
         </Box>
     )
