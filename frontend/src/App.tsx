@@ -8,11 +8,13 @@ import { Navigate, Route, Routes, useLocation, useNavigate } from 'react-router'
 import { DictionaryPage } from './pages/DictionaryPage'
 import { FlashcardPage } from './pages/FlashcardPage'
 import { QuizPage } from './pages/QuizPage'
+import { MatchingPage } from './pages/MatchingPage'
 
 const TABS = [
     { path: '/dictionary', label: '사전' },
     { path: '/flashcard', label: '학습' },
     { path: '/quiz', label: '퀴즈' },
+    { path: '/matching', label: '매칭' },
 ] as const
 
 function activeTab(pathname: string): string {
@@ -33,7 +35,9 @@ export function App() {
                         exclusive
                         onChange={(_, path: string | null) => {
                             if (!path) return
-                            navigate(path === '/quiz' ? '/quiz/setup' : path)
+                            if (path === '/quiz') { navigate('/quiz/setup'); return }
+                            if (path === '/matching') { navigate('/matching/setup'); return }
+                            navigate(path)
                         }}
                         aria-label="화면 전환"
                     >
@@ -48,6 +52,7 @@ export function App() {
                 <Route path="/dictionary" element={<DictionaryPage />} />
                 <Route path="/flashcard" element={<FlashcardPage />} />
                 <Route path="/quiz/*" element={<QuizPage />} />
+                <Route path="/matching/*" element={<MatchingPage />} />
             </Routes>
         </Box>
     )
