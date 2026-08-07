@@ -4,11 +4,16 @@ import type { Card } from '../types/card'
 export type QuizType = 'image-to-name' | 'name-to-meaning' | 'mixed'
 export type MeaningDirection = 'up' | 'reversed' | 'random'
 
+export interface QuizChoice {
+    text: string
+    card: Card
+}
+
 export interface QuizQuestion {
     card: Card
     type: 'image-to-name' | 'name-to-meaning'
     direction: 'up' | 'reversed' | null
-    choices: string[]
+    choices: QuizChoice[]
     correctIndex: number
 }
 
@@ -36,15 +41,15 @@ function pickDirection(direction: MeaningDirection): 'up' | 'reversed' {
 }
 
 function buildChoices(
-    correct: string,
+    correctCard: Card,
     pool: Card[],
-    excludeId: string,
     extract: (c: Card) => string,
-): { choices: string[]; correctIndex: number } {
-    const distractorPool = pool.filter((c) => c.id !== excludeId)
-    const distractors = shuffle(distractorPool).slice(0, 3).map(extract)
-    const choices = shuffle([correct, ...distractors])
-    return { choices, correctIndex: choices.indexOf(correct) }
+): { choices: QuizChoice[]; correctIndex: number } {
+    const distractorPool = pool.filter((c) => c.id !== correctCard.id)
+    const distractorCards = shuffle(distractorPool).slice(0, 3)
+    const rawChoices = [correctCard, ...distractorCards].map((c) => ({ text: extract(c), card: c }))
+    const choices = shuffle(rawChoices)
+    return { choices, correctIndex: choices.findIndex((c) => c.card.id === correctCard.id) }
 }
 
 export function buildQuiz(
@@ -60,14 +65,13 @@ export function buildQuiz(
         const type = pickQuestionType(quizType)
 
         if (type === 'image-to-name') {
-            const { choices, correctIndex } = buildChoices(card.nameKo, pool, card.id, (c) => c.nameKo)
+            const { choices, correctIndex } = buildChoices(card, pool, (c) => c.nameKo)
             return { card, type, direction: null, choices, correctIndex }
         }
 
         const cardDirection = pickDirection(direction)
         const extract = cardDirection === 'up' ? (c: Card) => c.meaningUpKo : (c: Card) => c.meaningRevKo
-        const correct = extract(card)
-        const { choices, correctIndex } = buildChoices(correct, pool, card.id, extract)
+        const { choices, correctIndex } = buildChoices(card, pool, extract)
         return { card, type, direction: cardDirection, choices, correctIndex }
     })
 }

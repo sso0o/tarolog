@@ -21,12 +21,12 @@ describe('buildQuiz', () => {
         expect(questions).toHaveLength(fixture.length)
     })
 
-    it('includes exactly one correct choice with no duplicate choices', () => {
+    it('includes exactly one correct choice with no duplicate choice text', () => {
         const questions = buildQuiz(fixture, 'image-to-name', 'up', 4)
         for (const q of questions) {
             expect(q.choices).toHaveLength(4)
-            expect(new Set(q.choices).size).toBe(4)
-            expect(q.choices[q.correctIndex]).toBe(q.card.nameKo)
+            expect(new Set(q.choices.map((c) => c.text)).size).toBe(4)
+            expect(q.choices[q.correctIndex].text).toBe(q.card.nameKo)
         }
     })
 
@@ -34,7 +34,7 @@ describe('buildQuiz', () => {
         const questions = buildQuiz(fixture, 'name-to-meaning', 'up', 4)
         for (const q of questions) {
             expect(q.direction).toBe('up')
-            expect(q.choices[q.correctIndex]).toBe(q.card.meaningUpKo)
+            expect(q.choices[q.correctIndex].text).toBe(q.card.meaningUpKo)
         }
     })
 
@@ -42,7 +42,7 @@ describe('buildQuiz', () => {
         const questions = buildQuiz(fixture, 'name-to-meaning', 'reversed', 4)
         for (const q of questions) {
             expect(q.direction).toBe('reversed')
-            expect(q.choices[q.correctIndex]).toBe(q.card.meaningRevKo)
+            expect(q.choices[q.correctIndex].text).toBe(q.card.meaningRevKo)
         }
     })
 
@@ -57,6 +57,16 @@ describe('buildQuiz', () => {
         const questions = buildQuiz(fixture, 'mixed', 'random', 4)
         for (const q of questions) {
             expect(['image-to-name', 'name-to-meaning']).toContain(q.type)
+        }
+    })
+
+    it('associates each choice with the card its text came from', () => {
+        const questions = buildQuiz(fixture, 'name-to-meaning', 'up', 4)
+        for (const q of questions) {
+            for (const choice of q.choices) {
+                expect(choice.text).toBe(choice.card.meaningUpKo)
+            }
+            expect(q.choices[q.correctIndex].card.id).toBe(q.card.id)
         }
     })
 })
