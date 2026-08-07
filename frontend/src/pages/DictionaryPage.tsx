@@ -23,8 +23,8 @@ export function DictionaryPage() {
         <div>
             <SearchBar value={query} onChange={setQuery} />
             <FilterTabs arcana={arcana} suit={suit} onArcanaChange={setArcana} onSuitChange={setSuit} />
-            <CardGrid cards={visibleCards} onSelect={setSelected} />
             {selected && <CardDetail card={selected} onClose={() => setSelected(null)} />}
+            <CardGrid cards={visibleCards} onSelect={setSelected} />
         </div>
     )
 }
