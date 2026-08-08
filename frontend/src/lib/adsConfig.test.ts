@@ -1,13 +1,13 @@
 // src/lib/adsConfig.test.ts
 import { describe, expect, it } from 'vitest'
-import { isAdsEnabled, shouldShowInterstitial } from './adsConfig'
+import { isBannerAdEnabled, shouldShowInterstitial } from './adsConfig'
 
 describe('adsConfig', () => {
-    it('client id와 slot id가 비어 있으면 광고가 비활성 상태다', () => {
-        expect(isAdsEnabled()).toBe(false)
+    it('배너 slot id가 비어 있으면 배너는 비활성 상태다', () => {
+        expect(isBannerAdEnabled()).toBe(false)
     })
 
-    it('광고가 비활성 상태면 인터스티셜도 띄우지 않는다', () => {
-        expect(shouldShowInterstitial()).toBe(false)
+    it('client id와 인터스티셜 slot id가 모두 있으면 인터스티셜을 띄운다', () => {
+        expect(shouldShowInterstitial()).toBe(true)
     })
 })

@@ -1,14 +1,14 @@
 // src/components/AdBanner.tsx
 import { useEffect, useRef } from 'react'
 import Box from '@mui/material/Box'
-import { ADSENSE_CLIENT_ID, ADSENSE_SLOT_ID, isAdsEnabled } from '../lib/adsConfig'
+import { ADSENSE_CLIENT_ID, ADSENSE_BANNER_SLOT_ID, isBannerAdEnabled } from '../lib/adsConfig'
 import { ensureAdSenseScriptLoaded } from '../lib/loadAdSenseScript'
 
 export function AdBanner() {
     const pushedRef = useRef(false)
 
     useEffect(() => {
-        if (!isAdsEnabled()) return
+        if (!isBannerAdEnabled()) return
         ensureAdSenseScriptLoaded(ADSENSE_CLIENT_ID)
         if (pushedRef.current) return
         pushedRef.current = true
@@ -21,7 +21,7 @@ export function AdBanner() {
         }
     }, [])
 
-    if (!isAdsEnabled()) return null
+    if (!isBannerAdEnabled()) return null
 
     return (
         <Box
@@ -37,7 +37,7 @@ export function AdBanner() {
                 className="adsbygoogle"
                 style={{ display: 'block' }}
                 data-ad-client={ADSENSE_CLIENT_ID}
-                data-ad-slot={ADSENSE_SLOT_ID}
+                data-ad-slot={ADSENSE_BANNER_SLOT_ID}
                 data-ad-format="auto"
                 data-full-width-responsive="true"
             />

@@ -5,7 +5,7 @@ import Box from '@mui/material/Box'
 import IconButton from '@mui/material/IconButton'
 import Typography from '@mui/material/Typography'
 import CloseIcon from '@mui/icons-material/Close'
-import { ADSENSE_CLIENT_ID, ADSENSE_SLOT_ID } from '../lib/adsConfig'
+import { ADSENSE_CLIENT_ID, ADSENSE_INTERSTITIAL_SLOT_ID } from '../lib/adsConfig'
 import { ensureAdSenseScriptLoaded } from '../lib/loadAdSenseScript'
 
 const CLOSE_DELAY_SECONDS = 3
@@ -63,7 +63,7 @@ export function AdInterstitialModal({ open, onClose }: Props) {
                     className="adsbygoogle"
                     style={{ display: 'block', minHeight: 250, marginTop: 16 }}
                     data-ad-client={ADSENSE_CLIENT_ID}
-                    data-ad-slot={ADSENSE_SLOT_ID}
+                    data-ad-slot={ADSENSE_INTERSTITIAL_SLOT_ID}
                     data-ad-format="auto"
                     data-full-width-responsive="true"
                 />
