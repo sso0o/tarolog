@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:mobile": "tsc -b && vite build --base=/ --outDir dist-mobile",
     "lint": "oxlint",
     "preview": "vite preview",
     "test": "vitest run",
