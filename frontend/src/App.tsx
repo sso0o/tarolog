@@ -9,6 +9,7 @@ import { DictionaryPage } from './pages/DictionaryPage'
 import { FlashcardPage } from './pages/FlashcardPage'
 import { QuizPage } from './pages/QuizPage'
 import { MatchingPage } from './pages/MatchingPage'
+import { useNativeAppSetup } from './lib/useNativeAppSetup'
 
 const TABS = [
     { path: '/dictionary', label: '사전' },
@@ -23,6 +24,8 @@ function activeTab(pathname: string): string {
 }
 
 export function App() {
+    useNativeAppSetup()
+
     const location = useLocation()
     const navigate = useNavigate()
 

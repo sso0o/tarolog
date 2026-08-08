@@ -1,1 +1,4 @@
 /docs/superpowers/
+.DS_Store
+.claude/
+mobile/android/.idea/

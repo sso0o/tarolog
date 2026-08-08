@@ -1,0 +1,5 @@
+{
+  "appId": "com.tarolog.app",
+  "appName": "타로그",
+  "webDir": "../frontend/dist-mobile"
+}

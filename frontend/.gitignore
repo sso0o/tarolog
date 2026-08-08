@@ -13,6 +13,7 @@
 .idea
 .vscode/*
 dist
+dist-mobile
 dist-ssr
 lerna-debug.log*
 logs
