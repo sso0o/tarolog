@@ -4,7 +4,7 @@
 
 ## 폴더 구조
 
-앱은 루트에 평판(flat)으로 나열합니다. 지금은 `frontend/`(React+TS+Vite SPA) 하나뿐이지만, 앞으로 `backend/`, `mobile/` 등이 추가될 수 있습니다. `docs/`는 설계 문서·구현 계획(`docs/superpowers/`) 전용입니다.
+앱은 루트에 평판(flat)으로 나열합니다. 현재 `frontend/`(React+TS+Vite SPA)와 `mobile/`(Capacitor 기반 안드로이드 앱)이 있으며, 앞으로 `backend/` 등이 추가될 수 있습니다. `docs/`는 설계 문서·구현 계획(`docs/superpowers/`) 전용입니다.
 
 ## 새 앱을 추가할 때
 
@@ -14,4 +14,4 @@
 
 ## 앱별 세부 규칙
 
-각 앱 디렉토리의 `CLAUDE.md`를 참고하세요. (현재: [frontend/CLAUDE.md](frontend/CLAUDE.md))
+각 앱 디렉토리의 `CLAUDE.md`를 참고하세요. (현재: [frontend/CLAUDE.md](frontend/CLAUDE.md), [mobile/CLAUDE.md](mobile/CLAUDE.md))

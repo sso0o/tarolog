@@ -6,7 +6,7 @@
 
 ## 기술 스택
 
-React + TypeScript + Vite (SPA, 백엔드 없음) · localStorage(학습 진도) · GitHub Pages(배포)
+React + TypeScript + Vite (SPA, 백엔드 없음) · localStorage(학습 진도) · GitHub Pages(배포) · Capacitor(안드로이드 앱)
 
 ## 프로젝트 구조
 
@@ -17,6 +17,8 @@ frontend/   앱 소스 (Vite 프로젝트 루트)
   public/cards/  카드 이미지 (Wikimedia Commons, 퍼블릭 도메인)
   scripts/  1회성 데이터 수집/검증 스크립트
   src/      앱 코드
+mobile/     안드로이드 앱 (Capacitor로 frontend/ 빌드를 감싼 네이티브 프로젝트)
+  android/  안드로이드 네이티브 프로젝트
 ```
 
 ## 개발
