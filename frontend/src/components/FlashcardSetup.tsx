@@ -12,6 +12,7 @@ import type { StudyDirection } from '../lib/flashcard'
 import type { Card } from '../types/card'
 
 type MemorizedScope = 'all' | 'memorized' | 'unmemorized'
+type CountMode = 'all' | 'custom'
 
 interface Props {
     allCards: Card[]
@@ -20,9 +21,9 @@ interface Props {
 }
 
 const DIRECTION_OPTIONS: { value: StudyDirection; label: string }[] = [
+    { value: 'both', label: '전체' },
     { value: 'up', label: '정방향' },
     { value: 'reversed', label: '역방향' },
-    { value: 'both', label: '전체' },
 ]
 
 const MEMORIZED_OPTIONS: { value: MemorizedScope; label: string }[] = [
@@ -31,11 +32,17 @@ const MEMORIZED_OPTIONS: { value: MemorizedScope; label: string }[] = [
     { value: 'unmemorized', label: '안 외운 카드만' },
 ]
 
+const COUNT_MODE_OPTIONS: { value: CountMode; label: string }[] = [
+    { value: 'all', label: '전체' },
+    { value: 'custom', label: '개수 지정' },
+]
+
 export function FlashcardSetup({ allCards, memorizedIds, onStart }: Props) {
     const [direction, setDirection] = useState<StudyDirection>('both')
     const [arcana, setArcana] = useState<ArcanaFilter>('all')
     const [suit, setSuit] = useState<SuitFilter>('all')
     const [memorizedScope, setMemorizedScope] = useState<MemorizedScope>('all')
+    const [countMode, setCountMode] = useState<CountMode>('all')
     const [count, setCount] = useState(10)
 
     const scopePool = useMemo(() => filterCards(allCards, arcana, suit), [allCards, arcana, suit])
@@ -44,7 +51,8 @@ export function FlashcardSetup({ allCards, memorizedIds, onStart }: Props) {
         [scopePool, memorizedIds, memorizedScope],
     )
 
-    const showCountInput = memorizedScope === 'all'
+    const showCountModeToggle = memorizedScope === 'all'
+    const showCountInput = showCountModeToggle && countMode === 'custom'
     const maxCount = Math.max(scopePool.length, 1)
     const canStart = finalPool.length >= 1
 
@@ -88,18 +96,34 @@ export function FlashcardSetup({ allCards, memorizedIds, onStart }: Props) {
                 </ToggleButtonGroup>
             </Box>
 
-            {showCountInput && (
-                <TextField
-                    label="학습 개수"
-                    type="number"
-                    value={count}
-                    onChange={(e) => {
-                        const next = Number(e.target.value)
-                        setCount(Number.isNaN(next) ? 1 : Math.min(Math.max(next, 1), maxCount))
-                    }}
-                    slotProps={{ htmlInput: { min: 1, max: maxCount } }}
-                    sx={{ maxWidth: 160 }}
-                />
+            {showCountModeToggle && (
+                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                    <Typography variant="body2" fontWeight={600}>학습 개수</Typography>
+                    <ToggleButtonGroup
+                        value={countMode}
+                        exclusive
+                        onChange={(_, v: CountMode | null) => { if (v) setCountMode(v) }}
+                        aria-label="학습 개수"
+                        sx={{ flexWrap: 'wrap' }}
+                    >
+                        {COUNT_MODE_OPTIONS.map((opt) => (
+                            <ToggleButton key={opt.value} value={opt.value}>{opt.label}</ToggleButton>
+                        ))}
+                    </ToggleButtonGroup>
+                    {showCountInput && (
+                        <TextField
+                            label="학습 개수"
+                            type="number"
+                            value={count}
+                            onChange={(e) => {
+                                const next = Number(e.target.value)
+                                setCount(Number.isNaN(next) ? 1 : Math.min(Math.max(next, 1), maxCount))
+                            }}
+                            slotProps={{ htmlInput: { min: 1, max: maxCount } }}
+                            sx={{ maxWidth: 160 }}
+                        />
+                    )}
+                </Box>
             )}
 
             {!canStart && (
