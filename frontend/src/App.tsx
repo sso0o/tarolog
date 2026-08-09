@@ -18,6 +18,7 @@ import { JournalPage } from './pages/JournalPage'
 import { JournalDetailPage } from './pages/JournalDetailPage'
 import { SpreadManagePage } from './pages/SpreadManagePage'
 import { JournalNewPage } from './pages/JournalNewPage'
+import { PrivacyPage } from './pages/PrivacyPage'
 
 const TABS = [
     { path: '/dictionary', label: '사전', icon: <MenuBookIcon /> },
@@ -50,6 +51,7 @@ export function App() {
                     <Route path="/journal/:id" element={<JournalDetailPage />} />
                     <Route path="/journal/spreads" element={<SpreadManagePage />} />
                     <Route path="/journal/new" element={<JournalNewPage />} />
+                    <Route path="/privacy" element={<PrivacyPage />} />
                 </Routes>
             </Box>
             <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
