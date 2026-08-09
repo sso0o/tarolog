@@ -1,4 +1,4 @@
-// src/components/CardGrid.tsx
+// src/components/dictionary/CardGrid.tsx
 import Box from '@mui/material/Box'
 import Card from '@mui/material/Card'
 import CardActionArea from '@mui/material/CardActionArea'
@@ -22,7 +22,7 @@ export function CardGrid({ cards, onSelect }: Props) {
         <Box
             sx={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))',
+                gridTemplateColumns: { xs: 'repeat(4, 1fr)', sm: 'repeat(6, 1fr)', md: 'repeat(8, 1fr)' },
                 gap: 4,
             }}
         >
@@ -33,7 +33,7 @@ export function CardGrid({ cards, onSelect }: Props) {
                 >
                     <CardActionArea
                         onClick={() => onSelect(card)}
-                        sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2, p: 2 }}
+                        sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2, p: 1 }}
                     >
                         <Box
                             component="img"
