@@ -17,6 +17,7 @@ import { useNativeAppSetup } from './hooks/useNativeAppSetup.ts'
 import { JournalPage } from './pages/JournalPage'
 import { JournalDetailPage } from './pages/JournalDetailPage'
 import { SpreadManagePage } from './pages/SpreadManagePage'
+import { JournalNewPage } from './pages/JournalNewPage'
 
 const TABS = [
     { path: '/dictionary', label: '사전', icon: <MenuBookIcon /> },
@@ -48,7 +49,7 @@ export function App() {
                     <Route path="/journal" element={<JournalPage />} />                    
                     <Route path="/journal/:id" element={<JournalDetailPage />} />
                     <Route path="/journal/spreads" element={<SpreadManagePage />} />
-                    <Route path="/journal/*" element={<div style={{ padding: 16 }}>준비중</div>} />
+                    <Route path="/journal/new" element={<JournalNewPage />} />
                 </Routes>
             </Box>
             <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
