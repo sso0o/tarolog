@@ -5,7 +5,7 @@ import CardContent from '@mui/material/CardContent'
 import IconButton from '@mui/material/IconButton'
 import Typography from '@mui/material/Typography'
 import CloseIcon from '@mui/icons-material/Close'
-import type { Card as CardType } from '../types/card'
+import type { Card as CardType } from '../../types/card.ts'
 
 interface Props {
     card: CardType

@@ -1,7 +1,7 @@
 // src/lib/cards.test.ts
 import { describe, expect, it } from 'vitest'
-import { searchCards, filterCards, filterByMemorized, selectStudyCards } from './cards'
-import type { Card } from '../types/card'
+import { searchCards, filterCards, filterByMemorized, selectStudyCards } from './cards.ts'
+import type { Card } from '../../types/card.ts'
 
 const fixture: Card[] = [
     { id: 'ar00', nameEn: 'The Fool', nameKo: '바보', arcana: 'major', suit: null, number: 0, meaningUpKo: '새로운 시작', meaningRevKo: '경솔함', keywordsKo: ['시작', '순수'], image: '/cards/ar00.jpg' },

@@ -1,7 +1,7 @@
 // src/lib/matching.test.ts
 import { describe, expect, it } from 'vitest'
-import { buildMatchingRounds, formatDuration, isMatch } from './matching'
-import type { Card } from '../types/card'
+import { buildMatchingRounds, formatDuration, isMatch } from './matching.ts'
+import type { Card } from '../../types/card.ts'
 
 function makeCard(id: string): Card {
     return {

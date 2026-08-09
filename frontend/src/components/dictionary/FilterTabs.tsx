@@ -2,7 +2,7 @@
 import Box from '@mui/material/Box'
 import ToggleButton from '@mui/material/ToggleButton'
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup'
-import type { Arcana, Suit } from '../types/card'
+import type { Arcana, Suit } from '../../types/card.ts'
 
 export type ArcanaFilter = Arcana | 'all'
 export type SuitFilter = Suit | 'all'

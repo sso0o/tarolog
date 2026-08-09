@@ -6,10 +6,10 @@ import TextField from '@mui/material/TextField'
 import ToggleButton from '@mui/material/ToggleButton'
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup'
 import Typography from '@mui/material/Typography'
-import { filterCards } from '../lib/cards'
-import { FilterTabs, type ArcanaFilter, type SuitFilter } from './FilterTabs'
-import type { MeaningDirection } from '../lib/quiz'
-import type { Card } from '../types/card'
+import { filterCards } from '../../lib/shared/cards.ts'
+import { FilterTabs, type ArcanaFilter, type SuitFilter } from '../dictionary/FilterTabs.tsx'
+import type { MeaningDirection } from '../../types/study.ts'
+import type { Card } from '../../types/card.ts'
 
 const PAIR_COUNT = 4
 
