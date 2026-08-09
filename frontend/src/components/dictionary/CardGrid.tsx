@@ -22,7 +22,7 @@ export function CardGrid({ cards, onSelect }: Props) {
         <Box
             sx={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(4, 1fr)',
+                gridTemplateColumns: { xs: 'repeat(4, 1fr)', sm: 'repeat(6, 1fr)', md: 'repeat(8, 1fr)' },
                 gap: 4,
             }}
         >

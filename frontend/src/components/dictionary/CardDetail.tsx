@@ -1,10 +1,8 @@
-// src/components/CardDetail.tsx
+// src/components/dictionary/CardDetail.tsx
+import Dialog from '@mui/material/Dialog'
+import DialogContent from '@mui/material/DialogContent'
 import Box from '@mui/material/Box'
-import Card from '@mui/material/Card'
-import CardContent from '@mui/material/CardContent'
-import IconButton from '@mui/material/IconButton'
 import Typography from '@mui/material/Typography'
-import CloseIcon from '@mui/icons-material/Close'
 import type { Card as CardType } from '../../types/card.ts'
 
 interface Props {
@@ -14,44 +12,23 @@ interface Props {
 
 export function CardDetail({ card, onClose }: Props) {
     return (
-        <Card
-            role="dialog"
-            aria-label={`${card.nameKo} 상세`}
-            sx={{ borderRadius: '32px', boxShadow: 4, mb: 4 }}
-        >
-            <CardContent
-                sx={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    gap: 4,
-                    p: '32px !important',
-                }}
-            >
-                <IconButton
-                    onClick={onClose}
-                    aria-label="닫기"
-                    size="small"
-                    sx={{
-                        alignSelf: 'flex-end',
-                        border: '1px solid',
-                        borderColor: 'divider',
-                        color: 'text.primary',
-                    }}
-                >
-                    <CloseIcon fontSize="small" />
-                </IconButton>
-                <Box
-                    component="img"
-                    src={import.meta.env.BASE_URL + card.image.slice(1)}
-                    alt={card.nameKo}
-                    sx={{ borderRadius: '16px', maxWidth: 240, width: '100%', height: 'auto' }}
-                />
-                <Typography variant="h2" sx={{ m: 0 }}>{card.nameKo}</Typography>
-                <Typography variant="body2" color="text.secondary" sx={{ m: 0 }}>
-                    {card.keywordsKo.join(', ')}
-                </Typography>
-                <Box sx={{ width: '100%', display: 'flex', gap: 2 }}>
+        <Dialog open onClose={onClose} fullWidth maxWidth="sm">
+            <DialogContent onClick={onClose} sx={{ display: 'flex', flexDirection: 'column', gap: 3, p: 3, cursor: 'pointer' }}>
+                <Box sx={{ display: 'flex', gap: 3, alignItems: 'flex-start' }}>
+                    <Box
+                        component="img"
+                        src={import.meta.env.BASE_URL + card.image.slice(1)}
+                        alt={card.nameKo}
+                        sx={{ width: 80, aspectRatio: '2/3', objectFit: 'contain', borderRadius: '8px', flexShrink: 0 }}
+                    />
+                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1, pt: 0.5 }}>
+                        <Typography variant="h6">{card.nameKo}</Typography>
+                        <Typography variant="caption" color="text.secondary">
+                            {card.keywordsKo.join(', ')}
+                        </Typography>
+                    </Box>
+                </Box>
+                <Box sx={{ display: 'flex', gap: 2 }}>
                     <Box
                         component="section"
                         sx={{
@@ -59,15 +36,15 @@ export function CardDetail({ card, onClose }: Props) {
                             display: 'flex',
                             flexDirection: 'column',
                             gap: 1.5,
-                            p: 2.5,
-                            borderRadius: '16px',
+                            p: 2,
+                            borderRadius: '12px',
                             bgcolor: 'grey.50',
                             border: '1px solid',
                             borderColor: 'divider',
                         }}
                     >
                         <Typography variant="body2" fontWeight={600}>정방향</Typography>
-                        <Typography variant="body2" sx={{ m: 0, color: 'text.secondary', lineHeight: 1.7 }}>{card.meaningUpKo}</Typography>
+                        <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.7 }}>{card.meaningUpKo}</Typography>
                     </Box>
                     <Box
                         component="section"
@@ -76,18 +53,18 @@ export function CardDetail({ card, onClose }: Props) {
                             display: 'flex',
                             flexDirection: 'column',
                             gap: 1.5,
-                            p: 2.5,
-                            borderRadius: '16px',
+                            p: 2,
+                            borderRadius: '12px',
                             bgcolor: 'grey.50',
                             border: '1px solid',
                             borderColor: 'divider',
                         }}
                     >
                         <Typography variant="body2" fontWeight={600}>역방향</Typography>
-                        <Typography variant="body2" sx={{ m: 0, color: 'text.secondary', lineHeight: 1.7 }}>{card.meaningRevKo}</Typography>
+                        <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.7 }}>{card.meaningRevKo}</Typography>
                     </Box>
                 </Box>
-            </CardContent>
-        </Card>
+            </DialogContent>
+        </Dialog>
     )
 }
