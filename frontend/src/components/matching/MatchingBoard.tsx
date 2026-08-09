@@ -3,8 +3,8 @@ import { useState } from 'react'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
-import { isMatch } from '../lib/matching'
-import type { MatchingRound, MatchingRoundOutcome } from '../lib/matching'
+import { isMatch } from '../../lib/matching/matching.ts'
+import type { MatchingRound, MatchingRoundOutcome } from '../../lib/matching/matching.ts'
 
 interface Props {
     round: MatchingRound

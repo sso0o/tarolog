@@ -1,11 +1,11 @@
 // src/pages/DictionaryPage.tsx
 import { useMemo, useState } from 'react'
 import Box from '@mui/material/Box'
-import { getAllCards, searchCards, filterCards } from '../lib/cards'
-import { SearchBar } from '../components/SearchBar'
-import { FilterTabs, type ArcanaFilter, type SuitFilter } from '../components/FilterTabs'
-import { CardGrid } from '../components/CardGrid'
-import { CardDetail } from '../components/CardDetail'
+import { getAllCards, searchCards, filterCards } from '../lib/shared/cards.ts'
+import { SearchBar } from '../components/dictionary/SearchBar.tsx'
+import { FilterTabs, type ArcanaFilter, type SuitFilter } from '../components/dictionary/FilterTabs.tsx'
+import { CardGrid } from '../components/dictionary/CardGrid.tsx'
+import { CardDetail } from '../components/dictionary/CardDetail.tsx'
 import type { Card } from '../types/card'
 
 export function DictionaryPage() {

@@ -1,6 +1,6 @@
 // src/lib/matching.ts
-import type { Card } from '../types/card'
-import type { MeaningDirection } from './quiz'
+import type { Card } from '../../types/card.ts'
+import type { MeaningDirection } from '../../types/study.ts'
 
 export interface MatchingItem {
     id: string

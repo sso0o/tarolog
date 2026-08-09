@@ -1,6 +1,6 @@
 // src/lib/androidBackButton.test.ts
 import { describe, expect, it } from 'vitest'
-import { resolveBackButtonAction } from './androidBackButton'
+import { resolveBackButtonAction } from './androidBackButton.ts'
 
 describe('resolveBackButtonAction', () => {
     it('뒤로 갈 히스토리가 있으면 goBack을 반환한다', () => {

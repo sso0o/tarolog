@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { Capacitor } from '@capacitor/core'
 import { App } from '@capacitor/app'
 import { StatusBar } from '@capacitor/status-bar'
-import { resolveBackButtonAction } from './androidBackButton'
+import { resolveBackButtonAction } from '../lib/shared/androidBackButton.ts'
 
 export function useNativeAppSetup() {
     useEffect(() => {

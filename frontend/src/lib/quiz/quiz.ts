@@ -1,8 +1,8 @@
 // src/lib/quiz.ts
-import type { Card } from '../types/card'
+import type { Card } from '../../types/card.ts'
+import type { MeaningDirection } from '../../types/study.ts'
 
 export type QuizType = 'image-to-name' | 'name-to-meaning' | 'mixed'
-export type MeaningDirection = 'up' | 'reversed' | 'random'
 
 export interface QuizChoice {
     text: string

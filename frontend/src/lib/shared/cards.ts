@@ -1,6 +1,6 @@
 // src/lib/cards.ts
-import cardsData from '../../data/cards.ko.json'
-import type { Arcana, Card, Suit } from '../types/card'
+import cardsData from '../../../data/cards.ko.json'
+import type { Arcana, Card, Suit } from '../../types/card.ts'
 
 export function getAllCards(): Card[] {
     return cardsData as Card[]

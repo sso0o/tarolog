@@ -1,13 +1,14 @@
 // src/pages/QuizPage.tsx
 import { useMemo, useState } from 'react'
 import { Navigate, Route, Routes, useNavigate } from 'react-router'
-import { getAllCards } from '../lib/cards'
-import { getMemorizedIds, markAllMemorized } from '../lib/progress'
-import { buildQuiz } from '../lib/quiz'
-import type { MeaningDirection, QuizQuestion, QuizType } from '../lib/quiz'
-import { QuizSetup } from '../components/QuizSetup'
-import { QuizQuestionCard } from '../components/QuizQuestionCard'
-import { QuizResult } from '../components/QuizResult'
+import { getAllCards } from '../lib/shared/cards.ts'
+import { getMemorizedIds, markAllMemorized } from '../lib/shared/progress.ts'
+import { buildQuiz } from '../lib/quiz/quiz.ts'
+import type { MeaningDirection } from '../types/study.ts'
+import type { QuizQuestion, QuizType } from '../lib/quiz/quiz.ts'
+import { QuizSetup } from '../components/quiz/QuizSetup.tsx'
+import { QuizQuestionCard } from '../components/quiz/QuizQuestionCard.tsx'
+import { QuizResult } from '../components/quiz/QuizResult.tsx'
 import type { Card } from '../types/card'
 
 interface QuizSession {
