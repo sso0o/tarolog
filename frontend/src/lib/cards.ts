@@ -32,3 +32,17 @@ export function filterByMemorized(
     const memorizedSet = new Set(memorizedIds)
     return cards.filter((c) => memorizedSet.has(c.id) === (filter === 'memorized'))
 }
+
+function shuffle<T>(items: T[]): T[] {
+    const result = [...items]
+    for (let i = result.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1))
+        ;[result[i], result[j]] = [result[j], result[i]]
+    }
+    return result
+}
+
+export function selectStudyCards(cards: Card[], count: number): Card[] {
+    const finalCount = Math.min(count, cards.length)
+    return shuffle(cards).slice(0, finalCount)
+}

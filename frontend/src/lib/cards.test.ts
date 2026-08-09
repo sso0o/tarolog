@@ -1,6 +1,6 @@
 // src/lib/cards.test.ts
 import { describe, expect, it } from 'vitest'
-import { searchCards, filterCards, filterByMemorized } from './cards'
+import { searchCards, filterCards, filterByMemorized, selectStudyCards } from './cards'
 import type { Card } from '../types/card'
 
 const fixture: Card[] = [
@@ -53,5 +53,25 @@ describe('filterByMemorized', () => {
 
     it('returns only unmemorized cards when filter is "unmemorized"', () => {
         expect(filterByMemorized(fixture, ['ar00'], 'unmemorized')).toEqual([fixture[1], fixture[2], fixture[3]])
+    })
+})
+
+describe('selectStudyCards', () => {
+    it('returns the requested number of cards', () => {
+        expect(selectStudyCards(fixture, 2)).toHaveLength(2)
+    })
+
+    it('clamps count to pool size when count exceeds it', () => {
+        expect(selectStudyCards(fixture, 100)).toHaveLength(fixture.length)
+    })
+
+    it('only returns cards drawn from the original pool with no duplicates', () => {
+        const result = selectStudyCards(fixture, 3)
+        const ids = result.map((c) => c.id)
+        const fixtureIds = fixture.map((c) => c.id)
+        expect(new Set(ids).size).toBe(ids.length)
+        for (const id of ids) {
+            expect(fixtureIds).toContain(id)
+        }
     })
 })

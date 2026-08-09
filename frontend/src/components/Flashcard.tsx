@@ -6,15 +6,17 @@ import CardActionArea from '@mui/material/CardActionArea'
 import Checkbox from '@mui/material/Checkbox'
 import FormControlLabel from '@mui/material/FormControlLabel'
 import Typography from '@mui/material/Typography'
+import type { StudyDirection } from '../lib/flashcard'
 import type { Card as CardType } from '../types/card'
 
 interface Props {
     card: CardType
+    direction: StudyDirection
     memorized: boolean
     onToggleMemorized: () => void
 }
 
-export function Flashcard({ card, memorized, onToggleMemorized }: Props) {
+export function Flashcard({ card, direction, memorized, onToggleMemorized }: Props) {
     const [flipped, setFlipped] = useState(false)
 
     return (
@@ -33,9 +35,20 @@ export function Flashcard({ card, memorized, onToggleMemorized }: Props) {
                     {flipped ? (
                         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4 }}>
                             <Typography variant="h1" sx={{ m: 0 }}>{card.nameKo}</Typography>
-                            <Typography variant="body1" sx={{ m: 0, color: '#3d3d3d' }}>
-                                {card.meaningUpKo}
-                            </Typography>
+                            {direction === 'both' ? (
+                                <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2 }}>
+                                    <Typography variant="body1" sx={{ m: 0, color: '#3d3d3d' }}>
+                                        정방향: {card.meaningUpKo}
+                                    </Typography>
+                                    <Typography variant="body1" sx={{ m: 0, color: '#3d3d3d' }}>
+                                        역방향: {card.meaningRevKo}
+                                    </Typography>
+                                </Box>
+                            ) : (
+                                <Typography variant="body1" sx={{ m: 0, color: '#3d3d3d' }}>
+                                    {direction === 'up' ? card.meaningUpKo : card.meaningRevKo}
+                                </Typography>
+                            )}
                         </Box>
                     ) : (
                         <Box

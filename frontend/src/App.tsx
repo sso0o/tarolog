@@ -38,6 +38,7 @@ export function App() {
                         exclusive
                         onChange={(_, path: string | null) => {
                             if (!path) return
+                            if (path === '/flashcard') { navigate('/flashcard/setup'); return }
                             if (path === '/quiz') { navigate('/quiz/setup'); return }
                             if (path === '/matching') { navigate('/matching/setup'); return }
                             navigate(path)
@@ -53,7 +54,7 @@ export function App() {
             <Routes>
                 <Route path="/" element={<Navigate to="/dictionary" replace />} />
                 <Route path="/dictionary" element={<DictionaryPage />} />
-                <Route path="/flashcard" element={<FlashcardPage />} />
+                <Route path="/flashcard/*" element={<FlashcardPage />} />
                 <Route path="/quiz/*" element={<QuizPage />} />
                 <Route path="/matching/*" element={<MatchingPage />} />
             </Routes>
