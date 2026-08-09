@@ -1,4 +1,6 @@
 // src/App.tsx
+import { useState, useEffect } from 'react'
+import { SplashScreen } from './components/shared/SplashScreen'
 import BottomNavigation from '@mui/material/BottomNavigation'
 import BottomNavigationAction from '@mui/material/BottomNavigationAction'
 import Box from '@mui/material/Box'
@@ -35,47 +37,63 @@ function activeTab(pathname: string): string {
 
 export function App() {
     useNativeAppSetup()
+
+    const [showSplash, setShowSplash] = useState(true)
+    const [fading, setFading] = useState(false)
+
     const location = useLocation()
     const navigate = useNavigate()
 
+    useEffect(() => {
+        const fadeTimer = setTimeout(() => setFading(true), 1000)
+        const hideTimer = setTimeout(() => setShowSplash(false), 1500)
+        return () => {
+            clearTimeout(fadeTimer)
+            clearTimeout(hideTimer)
+        }
+    }, [])
+
     return (
-        <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100svh' }}>
-            <Box sx={{ flex: 1, pb: '56px' }}>
-                <Routes>
-                    <Route path="/" element={<Navigate to="/dictionary" replace />} />
-                    <Route path="/dictionary" element={<DictionaryPage />} />
-                    <Route path="/flashcard/*" element={<FlashcardPage />} />
-                    <Route path="/quiz/*" element={<QuizPage />} />
-                    <Route path="/matching/*" element={<MatchingPage />} />
-                    <Route path="/journal" element={<JournalPage />} />                    
-                    <Route path="/journal/:id" element={<JournalDetailPage />} />
-                    <Route path="/journal/spreads" element={<SpreadManagePage />} />
-                    <Route path="/journal/new" element={<JournalNewPage />} />
-                    <Route path="/privacy" element={<PrivacyPage />} />
-                </Routes>
+        <>
+            {showSplash && <SplashScreen fading={fading} />}
+            <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100svh' }}>
+                <Box sx={{ flex: 1, pb: '56px' }}>
+                    <Routes>
+                        <Route path="/" element={<Navigate to="/dictionary" replace />} />
+                        <Route path="/dictionary" element={<DictionaryPage />} />
+                        <Route path="/flashcard/*" element={<FlashcardPage />} />
+                        <Route path="/quiz/*" element={<QuizPage />} />
+                        <Route path="/matching/*" element={<MatchingPage />} />
+                        <Route path="/journal" element={<JournalPage />} />                    
+                        <Route path="/journal/:id" element={<JournalDetailPage />} />
+                        <Route path="/journal/spreads" element={<SpreadManagePage />} />
+                        <Route path="/journal/new" element={<JournalNewPage />} />
+                        <Route path="/privacy" element={<PrivacyPage />} />
+                    </Routes>
+                </Box>
+                <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
+                    <BottomNavigation
+                        value={activeTab(location.pathname)}
+                        onChange={(_, path: string) => {
+                            if (path === '/flashcard') { navigate('/flashcard/setup'); return }
+                            if (path === '/quiz') { navigate('/quiz/setup'); return }
+                            if (path === '/matching') { navigate('/matching/setup'); return }
+                            navigate(path)
+                        }}
+                        showLabels
+                    >
+                        {TABS.map((tab) => (
+                            <BottomNavigationAction
+                                key={tab.path}
+                                value={tab.path}
+                                label={tab.label}
+                                icon={tab.icon}
+                            />
+                        ))}
+                    </BottomNavigation>
+                </Paper>
             </Box>
-            <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
-                <BottomNavigation
-                    value={activeTab(location.pathname)}
-                    onChange={(_, path: string) => {
-                        if (path === '/flashcard') { navigate('/flashcard/setup'); return }
-                        if (path === '/quiz') { navigate('/quiz/setup'); return }
-                        if (path === '/matching') { navigate('/matching/setup'); return }
-                        navigate(path)
-                    }}
-                    showLabels
-                >
-                    {TABS.map((tab) => (
-                        <BottomNavigationAction
-                            key={tab.path}
-                            value={tab.path}
-                            label={tab.label}
-                            icon={tab.icon}
-                        />
-                    ))}
-                </BottomNavigation>
-            </Paper>
-        </Box>
+        </>
     )
 }
 
