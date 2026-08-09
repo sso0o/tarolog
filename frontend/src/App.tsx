@@ -14,6 +14,7 @@ import { FlashcardPage } from './pages/FlashcardPage'
 import { QuizPage } from './pages/QuizPage'
 import { MatchingPage } from './pages/MatchingPage'
 import { useNativeAppSetup } from './hooks/useNativeAppSetup.ts'
+import { JournalPage } from './pages/JournalPage'
 
 const TABS = [
     { path: '/dictionary', label: '사전', icon: <MenuBookIcon /> },
@@ -42,8 +43,8 @@ export function App() {
                     <Route path="/flashcard/*" element={<FlashcardPage />} />
                     <Route path="/quiz/*" element={<QuizPage />} />
                     <Route path="/matching/*" element={<MatchingPage />} />
-                    <Route path="/journal/*" element={<div style={{ padding: 16 }}>일지 준비중</div>} />
-                </Routes>
+                    <Route path="/journal" element={<JournalPage />} />
+                    <Route path="/journal/*" element={<div style={{ padding: 16 }}>준비중</div>} />                </Routes>
             </Box>
             <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
                 <BottomNavigation
