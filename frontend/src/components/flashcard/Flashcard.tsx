@@ -6,8 +6,8 @@ import CardActionArea from '@mui/material/CardActionArea'
 import Checkbox from '@mui/material/Checkbox'
 import FormControlLabel from '@mui/material/FormControlLabel'
 import Typography from '@mui/material/Typography'
-import type { StudyDirection } from '../lib/flashcard'
-import type { Card as CardType } from '../types/card'
+import type { StudyDirection } from '../../types/study.ts'
+import type { Card as CardType } from '../../types/card.ts'
 
 interface Props {
     card: CardType

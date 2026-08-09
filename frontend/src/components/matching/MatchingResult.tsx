@@ -2,8 +2,8 @@
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
-import { formatDuration } from '../lib/matching'
-import type { Card } from '../types/card'
+import { formatDuration } from '../../lib/matching/matching.ts'
+import type { Card } from '../../types/card.ts'
 
 interface Props {
     elapsedMs: number

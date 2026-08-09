@@ -5,7 +5,7 @@ import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
 import CheckCircleIcon from '@mui/icons-material/CheckCircle'
 import CancelIcon from '@mui/icons-material/Cancel'
-import type { QuizQuestion } from '../lib/quiz'
+import type { QuizQuestion } from '../../lib/quiz/quiz.ts'
 
 interface Props {
     question: QuizQuestion

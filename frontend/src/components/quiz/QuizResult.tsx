@@ -5,7 +5,7 @@ import Button from '@mui/material/Button'
 import Checkbox from '@mui/material/Checkbox'
 import FormControlLabel from '@mui/material/FormControlLabel'
 import Typography from '@mui/material/Typography'
-import type { QuizQuestion } from '../lib/quiz'
+import type { QuizQuestion } from '../../lib/quiz/quiz.ts'
 
 interface Props {
     questions: QuizQuestion[]

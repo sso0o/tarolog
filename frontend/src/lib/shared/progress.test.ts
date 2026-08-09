@@ -1,6 +1,6 @@
 // src/lib/progress.test.ts
 import { beforeEach, describe, expect, it, vi } from 'vitest'
-import { getMemorizedIds, isMemorized, toggleMemorized, markAllMemorized } from './progress'
+import { getMemorizedIds, isMemorized, toggleMemorized, markAllMemorized } from './progress.ts'
 
 beforeEach(() => {
     localStorage.clear()

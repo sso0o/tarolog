@@ -3,7 +3,7 @@ import Box from '@mui/material/Box'
 import Card from '@mui/material/Card'
 import CardActionArea from '@mui/material/CardActionArea'
 import Typography from '@mui/material/Typography'
-import type { Card as CardType } from '../types/card'
+import type { Card as CardType } from '../../types/card.ts'
 
 interface Props {
     cards: CardType[]
