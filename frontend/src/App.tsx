@@ -1,21 +1,30 @@
 // src/App.tsx
-import AppBar from '@mui/material/AppBar'
-import Toolbar from '@mui/material/Toolbar'
-import ToggleButtonGroup from '@mui/material/ToggleButtonGroup'
-import ToggleButton from '@mui/material/ToggleButton'
+import BottomNavigation from '@mui/material/BottomNavigation'
+import BottomNavigationAction from '@mui/material/BottomNavigationAction'
 import Box from '@mui/material/Box'
+import Paper from '@mui/material/Paper'
+import MenuBookIcon from '@mui/icons-material/MenuBook'
+import StyleIcon from '@mui/icons-material/Style'
+import QuizIcon from '@mui/icons-material/Quiz'
+import ExtensionIcon from '@mui/icons-material/Extension'
+import AutoStoriesIcon from '@mui/icons-material/AutoStories'
 import { Navigate, Route, Routes, useLocation, useNavigate } from 'react-router'
 import { DictionaryPage } from './pages/DictionaryPage'
 import { FlashcardPage } from './pages/FlashcardPage'
 import { QuizPage } from './pages/QuizPage'
 import { MatchingPage } from './pages/MatchingPage'
 import { useNativeAppSetup } from './hooks/useNativeAppSetup.ts'
+import { JournalPage } from './pages/JournalPage'
+import { JournalDetailPage } from './pages/JournalDetailPage'
+import { SpreadManagePage } from './pages/SpreadManagePage'
+import { JournalNewPage } from './pages/JournalNewPage'
 
 const TABS = [
-    { path: '/dictionary', label: '사전' },
-    { path: '/flashcard', label: '학습' },
-    { path: '/quiz', label: '퀴즈' },
-    { path: '/matching', label: '매칭' },
+    { path: '/dictionary', label: '사전', icon: <MenuBookIcon /> },
+    { path: '/flashcard', label: '학습', icon: <StyleIcon /> },
+    { path: '/quiz', label: '퀴즈', icon: <QuizIcon /> },
+    { path: '/matching', label: '매칭', icon: <ExtensionIcon /> },
+    { path: '/journal', label: '일지', icon: <AutoStoriesIcon /> },
 ] as const
 
 function activeTab(pathname: string): string {
@@ -25,39 +34,45 @@ function activeTab(pathname: string): string {
 
 export function App() {
     useNativeAppSetup()
-
     const location = useLocation()
     const navigate = useNavigate()
 
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100svh' }}>
-            <AppBar position="sticky" elevation={0}>
-                <Toolbar sx={{ justifyContent: 'center', gap: 2, minHeight: '64px !important' }}>
-                    <ToggleButtonGroup
-                        value={activeTab(location.pathname)}
-                        exclusive
-                        onChange={(_, path: string | null) => {
-                            if (!path) return
-                            if (path === '/flashcard') { navigate('/flashcard/setup'); return }
-                            if (path === '/quiz') { navigate('/quiz/setup'); return }
-                            if (path === '/matching') { navigate('/matching/setup'); return }
-                            navigate(path)
-                        }}
-                        aria-label="화면 전환"
-                    >
-                        {TABS.map((tab) => (
-                            <ToggleButton key={tab.path} value={tab.path}>{tab.label}</ToggleButton>
-                        ))}
-                    </ToggleButtonGroup>
-                </Toolbar>
-            </AppBar>
-            <Routes>
-                <Route path="/" element={<Navigate to="/dictionary" replace />} />
-                <Route path="/dictionary" element={<DictionaryPage />} />
-                <Route path="/flashcard/*" element={<FlashcardPage />} />
-                <Route path="/quiz/*" element={<QuizPage />} />
-                <Route path="/matching/*" element={<MatchingPage />} />
-            </Routes>
+            <Box sx={{ flex: 1, pb: '56px' }}>
+                <Routes>
+                    <Route path="/" element={<Navigate to="/dictionary" replace />} />
+                    <Route path="/dictionary" element={<DictionaryPage />} />
+                    <Route path="/flashcard/*" element={<FlashcardPage />} />
+                    <Route path="/quiz/*" element={<QuizPage />} />
+                    <Route path="/matching/*" element={<MatchingPage />} />
+                    <Route path="/journal" element={<JournalPage />} />                    
+                    <Route path="/journal/:id" element={<JournalDetailPage />} />
+                    <Route path="/journal/spreads" element={<SpreadManagePage />} />
+                    <Route path="/journal/new" element={<JournalNewPage />} />
+                </Routes>
+            </Box>
+            <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
+                <BottomNavigation
+                    value={activeTab(location.pathname)}
+                    onChange={(_, path: string) => {
+                        if (path === '/flashcard') { navigate('/flashcard/setup'); return }
+                        if (path === '/quiz') { navigate('/quiz/setup'); return }
+                        if (path === '/matching') { navigate('/matching/setup'); return }
+                        navigate(path)
+                    }}
+                    showLabels
+                >
+                    {TABS.map((tab) => (
+                        <BottomNavigationAction
+                            key={tab.path}
+                            value={tab.path}
+                            label={tab.label}
+                            icon={tab.icon}
+                        />
+                    ))}
+                </BottomNavigation>
+            </Paper>
         </Box>
     )
 }
