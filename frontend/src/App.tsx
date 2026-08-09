@@ -16,6 +16,7 @@ import { MatchingPage } from './pages/MatchingPage'
 import { useNativeAppSetup } from './hooks/useNativeAppSetup.ts'
 import { JournalPage } from './pages/JournalPage'
 import { JournalDetailPage } from './pages/JournalDetailPage'
+import { SpreadManagePage } from './pages/SpreadManagePage'
 
 const TABS = [
     { path: '/dictionary', label: '사전', icon: <MenuBookIcon /> },
@@ -46,6 +47,7 @@ export function App() {
                     <Route path="/matching/*" element={<MatchingPage />} />
                     <Route path="/journal" element={<JournalPage />} />                    
                     <Route path="/journal/:id" element={<JournalDetailPage />} />
+                    <Route path="/journal/spreads" element={<SpreadManagePage />} />
                     <Route path="/journal/*" element={<div style={{ padding: 16 }}>준비중</div>} />
                 </Routes>
             </Box>
