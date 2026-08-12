@@ -11,6 +11,8 @@ import { FilterTabs, type ArcanaFilter, type SuitFilter } from '../components/di
 import { CardGrid } from '../components/dictionary/CardGrid.tsx'
 import { CardList } from '../components/dictionary/CardList.tsx'
 import { CardDetail } from '../components/dictionary/CardDetail.tsx'
+import { PageHeader } from '../components/shared/PageHeader.tsx'
+import { EmptyState } from '../components/shared/EmptyState.tsx'
 import type { Card } from '../types/card'
 
 type ViewMode = 'grid' | 'list'
@@ -40,8 +42,19 @@ export function DictionaryPage() {
         localStorage.setItem(STORAGE_KEY, mode)
     }
 
+    function resetFilters() {
+        setQuery('')
+        setArcana('all')
+        setSuit('all')
+    }
+
     return (
-        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4, px: 4, py: 6 }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 6, px: { xs: 4, sm: 6, md: 8 }, py: { xs: 6, md: 10 } }}>
+            <PageHeader
+                chapter="CHAPTER 01 · DICTIONARY"
+                title="카드의 상징을 읽는 작은 도감"
+                description="78장의 타로 카드를 살펴보고 정방향과 역방향 의미를 찾아보세요."
+            />
             <SearchBar value={query} onChange={setQuery} />
             <FilterTabs arcana={arcana} suit={suit} onArcanaChange={setArcana} onSuitChange={setSuit} />
             <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -66,10 +79,18 @@ export function DictionaryPage() {
                 </Box>
             </Box>
             {selected && <CardDetail card={selected} onClose={() => setSelected(null)} />}
-            {viewMode === 'grid'
-                ? <CardGrid cards={visibleCards} onSelect={setSelected} />
-                : <CardList cards={visibleCards} onSelect={setSelected} />
-            }
+            {visibleCards.length === 0 ? (
+                <EmptyState
+                    title="검색 결과가 없습니다"
+                    description="검색어나 필터 조건을 바꿔보세요."
+                    actionLabel="필터 초기화"
+                    onAction={resetFilters}
+                />
+            ) : viewMode === 'grid' ? (
+                <CardGrid cards={visibleCards} onSelect={setSelected} />
+            ) : (
+                <CardList cards={visibleCards} onSelect={setSelected} />
+            )}
         </Box>
     )
 }

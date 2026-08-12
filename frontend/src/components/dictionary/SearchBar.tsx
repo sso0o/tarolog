@@ -13,8 +13,9 @@ export function SearchBar({ value, onChange }: Props) {
             value={value}
             onChange={(e) => onChange(e.target.value)}
             placeholder="카드 이름 또는 키워드 검색"
-            inputProps={{ 'aria-label': '카드 검색' }}
+            slotProps={{ htmlInput: { 'aria-label': '카드 검색' } }}
             size="small"
+            sx={{ '& .MuiInputBase-root': { minHeight: 48 } }}
         />
     )
 }

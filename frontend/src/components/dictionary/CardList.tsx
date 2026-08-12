@@ -24,7 +24,20 @@ export function CardList({ cards, onSelect }: Props) {
         <List disablePadding>
             {cards.map((card, index) => (
                 <Fragment key={card.id}>
-                    <ListItemButton onClick={() => onSelect(card)} sx={{ gap: 3, px: 0, py: 2 }}>
+                    <ListItemButton
+                        onClick={() => onSelect(card)}
+                        sx={{
+                            minHeight: 72,
+                            gap: 3,
+                            px: 0,
+                            py: 2,
+                            '&:focus-visible': {
+                                outline: '3px solid',
+                                outlineColor: 'secondary.main',
+                                outlineOffset: '-3px',
+                            },
+                        }}
+                    >
                         <Box
                             component="img"
                             src={import.meta.env.BASE_URL + card.image.slice(1)}
@@ -32,14 +45,16 @@ export function CardList({ cards, onSelect }: Props) {
                             loading="lazy"
                             sx={{ width: 48, aspectRatio: '2/3', objectFit: 'contain', borderRadius: '4px', flexShrink: 0 }}
                         />
-                        <Box>
-                            <Typography variant="body2" fontWeight="bold">{card.nameKo}</Typography>
+                        <Box sx={{ minWidth: 0 }}>
+                            <Typography variant="body2" fontWeight="bold" sx={{ overflowWrap: 'anywhere' }}>
+                                {card.nameKo}
+                            </Typography>
                             <Typography variant="caption" color="text.secondary">
                                 {card.keywordsKo.slice(0, 3).join(' · ')}
                             </Typography>
                         </Box>
                     </ListItemButton>
-                    {index < cards.length - 1 && <Divider />}
+                    {index < cards.length - 1 && <Divider sx={{ borderColor: 'text.primary' }} />}
                 </Fragment>
             ))}
         </List>

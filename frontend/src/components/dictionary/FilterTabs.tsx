@@ -2,6 +2,7 @@
 import Box from '@mui/material/Box'
 import ToggleButton from '@mui/material/ToggleButton'
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup'
+import Typography from '@mui/material/Typography'
 import type { Arcana, Suit } from '../../types/card.ts'
 
 export type ArcanaFilter = Arcana | 'all'
@@ -31,32 +32,38 @@ const SUIT_OPTIONS: { value: SuitFilter; label: string }[] = [
 export function FilterTabs({ arcana, suit, onArcanaChange, onSuitChange }: Props) {
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-            <ToggleButtonGroup
-                value={arcana}
-                exclusive
-                onChange={(_, v: ArcanaFilter | null) => { if (v) onArcanaChange(v) }}
-                aria-label="아르카나 필터"
-                sx={{ flexWrap: 'wrap' }}
-            >
-                {ARCANA_OPTIONS.map((opt) => (
-                    <ToggleButton key={opt.value} value={opt.value}>
-                        {opt.label}
-                    </ToggleButton>
-                ))}
-            </ToggleButtonGroup>
-            <ToggleButtonGroup
-                value={suit}
-                exclusive
-                onChange={(_, v: SuitFilter | null) => { if (v) onSuitChange(v) }}
-                aria-label="수트 필터"
-                sx={{ flexWrap: 'wrap' }}
-            >
-                {SUIT_OPTIONS.map((opt) => (
-                    <ToggleButton key={opt.value} value={opt.value}>
-                        {opt.label}
-                    </ToggleButton>
-                ))}
-            </ToggleButtonGroup>
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+                <Typography variant="overline">아르카나</Typography>
+                <ToggleButtonGroup
+                    value={arcana}
+                    exclusive
+                    onChange={(_, v: ArcanaFilter | null) => { if (v) onArcanaChange(v) }}
+                    aria-label="아르카나 필터"
+                    sx={{ display: 'flex', flexWrap: 'wrap' }}
+                >
+                    {ARCANA_OPTIONS.map((opt) => (
+                        <ToggleButton key={opt.value} value={opt.value}>
+                            {opt.label}
+                        </ToggleButton>
+                    ))}
+                </ToggleButtonGroup>
+            </Box>
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+                <Typography variant="overline">수트</Typography>
+                <ToggleButtonGroup
+                    value={suit}
+                    exclusive
+                    onChange={(_, v: SuitFilter | null) => { if (v) onSuitChange(v) }}
+                    aria-label="수트 필터"
+                    sx={{ display: 'flex', flexWrap: 'wrap' }}
+                >
+                    {SUIT_OPTIONS.map((opt) => (
+                        <ToggleButton key={opt.value} value={opt.value}>
+                            {opt.label}
+                        </ToggleButton>
+                    ))}
+                </ToggleButtonGroup>
+            </Box>
         </Box>
     )
 }

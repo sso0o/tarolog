@@ -22,27 +22,34 @@ export function CardGrid({ cards, onSelect }: Props) {
         <Box
             sx={{
                 display: 'grid',
-                gridTemplateColumns: { xs: 'repeat(4, 1fr)', sm: 'repeat(6, 1fr)', md: 'repeat(8, 1fr)' },
-                gap: 4,
+                gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
+                '@media (min-width:390px)': { gridTemplateColumns: 'repeat(4, minmax(0, 1fr))' },
+                '@media (min-width:600px)': { gridTemplateColumns: 'repeat(6, minmax(0, 1fr))' },
+                '@media (min-width:900px)': { gridTemplateColumns: 'repeat(8, minmax(0, 1fr))' },
+                gap: { xs: 2, sm: 3, md: 4 },
             }}
         >
             {cards.map((card) => (
                 <Card
                     key={card.id}
-                    sx={{ '&:hover': { boxShadow: 2 }, transition: 'box-shadow 0.2s' }}
+                    sx={{ borderRadius: '4px', '&:hover': { boxShadow: 2 }, transition: 'box-shadow 0.2s' }}
                 >
                     <CardActionArea
                         onClick={() => onSelect(card)}
-                        sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2, p: 1 }}
+                        sx={{ minHeight: 44, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2, p: 1 }}
                     >
                         <Box
                             component="img"
                             src={import.meta.env.BASE_URL + card.image.slice(1)}
                             alt={card.nameKo}
                             loading="lazy"
-                            sx={{ width: '100%', aspectRatio: '2/3', objectFit: 'contain', borderRadius: '8px' }}
+                            sx={{ width: '100%', aspectRatio: '2/3', objectFit: 'contain', borderRadius: 0 }}
                         />
-                        <Typography variant="caption" color="text.secondary">
+                        <Typography
+                            variant="caption"
+                            color="text.secondary"
+                            sx={{ display: '-webkit-box', overflow: 'hidden', WebkitBoxOrient: 'vertical', WebkitLineClamp: 2 }}
+                        >
                             {card.nameKo}
                         </Typography>
                     </CardActionArea>
