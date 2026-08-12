@@ -1,10 +1,9 @@
 // src/components/Flashcard.tsx
 import { useState } from 'react'
 import Box from '@mui/material/Box'
+import Button from '@mui/material/Button'
 import Card from '@mui/material/Card'
 import CardActionArea from '@mui/material/CardActionArea'
-import Checkbox from '@mui/material/Checkbox'
-import FormControlLabel from '@mui/material/FormControlLabel'
 import Typography from '@mui/material/Typography'
 import type { StudyDirection } from '../../types/study.ts'
 import type { Card as CardType } from '../../types/card.ts'
@@ -21,8 +20,9 @@ export function Flashcard({ card, direction, memorized, onToggleMemorized }: Pro
 
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 3 }}>
-            <Card sx={{ borderRadius: '32px', boxShadow: 2, width: '100%', maxWidth: 400 }}>
+            <Card sx={{ borderRadius: '4px', width: '100%', maxWidth: 400 }}>
                 <CardActionArea
+                    aria-label={flipped ? '카드 이미지 보기' : '카드 의미 확인'}
                     onClick={() => setFlipped((f) => !f)}
                     sx={{
                         display: 'flex',
@@ -33,19 +33,19 @@ export function Flashcard({ card, direction, memorized, onToggleMemorized }: Pro
                     }}
                 >
                     {flipped ? (
-                        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4 }}>
-                            <Typography variant="h1" sx={{ m: 0 }}>{card.nameKo}</Typography>
+                        <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'stretch', gap: 4 }}>
+                            <Typography variant="h1" sx={{ m: 0, textAlign: 'center' }}>{card.nameKo}</Typography>
                             {direction === 'both' ? (
-                                <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2 }}>
-                                    <Typography variant="body1" sx={{ m: 0, color: '#3d3d3d' }}>
+                                <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'stretch', gap: 2 }}>
+                                    <Typography variant="body1" color="text.secondary" sx={{ m: 0, textAlign: 'left' }}>
                                         정방향: {card.meaningUpKo}
                                     </Typography>
-                                    <Typography variant="body1" sx={{ m: 0, color: '#3d3d3d' }}>
+                                    <Typography variant="body1" color="text.secondary" sx={{ m: 0, textAlign: 'left' }}>
                                         역방향: {card.meaningRevKo}
                                     </Typography>
                                 </Box>
                             ) : (
-                                <Typography variant="body1" sx={{ m: 0, color: '#3d3d3d' }}>
+                                <Typography variant="body1" color="text.secondary" sx={{ m: 0, textAlign: 'left' }}>
                                     {direction === 'up' ? card.meaningUpKo : card.meaningRevKo}
                                 </Typography>
                             )}
@@ -55,25 +55,20 @@ export function Flashcard({ card, direction, memorized, onToggleMemorized }: Pro
                             component="img"
                             src={import.meta.env.BASE_URL + card.image.slice(1)}
                             alt="카드를 눌러 의미 확인"
-                            sx={{ borderRadius: '16px', maxWidth: 240, width: '100%', height: 'auto' }}
+                            sx={{ borderRadius: 0, maxWidth: 240, width: '100%', height: 'auto' }}
                         />
                     )}
                 </CardActionArea>
             </Card>
-            <FormControlLabel
-                control={
-                    <Checkbox
-                        checked={memorized}
-                        onChange={onToggleMemorized}
-                        size="small"
-                        sx={{ color: 'text.secondary', '&.Mui-checked': { color: 'text.primary' } }}
-                    />
-                }
-                label={
-                    <Typography variant="body2" color="text.secondary">외웠어요</Typography>
-                }
-                sx={{ m: 0 }}
-            />
+            <Button
+                type="button"
+                variant={memorized ? 'contained' : 'outlined'}
+                aria-pressed={memorized}
+                onClick={onToggleMemorized}
+                sx={{ backgroundColor: memorized ? 'var(--feature-accent)' : 'background.paper' }}
+            >
+                {memorized ? '✓ 외웠어요' : '외웠어요'}
+            </Button>
         </Box>
     )
 }

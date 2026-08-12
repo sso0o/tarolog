@@ -8,6 +8,8 @@ import ToggleButtonGroup from '@mui/material/ToggleButtonGroup'
 import Typography from '@mui/material/Typography'
 import { filterByMemorized, filterCards } from '../../lib/shared/cards.ts'
 import { FilterTabs, type ArcanaFilter, type SuitFilter } from '../dictionary/FilterTabs.tsx'
+import { PageHeader } from '../shared/PageHeader.tsx'
+import { SetupSection } from '../shared/SetupSection.tsx'
 import type { StudyDirection } from '../../types/study.ts'
 import type { Card } from '../../types/card.ts'
 
@@ -62,11 +64,10 @@ export function FlashcardSetup({ allCards, memorizedIds, onStart }: Props) {
     }
 
     return (
-        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4, px: 4, py: 6 }}>
-            <Typography variant="h2" sx={{ m: 0 }}>학습 설정</Typography>
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 6, px: { xs: 4, sm: 6, md: 8 }, py: { xs: 6, md: 10 } }}>
+            <PageHeader chapter="CHAPTER 02 · STUDY" title="학습 설정" compact />
 
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                <Typography variant="body2" fontWeight={600}>의미 방향</Typography>
+            <SetupSection number="01" title="의미 방향">
                 <ToggleButtonGroup
                     value={direction}
                     exclusive
@@ -78,11 +79,13 @@ export function FlashcardSetup({ allCards, memorizedIds, onStart }: Props) {
                         <ToggleButton key={opt.value} value={opt.value}>{opt.label}</ToggleButton>
                     ))}
                 </ToggleButtonGroup>
-            </Box>
+            </SetupSection>
 
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                <Typography variant="body2" fontWeight={600}>범위</Typography>
+            <SetupSection number="02" title="카드 범위">
                 <FilterTabs arcana={arcana} suit={suit} onArcanaChange={setArcana} onSuitChange={setSuit} />
+            </SetupSection>
+
+            <SetupSection number="03" title="암기 진도">
                 <ToggleButtonGroup
                     value={memorizedScope}
                     exclusive
@@ -94,36 +97,37 @@ export function FlashcardSetup({ allCards, memorizedIds, onStart }: Props) {
                         <ToggleButton key={opt.value} value={opt.value}>{opt.label}</ToggleButton>
                     ))}
                 </ToggleButtonGroup>
-            </Box>
+            </SetupSection>
 
             {showCountModeToggle && (
-                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                    <Typography variant="body2" fontWeight={600}>학습 개수</Typography>
-                    <ToggleButtonGroup
-                        value={countMode}
-                        exclusive
-                        onChange={(_, v: CountMode | null) => { if (v) setCountMode(v) }}
-                        aria-label="학습 개수"
-                        sx={{ flexWrap: 'wrap' }}
-                    >
-                        {COUNT_MODE_OPTIONS.map((opt) => (
-                            <ToggleButton key={opt.value} value={opt.value}>{opt.label}</ToggleButton>
-                        ))}
-                    </ToggleButtonGroup>
-                    {showCountInput && (
-                        <TextField
-                            label="학습 개수"
-                            type="number"
-                            value={count}
-                            onChange={(e) => {
-                                const next = Number(e.target.value)
-                                setCount(Number.isNaN(next) ? 1 : Math.min(Math.max(next, 1), maxCount))
-                            }}
-                            slotProps={{ htmlInput: { min: 1, max: maxCount } }}
-                            sx={{ maxWidth: 160 }}
-                        />
-                    )}
-                </Box>
+                <SetupSection number="04" title="학습 개수">
+                    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 2 }}>
+                        <ToggleButtonGroup
+                            value={countMode}
+                            exclusive
+                            onChange={(_, v: CountMode | null) => { if (v) setCountMode(v) }}
+                            aria-label="학습 개수"
+                            sx={{ flexWrap: 'wrap' }}
+                        >
+                            {COUNT_MODE_OPTIONS.map((opt) => (
+                                <ToggleButton key={opt.value} value={opt.value}>{opt.label}</ToggleButton>
+                            ))}
+                        </ToggleButtonGroup>
+                        {showCountInput && (
+                            <TextField
+                                label="학습 개수"
+                                type="number"
+                                value={count}
+                                onChange={(e) => {
+                                    const next = Number(e.target.value)
+                                    setCount(Number.isNaN(next) ? 1 : Math.min(Math.max(next, 1), maxCount))
+                                }}
+                                slotProps={{ htmlInput: { min: 1, max: maxCount } }}
+                                sx={{ maxWidth: 160 }}
+                            />
+                        )}
+                    </Box>
+                </SetupSection>
             )}
 
             {!canStart && (
@@ -132,7 +136,12 @@ export function FlashcardSetup({ allCards, memorizedIds, onStart }: Props) {
                 </Typography>
             )}
 
-            <Button variant="contained" disabled={!canStart} onClick={handleStart}>
+            <Button
+                variant="contained"
+                disabled={!canStart}
+                onClick={handleStart}
+                sx={{ minHeight: 52, color: 'text.primary', backgroundColor: 'var(--feature-accent)' }}
+            >
                 시작하기
             </Button>
         </Box>
