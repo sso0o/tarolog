@@ -14,10 +14,10 @@
 ## 폴더 역할
 
 - `src/components/` — UI 컴포넌트. 기능별 하위 폴더로 구분한다.
-    - `dictionary/`, `flashcard/`, `quiz/`, `matching/`
-    - 기능 간 공용 컴포넌트는 `shared/`에 둔다 (현재 없음, 필요 시 생성).
+    - `dictionary/`, `flashcard/`, `quiz/`, `matching/`, `journal/`
+    - 기능 간 공용 컴포넌트는 `shared/`에 둔다.
 - `src/pages/` — 화면 단위로 컴포넌트를 조합
-- `src/lib/` — 순수 함수·비즈니스 로직. 테스트(`*.test.ts`)는 같은 위치에 둡니다.
+- `src/lib/` — 순수 함수·비즈니스 로직. 기능별 하위 폴더(`shared/`, `quiz/`, `matching/`, `journal/`)로 구분하며, 테스트(`*.test.ts`)는 같은 위치에 둡니다.
 - `src/types/` — 여러 곳에서 공유되는 타입
 
 ## 명령어
