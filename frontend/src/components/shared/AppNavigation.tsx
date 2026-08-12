@@ -44,7 +44,6 @@ export function AppNavigation({ pathname, onNavigate }: Props) {
         >
             {TABS.map((tab, index) => {
                 const selected = pathname.startsWith(tab.root)
-                const selectedJournal = selected && tab.root === '/journal'
 
                 return (
                     <ButtonBase
@@ -58,7 +57,7 @@ export function AppNavigation({ pathname, onNavigate }: Props) {
                             display: 'flex',
                             flexDirection: 'column',
                             gap: 0.5,
-                            color: selectedJournal ? 'background.paper' : 'text.primary',
+                            color: 'text.primary',
                             bgcolor: selected ? 'var(--feature-accent)' : 'background.paper',
                             borderLeft: index === 0 ? 0 : '2px solid',
                             borderColor: 'text.primary',

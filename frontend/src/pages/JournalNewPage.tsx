@@ -4,9 +4,9 @@ import Alert from '@mui/material/Alert'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Chip from '@mui/material/Chip'
-import FormControlLabel from '@mui/material/FormControlLabel'
-import Switch from '@mui/material/Switch'
 import TextField from '@mui/material/TextField'
+import ToggleButton from '@mui/material/ToggleButton'
+import ToggleButtonGroup from '@mui/material/ToggleButtonGroup'
 import Typography from '@mui/material/Typography'
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
@@ -62,10 +62,10 @@ export function JournalNewPage() {
         )
     }
 
-    function handleToggleReversed(position: string) {
+    function handleSetReversed(position: string, reversed: boolean) {
         setCardSlots((prev) =>
             prev.map((slot) =>
-                slot.position === position ? { ...slot, reversed: !slot.reversed } : slot,
+                slot.position === position ? { ...slot, reversed } : slot,
             ),
         )
     }
@@ -107,7 +107,13 @@ export function JournalNewPage() {
                     title="새 리딩 기록"
                     onExit={handleRequestExit}
                     actions={
-                        <Button variant="contained" fullWidth disabled={!spread} onClick={handleSave} sx={{ minHeight: 52 }}>
+                        <Button
+                            variant="contained"
+                            fullWidth
+                            disabled={!spread}
+                            onClick={handleSave}
+                            sx={{ minHeight: 52, color: 'text.primary', backgroundColor: 'var(--feature-accent)' }}
+                        >
                             저장
                         </Button>
                     }
@@ -167,21 +173,28 @@ export function JournalNewPage() {
                                                     variant={card ? 'contained' : 'outlined'}
                                                     size="small"
                                                     onClick={() => setCardPickerPosition(slot.position)}
-                                                    sx={{ minHeight: 48, flex: 1, justifyContent: 'flex-start' }}
+                                                    sx={{
+                                                        minHeight: 48,
+                                                        flex: 1,
+                                                        justifyContent: 'flex-start',
+                                                        ...(card && { backgroundColor: 'var(--feature-accent)', color: 'text.primary' }),
+                                                    }}
                                                 >
                                                     {card ? card.nameKo : '카드 선택'}
                                                 </Button>
                                                 {card && (
-                                                    <FormControlLabel
-                                                        control={
-                                                            <Switch
-                                                                checked={slot.reversed}
-                                                                onChange={() => handleToggleReversed(slot.position)}
-                                                                size="small"
-                                                            />
-                                                        }
-                                                        label="역방향"
-                                                    />
+                                                    <ToggleButtonGroup
+                                                        value={slot.reversed ? 'reversed' : 'up'}
+                                                        exclusive
+                                                        size="small"
+                                                        onChange={(_, v: 'up' | 'reversed' | null) => {
+                                                            if (v) handleSetReversed(slot.position, v === 'reversed')
+                                                        }}
+                                                        aria-label="정방향/역방향"
+                                                    >
+                                                        <ToggleButton value="up">정방향</ToggleButton>
+                                                        <ToggleButton value="reversed">역방향</ToggleButton>
+                                                    </ToggleButtonGroup>
                                                 )}
                                             </Box>
                                         )

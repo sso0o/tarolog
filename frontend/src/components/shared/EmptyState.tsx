@@ -30,7 +30,11 @@ export function EmptyState({ title, description, actionLabel, onAction }: Props)
             <Typography variant="h4">{title}</Typography>
             <Typography color="text.secondary">{description}</Typography>
             {hasAction && (
-                <Button variant="contained" onClick={onAction}>
+                <Button
+                    variant="contained"
+                    onClick={onAction}
+                    sx={{ color: 'text.primary', backgroundColor: 'var(--feature-accent)' }}
+                >
                     {actionLabel}
                 </Button>
             )}

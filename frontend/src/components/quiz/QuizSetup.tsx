@@ -137,7 +137,12 @@ export function QuizSetup({ allCards, memorizedIds, onStart }: Props) {
                 </Typography>
             )}
 
-            <Button variant="contained" disabled={!canStart} onClick={handleStart}>
+            <Button
+                variant="contained"
+                disabled={!canStart}
+                onClick={handleStart}
+                sx={{ minHeight: 52, color: 'text.primary', backgroundColor: 'var(--feature-accent)' }}
+            >
                 시작하기
             </Button>
         </Box>

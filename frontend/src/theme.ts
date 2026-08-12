@@ -1,56 +1,47 @@
 // src/theme.ts
-import { createTheme } from '@mui/material'
+import { createTheme } from '@mui/material/styles'
+import { colors } from './design/system.ts'
+
+const hardShadow = `4px 4px 0 ${colors.ink}`
+const posterShadow = `8px 8px 0 ${colors.ink}`
 
 export const theme = createTheme({
     palette: {
-        primary: { main: '#0d0d0d', contrastText: '#ffffff' },
-        background: { default: '#ffffff', paper: '#f5f5f5' },
-        text: {
-            primary: '#1a1a1a',
-            secondary: '#6b6b6b',
-            disabled: '#9b9b9b',
-        },
-        success: {
-            main: '#dcfce7',
-            contrastText: '#166534',
-        },
-        divider: '#e8e8e8',
+        mode: 'light',
+        primary: { main: colors.ink, contrastText: colors.paper },
+        secondary: { main: colors.lavender, contrastText: colors.ink },
+        error: { main: colors.brick, contrastText: colors.paper },
+        success: { main: colors.successInk, light: colors.successSurface },
+        background: { default: colors.canvas, paper: colors.paper },
+        text: { primary: colors.ink, secondary: colors.mutedInk, disabled: colors.mutedInk },
+        divider: colors.ink,
     },
-    typography: {
-        fontFamily: '"DM Sans", Inter, "Helvetica Neue", Helvetica, Arial, sans-serif',
-        h1: { fontSize: '2rem', fontWeight: 600, lineHeight: 1.25, letterSpacing: '-0.5px' },
-        h2: { fontSize: '1.5rem', fontWeight: 600, lineHeight: 1.30 },
-        h3: { fontSize: '1.25rem', fontWeight: 600, lineHeight: 1.40 },
-        subtitle1: { fontSize: '1.125rem', fontWeight: 500, lineHeight: 1.50 },
-        body1: { fontSize: '1rem', fontWeight: 400, lineHeight: 1.50 },
-        body2: { fontSize: '0.875rem', fontWeight: 400, lineHeight: 1.50 },
-        button: { fontSize: '0.875rem', fontWeight: 600, lineHeight: 1.40, textTransform: 'none' },
-        caption: { fontSize: '0.8125rem', lineHeight: 1.70 },
-    },
-    shape: { borderRadius: 4 },
     spacing: 4,
+    shape: { borderRadius: 4 },
+    typography: {
+        fontFamily: '"Noto Sans KR", system-ui, sans-serif',
+        h1: { fontFamily: '"Noto Serif KR", serif', fontSize: '2.5rem', fontWeight: 700, lineHeight: 1.15 },
+        h2: { fontFamily: '"Noto Serif KR", serif', fontSize: '2rem', fontWeight: 700, lineHeight: 1.2 },
+        h3: { fontFamily: '"Noto Serif KR", serif', fontSize: '1.5rem', fontWeight: 600, lineHeight: 1.3 },
+        h6: { fontFamily: '"Noto Serif KR", serif', fontWeight: 600 },
+        body1: { fontSize: '1rem', lineHeight: 1.7 },
+        body2: { fontSize: '0.875rem', lineHeight: 1.6 },
+        button: { fontWeight: 700, textTransform: 'none' },
+        overline: { fontFamily: '"Roboto Mono", monospace', fontWeight: 500, letterSpacing: '0.08em' },
+    },
     shadows: [
-        'none',
-        'rgba(0,0,0,0.04) 0px 1px 2px 0px',
-        'rgba(0,0,0,0.08) 0px 4px 6px 0px',
-        'rgba(0,0,0,0.08) 0px 0px 22px 0px',
-        'rgba(36,36,36,0.08) 0px 12px 16px -4px',
-        'none', 'none', 'none', 'none', 'none',
-        'none', 'none', 'none', 'none', 'none',
-        'none', 'none', 'none', 'none', 'none',
+        'none', `2px 2px 0 ${colors.ink}`, hardShadow, `6px 6px 0 ${colors.ink}`,
+        posterShadow, 'none', 'none', 'none', 'none', 'none',
+        'none', 'none', 'none', 'none', 'none', 'none', 'none', 'none', 'none', 'none',
         'none', 'none', 'none', 'none', 'none',
     ],
     components: {
         MuiCssBaseline: {
             styleOverrides: {
+                body: { backgroundColor: colors.canvas },
                 '#root': {
-                    maxWidth: '1280px',
-                    margin: '0 auto',
-                    paddingInline: '2rem',
-                    borderInline: '1px solid #e8e8e8',
-                    minHeight: '100svh',
-                    display: 'flex',
-                    flexDirection: 'column',
+                    maxWidth: '1280px', margin: '0 auto', minHeight: '100svh',
+                    borderInline: `2px solid ${colors.ink}`,
                 },
             },
         },
@@ -58,84 +49,65 @@ export const theme = createTheme({
             defaultProps: { disableElevation: true },
             styleOverrides: {
                 root: {
-                    borderRadius: 9999,
-                    padding: '11px 24px',
-                    boxShadow: 'none',
-                    '&:hover': { boxShadow: 'none' },
-                },
-                sizeSmall: { padding: '6px 16px' },
-            },
-        },
-        MuiToggleButtonGroup: {
-            styleOverrides: {
-                root: { gap: '8px' },
-                grouped: {
-                    '&:not(:first-of-type)': {
-                        borderRadius: '9999px !important',
-                        borderLeft: '1px solid #e8e8e8 !important',
-                        marginLeft: '0 !important',
-                    },
-                    '&:first-of-type': {
-                        borderRadius: '9999px !important',
-                    },
-                },
-            },
-        },
-        MuiToggleButton: {
-            styleOverrides: {
-                root: {
-                    borderRadius: '9999px !important',
-                    padding: '6px 16px',
-                    border: '1px solid #e8e8e8',
-                    color: '#9b9b9b',
-                    textTransform: 'none',
-                    fontSize: '0.875rem',
-                    fontWeight: 600,
-                    lineHeight: 1.40,
-                    '&.Mui-selected': {
-                        backgroundColor: '#0d0d0d',
-                        color: '#ffffff',
-                        '&:hover': { backgroundColor: '#3d3d3d' },
+                    minHeight: 44,
+                    borderRadius: 4,
+                    border: `2px solid ${colors.ink}`,
+                    boxShadow: hardShadow,
+                    '&:active': { transform: 'translate(3px, 3px)', boxShadow: `1px 1px 0 ${colors.ink}` },
+                    '&.Mui-disabled': {
+                        color: colors.mutedInk,
+                        backgroundColor: colors.disabledSurface,
+                        borderColor: colors.ink,
                     },
                 },
             },
         },
         MuiCard: {
             styleOverrides: {
-                root: {
-                    borderRadius: 16,
-                    border: '1px solid #e8e8e8',
-                    boxShadow: 'none',
-                    backgroundColor: '#ffffff',
-                },
+                root: { border: `2px solid ${colors.ink}`, borderRadius: 4, boxShadow: hardShadow },
+            },
+        },
+        MuiDialog: {
+            styleOverrides: {
+                paper: { border: `3px solid ${colors.ink}`, borderRadius: 4, boxShadow: posterShadow },
             },
         },
         MuiTextField: {
-            defaultProps: { variant: 'outlined', size: 'small' },
+            defaultProps: { variant: 'outlined' },
+        },
+        MuiOutlinedInput: {
             styleOverrides: {
                 root: {
-                    '& .MuiOutlinedInput-root': {
-                        borderRadius: 8,
-                        backgroundColor: '#f5f5f5',
-                        '& .MuiOutlinedInput-notchedOutline': {
-                            borderColor: '#e8e8e8',
-                        },
-                        '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                            borderColor: '#1d4ed8',
-                            borderWidth: 2,
-                        },
-                    },
+                    borderRadius: 4,
+                    backgroundColor: colors.paper,
+                    '& .MuiOutlinedInput-notchedOutline': { borderWidth: 2, borderColor: colors.ink },
+                    '&.Mui-focused .MuiOutlinedInput-notchedOutline': { borderWidth: 3, borderColor: 'var(--feature-accent)' },
                 },
             },
         },
-        MuiAppBar: {
+        MuiToggleButton: {
             styleOverrides: {
                 root: {
-                    backgroundColor: '#ffffff',
-                    color: '#1a1a1a',
-                    boxShadow: 'none',
-                    borderBottom: '1px solid #e8e8e8',
+                    minHeight: 44, borderRadius: '4px !important', border: `2px solid ${colors.ink} !important`,
+                    color: colors.ink,
+                    '&.Mui-selected': { backgroundColor: 'var(--feature-accent)', color: colors.ink },
                 },
+            },
+        },
+        MuiToggleButtonGroup: {
+            styleOverrides: { root: { gap: 8, flexWrap: 'wrap' }, grouped: { margin: '0 !important' } },
+        },
+        MuiChip: {
+            styleOverrides: {
+                root: {
+                    borderRadius: 4,
+                    border: `2px solid ${colors.ink}`,
+                    backgroundColor: colors.paper,
+                    color: colors.ink,
+                    fontWeight: 700,
+                    boxShadow: `2px 2px 0 ${colors.ink}`,
+                },
+                deleteIcon: { color: colors.ink, '&:hover': { color: colors.brick } },
             },
         },
     },

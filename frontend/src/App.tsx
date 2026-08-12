@@ -15,9 +15,11 @@ import { SpreadManagePage } from './pages/SpreadManagePage'
 import { JournalNewPage } from './pages/JournalNewPage'
 import { PrivacyPage } from './pages/PrivacyPage'
 import { featureAccents, featureFromPath, isFocusPath } from './design/system.ts'
+import {useRequestFocusExit} from "./contexts/FocusExitContext.tsx";
 
 export function App() {
-    useNativeAppSetup()
+    const requestFocusExit = useRequestFocusExit()
+    useNativeAppSetup(requestFocusExit)
 
     const [showSplash, setShowSplash] = useState(true)
     const [fading, setFading] = useState(false)

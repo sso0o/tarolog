@@ -6,13 +6,16 @@ import { HashRouter } from 'react-router'
 import { theme } from './theme'
 import './index.css'
 import App from './App.tsx'
+import {FocusExitProvider} from "./contexts/FocusExitContext.tsx";
 
 createRoot(document.getElementById('root')!).render(
     <StrictMode>
         <ThemeProvider theme={theme}>
             <CssBaseline />
             <HashRouter>
-                <App />
+                <FocusExitProvider>
+                    <App />
+                </FocusExitProvider>
             </HashRouter>
         </ThemeProvider>
     </StrictMode>,
