@@ -12,14 +12,16 @@ interface Props {
     card: CardType
     direction: StudyDirection
     memorized: boolean
+    progress: string
     onToggleMemorized: () => void
 }
 
-export function Flashcard({ card, direction, memorized, onToggleMemorized }: Props) {
+export function Flashcard({ card, direction, memorized, progress, onToggleMemorized }: Props) {
     const [flipped, setFlipped] = useState(false)
 
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 3 }}>
+            <Typography variant="overline">{progress}</Typography>
             <Card sx={{ borderRadius: '4px', width: '100%', maxWidth: 400 }}>
                 <CardActionArea
                     aria-label={flipped ? '카드 이미지 보기' : '카드 의미 확인'}

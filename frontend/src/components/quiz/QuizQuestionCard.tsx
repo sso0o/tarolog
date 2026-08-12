@@ -12,10 +12,11 @@ const CHOICE_LABELS = ['A', 'B', 'C', 'D'] as const
 
 interface Props {
     question: QuizQuestion
+    progress: string
     onNext: (choiceIndex: number) => void
 }
 
-export function QuizQuestionCard({ question, onNext }: Props) {
+export function QuizQuestionCard({ question, progress, onNext }: Props) {
     const [selected, setSelected] = useState<number | null>(null)
 
     function handleSelect(index: number) {
@@ -59,6 +60,7 @@ export function QuizQuestionCard({ question, onNext }: Props) {
 
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4, py: 8, px: 4 }}>
+            <Typography variant="overline">{progress}</Typography>
             <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2 }}>
                 <Box
                     component="img"

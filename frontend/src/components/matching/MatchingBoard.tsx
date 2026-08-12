@@ -9,6 +9,7 @@ import { colors } from '../../design/system.ts'
 
 interface Props {
     round: MatchingRound
+    progress: string
     onRoundComplete: (outcome: MatchingRoundOutcome) => void
 }
 
@@ -47,7 +48,7 @@ function itemStateSx(selected: boolean, wrong: boolean, matched: boolean) {
     return base
 }
 
-export function MatchingBoard({ round, onRoundComplete }: Props) {
+export function MatchingBoard({ round, progress, onRoundComplete }: Props) {
     const [matchedCardIds, setMatchedCardIds] = useState<Set<string>>(new Set())
     const [selectedImageId, setSelectedImageId] = useState<string | null>(null)
     const [selectedMeaningId, setSelectedMeaningId] = useState<string | null>(null)
@@ -121,7 +122,9 @@ export function MatchingBoard({ round, onRoundComplete }: Props) {
     }
 
     return (
-        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 4 }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+            <Typography variant="overline" sx={{ textAlign: 'center' }}>{progress}</Typography>
+            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 4 }}>
             <Box component="section" aria-label="이미지 카드" sx={{ display: 'flex', flexDirection: 'column', gap: 2, flex: 1 }}>
                 <Typography variant="overline">IMAGE CARDS</Typography>
                 <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: 2 }}>
@@ -201,6 +204,7 @@ export function MatchingBoard({ round, onRoundComplete }: Props) {
                         )
                     })}
                 </Box>
+            </Box>
             </Box>
         </Box>
     )

@@ -114,12 +114,12 @@ export function MatchingPage() {
                         <>
                             <FocusLayout
                                 title="카드 매칭"
-                                progress={`${session.roundIndex + 1} / ${session.rounds.length} 라운드`}
                                 onExit={() => setConfirmingEnd(true)}
                             >
                                 <MatchingBoard
                                     key={session.roundIndex}
                                     round={session.rounds[session.roundIndex]}
+                                    progress={`${session.roundIndex + 1} / ${session.rounds.length} 라운드`}
                                     onRoundComplete={handleRoundComplete}
                                 />
                             </FocusLayout>

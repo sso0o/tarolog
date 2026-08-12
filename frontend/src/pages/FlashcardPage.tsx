@@ -66,7 +66,6 @@ export function FlashcardPage() {
                         <>
                             <FocusLayout
                                 title="플래시카드"
-                                progress={`${index + 1} / ${session.cards.length}`}
                                 onExit={() => setConfirmingEnd(true)}
                                 actions={
                                     <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 3 }}>
@@ -79,6 +78,7 @@ export function FlashcardPage() {
                                     card={session.cards[index]}
                                     direction={session.direction}
                                     memorized={memorizedIds.has(session.cards[index].id)}
+                                    progress={`${index + 1} / ${session.cards.length}`}
                                     onToggleMemorized={() => handleToggle(session.cards[index].id)}
                                 />
                             </FocusLayout>

@@ -84,11 +84,11 @@ export function QuizPage() {
                         <>
                             <FocusLayout
                                 title="퀴즈"
-                                progress={`${index + 1} / ${session.questions.length}`}
                                 onExit={() => setConfirmingEnd(true)}
                             >
                                 <QuizQuestionCard
                                     question={session.questions[index]}
+                                    progress={`${index + 1} / ${session.questions.length}`}
                                     onNext={handleAnswerChoice}
                                 />
                             </FocusLayout>
