@@ -1,8 +1,6 @@
 // src/pages/MatchingPage.tsx
 import { useMemo, useState } from 'react'
 import { Navigate, Route, Routes, useNavigate } from 'react-router'
-import Box from '@mui/material/Box'
-import Typography from '@mui/material/Typography'
 import { getAllCards } from '../lib/shared/cards.ts'
 import { buildMatchingRounds } from '../lib/matching/matching.ts'
 import type { MatchingRound, MatchingRoundOutcome, MatchingSessionResult } from '../lib/matching/matching.ts'
@@ -10,6 +8,8 @@ import type { MeaningDirection } from '../types/study.ts'
 import { MatchingSetup } from '../components/matching/MatchingSetup.tsx'
 import { MatchingBoard } from '../components/matching/MatchingBoard.tsx'
 import { MatchingResult } from '../components/matching/MatchingResult.tsx'
+import { FocusLayout } from '../components/shared/FocusLayout.tsx'
+import { ExitConfirmDialog } from '../components/shared/ExitConfirmDialog.tsx'
 import type { Card } from '../types/card'
 
 const PAIR_COUNT = 4
@@ -30,6 +30,7 @@ export function MatchingPage() {
     const allCards = useMemo(() => getAllCards(), [])
     const [session, setSession] = useState<MatchingSession | null>(null)
     const [result, setResult] = useState<MatchingSessionResult | null>(null)
+    const [confirmingEnd, setConfirmingEnd] = useState(false)
 
     function handleStart(pool: Card[], direction: MeaningDirection, roundCount: number) {
         const rounds = buildMatchingRounds(pool, direction, roundCount, PAIR_COUNT)
@@ -88,6 +89,13 @@ export function MatchingPage() {
         navigate('/matching/setup')
     }
 
+    function handleEnd() {
+        setConfirmingEnd(false)
+        setSession(null)
+        setResult(null)
+        navigate('/matching/setup')
+    }
+
     const wrongCards = useMemo(() => {
         if (!session || !result) return []
         const cardsById = new Map(
@@ -103,16 +111,26 @@ export function MatchingPage() {
                 path="playing"
                 element={
                     session ? (
-                        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4, py: 8, px: 4 }}>
-                            <Typography variant="body2" color="text.disabled" sx={{ m: 0, textAlign: 'center' }}>
-                                {session.roundIndex + 1} / {session.rounds.length} 라운드
-                            </Typography>
-                            <MatchingBoard
-                                key={session.roundIndex}
-                                round={session.rounds[session.roundIndex]}
-                                onRoundComplete={handleRoundComplete}
+                        <>
+                            <FocusLayout
+                                title="카드 매칭"
+                                progress={`${session.roundIndex + 1} / ${session.rounds.length} 라운드`}
+                                onExit={() => setConfirmingEnd(true)}
+                            >
+                                <MatchingBoard
+                                    key={session.roundIndex}
+                                    round={session.rounds[session.roundIndex]}
+                                    onRoundComplete={handleRoundComplete}
+                                />
+                            </FocusLayout>
+                            <ExitConfirmDialog
+                                open={confirmingEnd}
+                                title="매칭을 종료할까요?"
+                                description="현재 라운드의 진행 상황은 저장되지 않습니다."
+                                onCancel={() => setConfirmingEnd(false)}
+                                onConfirm={handleEnd}
                             />
-                        </Box>
+                        </>
                     ) : (
                         <Navigate to="/matching/setup" replace />
                     )

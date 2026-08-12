@@ -5,6 +5,7 @@ import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
 import { isMatch } from '../../lib/matching/matching.ts'
 import type { MatchingRound, MatchingRoundOutcome } from '../../lib/matching/matching.ts'
+import { colors } from '../../design/system.ts'
 
 interface Props {
     round: MatchingRound
@@ -12,6 +13,39 @@ interface Props {
 }
 
 const WRONG_FLASH_MS = 500
+
+function itemStateSx(selected: boolean, wrong: boolean, matched: boolean) {
+    const base = {
+        minHeight: 72,
+        border: '2px solid',
+        borderColor: colors.ink,
+        color: colors.ink,
+        bgcolor: colors.paper,
+        '&.Mui-disabled': { opacity: 1 },
+    }
+
+    if (matched) {
+        return {
+            ...base,
+            color: colors.successInk,
+            bgcolor: colors.successSurface,
+            borderColor: colors.successInk,
+            '&.Mui-disabled': { opacity: 1, color: colors.successInk },
+        }
+    }
+    if (wrong) {
+        return {
+            ...base,
+            color: colors.paper,
+            bgcolor: colors.brick,
+            border: '4px double',
+            borderColor: colors.ink,
+            backgroundImage: `repeating-linear-gradient(135deg, transparent 0 8px, ${colors.ink} 8px 10px)`,
+        }
+    }
+    if (selected) return { ...base, bgcolor: colors.lavender }
+    return base
+}
 
 export function MatchingBoard({ round, onRoundComplete }: Props) {
     const [matchedCardIds, setMatchedCardIds] = useState<Set<string>>(new Set())
@@ -88,60 +122,85 @@ export function MatchingBoard({ round, onRoundComplete }: Props) {
 
     return (
         <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 4 }}>
-            <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 2, flex: 1 }}>
-                {round.imageItems.map((item) => {
-                    const isMatched = matchedCardIds.has(item.cardId)
-                    return (
-                        <Box
-                            key={item.id}
-                            component="img"
-                            src={import.meta.env.BASE_URL + item.label.slice(1)}
-                            alt="카드"
-                            onClick={() => handleSelectImage(item.id)}
-                            sx={{
-                                borderRadius: '16px',
-                                width: '100%',
-                                maxWidth: 140,
-                                height: 'auto',
-                                mx: 'auto',
-                                cursor: isMatched ? 'default' : 'pointer',
-                                opacity: isMatched ? 0.35 : 1,
-                                filter: isMatched ? 'grayscale(1)' : 'none',
-                                border: '3px solid',
-                                borderColor:
-                                    wrongIds?.imageId === item.id
-                                        ? 'error.main'
-                                        : selectedImageId === item.id
-                                            ? 'primary.main'
-                                            : 'transparent',
-                            }}
-                        />
-                    )
-                })}
+            <Box component="section" aria-label="이미지 카드" sx={{ display: 'flex', flexDirection: 'column', gap: 2, flex: 1 }}>
+                <Typography variant="overline">IMAGE CARDS</Typography>
+                <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: 2 }}>
+                    {round.imageItems.map((item, index) => {
+                        const isMatched = matchedCardIds.has(item.cardId)
+                        const isSelected = selectedImageId === item.id
+                        const isWrong = wrongIds?.imageId === item.id
+                        const cardName = round.pairs.find((pair) => pair.card.id === item.cardId)?.card.nameKo ?? '카드'
+
+                        return (
+                            <Button
+                                key={item.id}
+                                type="button"
+                                variant="outlined"
+                                aria-label={`이미지 카드 ${index + 1}`}
+                                aria-pressed={isSelected}
+                                disabled={isMatched}
+                                onClick={() => handleSelectImage(item.id)}
+                                sx={{
+                                    ...itemStateSx(isSelected, isWrong, isMatched),
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    gap: 1,
+                                    p: 2,
+                                }}
+                            >
+                                <Box
+                                    component="img"
+                                    src={import.meta.env.BASE_URL + item.label.slice(1)}
+                                    alt={cardName}
+                                    sx={{ width: '100%', maxWidth: 140, height: 'auto', borderRadius: 0 }}
+                                />
+                                {isSelected && !isWrong && !isMatched && <Box component="span">선택됨</Box>}
+                                {isWrong && <Box component="span">✕ 오답</Box>}
+                                {isMatched && <Box component="span">✓ 매칭 완료</Box>}
+                            </Button>
+                        )
+                    })}
+                </Box>
             </Box>
 
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, flex: 1 }}>
-                {round.meaningItems.map((item) => {
-                    const isMatched = matchedCardIds.has(item.cardId)
-                    return (
-                        <Button
-                            key={item.id}
-                            variant={selectedMeaningId === item.id ? 'contained' : 'outlined'}
-                            color={wrongIds?.meaningId === item.id ? 'error' : 'primary'}
-                            disabled={isMatched}
-                            onClick={() => handleSelectMeaning(item.id)}
-                            sx={{
-                                textAlign: 'left',
-                                justifyContent: 'flex-start',
-                                opacity: isMatched ? 0.35 : 1,
-                            }}
-                        >
-                            <Typography component="span" sx={{ fontSize: 'inherit', fontWeight: 'inherit' }}>
-                                {item.label}
-                            </Typography>
-                        </Button>
-                    )
-                })}
+            <Box component="section" aria-label="의미 카드" sx={{ display: 'flex', flexDirection: 'column', gap: 2, flex: 1 }}>
+                <Typography variant="overline">MEANING CARDS</Typography>
+                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                    {round.meaningItems.map((item, index) => {
+                        const isMatched = matchedCardIds.has(item.cardId)
+                        const isSelected = selectedMeaningId === item.id
+                        const isWrong = wrongIds?.meaningId === item.id
+
+                        return (
+                            <Button
+                                key={item.id}
+                                type="button"
+                                variant="outlined"
+                                aria-label={`의미 카드 ${index + 1}`}
+                                aria-pressed={isSelected}
+                                disabled={isMatched}
+                                onClick={() => handleSelectMeaning(item.id)}
+                                sx={{
+                                    ...itemStateSx(isSelected, isWrong, isMatched),
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    alignItems: 'flex-start',
+                                    justifyContent: 'center',
+                                    gap: 1,
+                                    p: 2,
+                                    textAlign: 'left',
+                                }}
+                            >
+                                <Typography component="span" sx={{ color: 'inherit' }}>
+                                    {item.label}
+                                </Typography>
+                                {isSelected && !isWrong && !isMatched && <Box component="span">선택됨</Box>}
+                                {isWrong && <Box component="span">✕ 오답</Box>}
+                                {isMatched && <Box component="span">✓ 매칭 완료</Box>}
+                            </Button>
+                        )
+                    })}
+                </Box>
             </Box>
         </Box>
     )

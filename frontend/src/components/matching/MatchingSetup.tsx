@@ -8,6 +8,8 @@ import ToggleButtonGroup from '@mui/material/ToggleButtonGroup'
 import Typography from '@mui/material/Typography'
 import { filterCards } from '../../lib/shared/cards.ts'
 import { FilterTabs, type ArcanaFilter, type SuitFilter } from '../dictionary/FilterTabs.tsx'
+import { PageHeader } from '../shared/PageHeader.tsx'
+import { SetupSection } from '../shared/SetupSection.tsx'
 import type { MeaningDirection } from '../../types/study.ts'
 import type { Card } from '../../types/card.ts'
 
@@ -40,11 +42,10 @@ export function MatchingSetup({ allCards, onStart }: Props) {
     }
 
     return (
-        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4, px: 4, py: 6 }}>
-            <Typography variant="h2" sx={{ m: 0 }}>매칭 설정</Typography>
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 6, px: { xs: 4, sm: 6, md: 8 }, py: { xs: 6, md: 10 } }}>
+            <PageHeader chapter="CHAPTER 04 · MATCH" title="매칭 설정" compact />
 
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                <Typography variant="body2" fontWeight={600}>의미 방향</Typography>
+            <SetupSection number="01" title="의미 방향">
                 <ToggleButtonGroup
                     value={direction}
                     exclusive
@@ -56,25 +57,26 @@ export function MatchingSetup({ allCards, onStart }: Props) {
                         <ToggleButton key={opt.value} value={opt.value}>{opt.label}</ToggleButton>
                     ))}
                 </ToggleButtonGroup>
-            </Box>
+            </SetupSection>
 
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                <Typography variant="body2" fontWeight={600}>출제범위</Typography>
+            <SetupSection number="02" title="출제 범위">
                 <FilterTabs arcana={arcana} suit={suit} onArcanaChange={setArcana} onSuitChange={setSuit} />
-            </Box>
+            </SetupSection>
 
             {canStart && (
-                <TextField
-                    label="라운드 수 (1라운드 = 4쌍)"
-                    type="number"
-                    value={displayRoundCount}
-                    onChange={(e) => {
-                        const next = Number(e.target.value)
-                        setRoundCount(Number.isNaN(next) ? 1 : Math.min(Math.max(next, 1), maxRounds))
-                    }}
-                    slotProps={{ htmlInput: { min: 1, max: maxRounds } }}
-                    sx={{ maxWidth: 240 }}
-                />
+                <SetupSection number="03" title="라운드 수">
+                    <TextField
+                        label="라운드 수 (1라운드 = 4쌍)"
+                        type="number"
+                        value={displayRoundCount}
+                        onChange={(e) => {
+                            const next = Number(e.target.value)
+                            setRoundCount(Number.isNaN(next) ? 1 : Math.min(Math.max(next, 1), maxRounds))
+                        }}
+                        slotProps={{ htmlInput: { min: 1, max: maxRounds } }}
+                        sx={{ maxWidth: 240 }}
+                    />
+                </SetupSection>
             )}
 
             {!canStart && (
