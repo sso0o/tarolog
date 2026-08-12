@@ -1,0 +1,16 @@
+{
+  "name": "타로그",
+  "short_name": "타로그",
+  "description": "타로 카드 78장 학습 도구",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "background_color": "#F3EAD4",
+  "theme_color": "#F3EAD4",
+  "lang": "ko",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
