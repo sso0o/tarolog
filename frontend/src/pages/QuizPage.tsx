@@ -1,6 +1,8 @@
 // src/pages/QuizPage.tsx
 import { useMemo, useState } from 'react'
 import { Navigate, Route, Routes, useNavigate } from 'react-router'
+import { FocusLayout } from '../components/shared/FocusLayout.tsx'
+import { ExitConfirmDialog } from '../components/shared/ExitConfirmDialog.tsx'
 import { getAllCards } from '../lib/shared/cards.ts'
 import { getMemorizedIds, markAllMemorized } from '../lib/shared/progress.ts'
 import { buildQuiz } from '../lib/quiz/quiz.ts'
@@ -24,6 +26,7 @@ export function QuizPage() {
     const [session, setSession] = useState<QuizSession | null>(null)
     const [index, setIndex] = useState(0)
     const [answers, setAnswers] = useState<number[]>([])
+    const [confirmingEnd, setConfirmingEnd] = useState(false)
 
     function handleStart(pool: Card[], quizType: QuizType, direction: MeaningDirection, count: number) {
         const questions = buildQuiz(pool, quizType, direction, count)
@@ -60,6 +63,14 @@ export function QuizPage() {
         navigate('/quiz/setup')
     }
 
+    function handleEnd() {
+        setConfirmingEnd(false)
+        setSession(null)
+        setIndex(0)
+        setAnswers([])
+        navigate('/quiz/setup')
+    }
+
     return (
         <Routes>
             <Route
@@ -70,12 +81,25 @@ export function QuizPage() {
                 path="playing"
                 element={
                     session ? (
-                        <QuizQuestionCard
-                            question={session.questions[index]}
-                            questionNumber={index + 1}
-                            totalQuestions={session.questions.length}
-                            onNext={handleAnswerChoice}
-                        />
+                        <>
+                            <FocusLayout
+                                title="퀴즈"
+                                progress={`${index + 1} / ${session.questions.length}`}
+                                onExit={() => setConfirmingEnd(true)}
+                            >
+                                <QuizQuestionCard
+                                    question={session.questions[index]}
+                                    onNext={handleAnswerChoice}
+                                />
+                            </FocusLayout>
+                            <ExitConfirmDialog
+                                open={confirmingEnd}
+                                title="퀴즈를 종료할까요?"
+                                description="현재 퀴즈 진행 상황은 저장되지 않습니다."
+                                onCancel={() => setConfirmingEnd(false)}
+                                onConfirm={handleEnd}
+                            />
+                        </>
                     ) : (
                         <Navigate to="/quiz/setup" replace />
                     )

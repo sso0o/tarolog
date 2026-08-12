@@ -6,15 +6,16 @@ import Typography from '@mui/material/Typography'
 import CheckCircleIcon from '@mui/icons-material/CheckCircle'
 import CancelIcon from '@mui/icons-material/Cancel'
 import type { QuizQuestion } from '../../lib/quiz/quiz.ts'
+import { colors } from '../../design/system.ts'
+
+const CHOICE_LABELS = ['A', 'B', 'C', 'D'] as const
 
 interface Props {
     question: QuizQuestion
-    questionNumber: number
-    totalQuestions: number
     onNext: (choiceIndex: number) => void
 }
 
-export function QuizQuestionCard({ question, questionNumber, totalQuestions, onNext }: Props) {
+export function QuizQuestionCard({ question, onNext }: Props) {
     const [selected, setSelected] = useState<number | null>(null)
 
     function handleSelect(index: number) {
@@ -28,39 +29,36 @@ export function QuizQuestionCard({ question, questionNumber, totalQuestions, onN
         setSelected(null)
     }
 
-    function choiceVariant(index: number): 'contained' | 'outlined' {
-        if (selected === null) return 'outlined'
-        return index === question.correctIndex || index === selected ? 'contained' : 'outlined'
-    }
-
-    function choiceColor(index: number): 'error' | 'primary' {
-        if (selected !== null && index === selected && index !== question.correctIndex) return 'error'
-        return 'primary'
-    }
-
     function choiceSx(index: number) {
-        if (selected !== null && index === question.correctIndex) {
-            return { bgcolor: '#16a34a', color: '#ffffff', borderColor: '#16a34a', '&:hover': { bgcolor: '#16a34a' } }
+        if (selected === null) {
+            return { bgcolor: colors.paper, color: colors.ink, borderColor: colors.ink }
         }
-        return {}
-    }
-
-    function isRevealed(): boolean {
-        return question.type === 'name-to-meaning' && selected !== null
-    }
-
-    function answerColor(index: number): string {
-        if (index === question.correctIndex) return 'rgba(255,255,255,0.9)'
-        if (index === selected) return 'rgba(255,255,255,0.8)'
-        return 'text.disabled'
+        if (index === question.correctIndex) {
+            return {
+                bgcolor: colors.successSurface,
+                color: colors.successInk,
+                borderColor: colors.successInk,
+                '&:hover': { bgcolor: colors.successSurface },
+            }
+        }
+        if (index === selected) {
+            return {
+                bgcolor: colors.brick,
+                color: colors.paper,
+                borderColor: colors.ink,
+                '&:hover': { bgcolor: colors.brick },
+            }
+        }
+        return {
+            bgcolor: colors.paper,
+            color: colors.ink,
+            borderColor: colors.ink,
+            '&:hover': { bgcolor: colors.paper },
+        }
     }
 
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4, py: 8, px: 4 }}>
-            <Typography variant="body2" color="text.disabled" sx={{ m: 0 }}>
-                {questionNumber} / {totalQuestions}
-            </Typography>
-
             <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2 }}>
                 <Box
                     component="img"
@@ -88,10 +86,10 @@ export function QuizQuestionCard({ question, questionNumber, totalQuestions, onN
                 {question.choices.map((choice, index) => (
                     <Button
                         key={choice.card.id}
-                        variant={choiceVariant(index)}
-                        color={choiceColor(index)}
+                        variant="outlined"
+                        aria-pressed={selected === index}
+                        aria-disabled={selected !== null}
                         onClick={() => handleSelect(index)}
-                        disabled={selected !== null && index !== question.correctIndex && index !== selected}
                         sx={{
                             display: 'flex',
                             justifyContent: 'space-between',
@@ -101,22 +99,25 @@ export function QuizQuestionCard({ question, questionNumber, totalQuestions, onN
                             ...choiceSx(index),
                         }}
                     >
-                        <Typography component="span" sx={{ fontSize: 'inherit', fontWeight: 'inherit' }}>
+                        <Box component="span" sx={{ width: 32, fontFamily: 'Roboto Mono', flexShrink: 0 }}>
+                            {CHOICE_LABELS[index]}
+                        </Box>
+                        <Typography component="span" sx={{ flex: 1, textAlign: 'left' }}>
                             {choice.text}
                         </Typography>
-                        {isRevealed() && (
+                        {selected !== null && (index === question.correctIndex || index === selected) && (
                             <Box
                                 component="span"
-                                sx={{ display: 'flex', alignItems: 'center', gap: 0.5, color: answerColor(index), flexShrink: 0 }}
+                                sx={{ display: 'flex', alignItems: 'center', gap: 0.5, color: 'inherit', flexShrink: 0 }}
                             >
                                 {index === question.correctIndex ? (
                                     <CheckCircleIcon fontSize="small" />
                                 ) : (
                                     <CancelIcon fontSize="small" />
                                 )}
-                                <Typography component="span" variant="caption" sx={{ color: 'inherit' }}>
-                                    {choice.card.nameKo}
-                                </Typography>
+                                <Box component="strong">
+                                    {index === question.correctIndex ? '정답' : '오답'}
+                                </Box>
                             </Box>
                         )}
                     </Button>

@@ -8,6 +8,8 @@ import ToggleButtonGroup from '@mui/material/ToggleButtonGroup'
 import Typography from '@mui/material/Typography'
 import { filterByMemorized, filterCards } from '../../lib/shared/cards.ts'
 import { FilterTabs, type ArcanaFilter, type SuitFilter } from '../dictionary/FilterTabs.tsx'
+import { PageHeader } from '../shared/PageHeader.tsx'
+import { SetupSection } from '../shared/SetupSection.tsx'
 import type { MeaningDirection } from '../../types/study.ts'
 import type { QuizType } from '../../lib/quiz/quiz.ts'
 import type { Card } from '../../types/card.ts'
@@ -62,11 +64,10 @@ export function QuizSetup({ allCards, memorizedIds, onStart }: Props) {
     }
 
     return (
-        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4, px: 4, py: 6 }}>
-            <Typography variant="h2" sx={{ m: 0 }}>퀴즈 설정</Typography>
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 6, px: { xs: 4, sm: 6, md: 8 }, py: { xs: 6, md: 10 } }}>
+            <PageHeader chapter="CHAPTER 03 · QUIZ" title="퀴즈 설정" compact />
 
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                <Typography variant="body2" fontWeight={600}>퀴즈 유형</Typography>
+            <SetupSection number="01" title="퀴즈 유형">
                 <ToggleButtonGroup
                     value={quizType}
                     exclusive
@@ -78,11 +79,10 @@ export function QuizSetup({ allCards, memorizedIds, onStart }: Props) {
                         <ToggleButton key={opt.value} value={opt.value}>{opt.label}</ToggleButton>
                     ))}
                 </ToggleButtonGroup>
-            </Box>
+            </SetupSection>
 
             {quizType !== 'image-to-name' && (
-                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                    <Typography variant="body2" fontWeight={600}>의미 방향</Typography>
+                <SetupSection number="02" title="의미 방향">
                     <ToggleButtonGroup
                         value={direction}
                         exclusive
@@ -94,12 +94,14 @@ export function QuizSetup({ allCards, memorizedIds, onStart }: Props) {
                             <ToggleButton key={opt.value} value={opt.value}>{opt.label}</ToggleButton>
                         ))}
                     </ToggleButtonGroup>
-                </Box>
+                </SetupSection>
             )}
 
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                <Typography variant="body2" fontWeight={600}>출제범위</Typography>
+            <SetupSection number="03" title="출제 범위">
                 <FilterTabs arcana={arcana} suit={suit} onArcanaChange={setArcana} onSuitChange={setSuit} />
+            </SetupSection>
+
+            <SetupSection number="04" title="암기 진도">
                 <ToggleButtonGroup
                     value={memorizedScope}
                     exclusive
@@ -111,20 +113,22 @@ export function QuizSetup({ allCards, memorizedIds, onStart }: Props) {
                         <ToggleButton key={opt.value} value={opt.value}>{opt.label}</ToggleButton>
                     ))}
                 </ToggleButtonGroup>
-            </Box>
+            </SetupSection>
 
             {showCountInput && (
-                <TextField
-                    label="문제수"
-                    type="number"
-                    value={count}
-                    onChange={(e) => {
-                        const next = Number(e.target.value)
-                        setCount(Number.isNaN(next) ? 1 : Math.min(Math.max(next, 1), maxCount))
-                    }}
-                    slotProps={{ htmlInput: { min: 1, max: maxCount } }}
-                    sx={{ maxWidth: 160 }}
-                />
+                <SetupSection number="05" title="문제 수">
+                    <TextField
+                        label="문제 수"
+                        type="number"
+                        value={count}
+                        onChange={(e) => {
+                            const next = Number(e.target.value)
+                            setCount(Number.isNaN(next) ? 1 : Math.min(Math.max(next, 1), maxCount))
+                        }}
+                        slotProps={{ htmlInput: { min: 1, max: maxCount } }}
+                        sx={{ maxWidth: 160 }}
+                    />
+                </SetupSection>
             )}
 
             {!canStart && (
