@@ -51,7 +51,6 @@ export function DictionaryPage() {
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 6, px: { xs: 4, sm: 6, md: 8 }, py: { xs: 6, md: 10 } }}>
             <PageHeader
-                chapter="CHAPTER 01 · DICTIONARY"
                 title="카드의 상징을 읽는 작은 도감"
                 description="78장의 타로 카드를 살펴보고 정방향과 역방향 의미를 찾아보세요."
             />

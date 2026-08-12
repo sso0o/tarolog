@@ -43,7 +43,7 @@ export function MatchingSetup({ allCards, onStart }: Props) {
 
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 6, px: { xs: 4, sm: 6, md: 8 }, py: { xs: 6, md: 10 } }}>
-            <PageHeader chapter="CHAPTER 04 · MATCH" title="매칭 설정" compact />
+            <PageHeader title="매칭 설정" compact />
 
             <SetupSection number="01" title="의미 방향">
                 <ToggleButtonGroup
@@ -74,7 +74,7 @@ export function MatchingSetup({ allCards, onStart }: Props) {
                             setRoundCount(Number.isNaN(next) ? 1 : Math.min(Math.max(next, 1), maxRounds))
                         }}
                         slotProps={{ htmlInput: { min: 1, max: maxRounds } }}
-                        sx={{ maxWidth: 240 }}
+                        sx={{ width: 240 }}
                     />
                 </SetupSection>
             )}

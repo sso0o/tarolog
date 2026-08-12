@@ -22,7 +22,6 @@ export function JournalPage() {
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 6, px: { xs: 4, sm: 6, md: 8 }, py: { xs: 6, md: 10 } }}>
             <PageHeader
-                chapter="CHAPTER 05 · JOURNAL"
                 title="리딩 일지"
                 description="질문과 카드 배치, 나만의 해석을 기록하세요."
             />

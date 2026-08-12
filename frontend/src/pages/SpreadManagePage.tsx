@@ -56,7 +56,7 @@ export function SpreadManagePage() {
                 일지
             </Button>
 
-            <PageHeader chapter="CHAPTER 05 · JOURNAL" title="스프레드 관리" compact />
+            <PageHeader title="스프레드 관리" compact />
 
             <SetupSection number="01" title="기본 스프레드">
                 <List disablePadding>

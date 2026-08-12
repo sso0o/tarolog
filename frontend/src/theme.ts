@@ -59,6 +59,11 @@ export const theme = createTheme({
                         backgroundColor: colors.disabledSurface,
                         borderColor: colors.ink,
                     },
+                    '@media (max-width: 600px)': {
+                        minHeight: 'unset',
+                        paddingTop: '4px',
+                        paddingBottom: '4px',
+                    },
                 },
             },
         },
@@ -91,6 +96,11 @@ export const theme = createTheme({
                     minHeight: 44, borderRadius: '4px !important', border: `2px solid ${colors.ink} !important`,
                     color: colors.ink,
                     '&.Mui-selected': { backgroundColor: 'var(--feature-accent)', color: colors.ink },
+                    '@media (max-width: 600px)': {
+                        minHeight: 'unset',
+                        paddingTop: '4px',
+                        paddingBottom: '4px',
+                    },
                 },
             },
         },

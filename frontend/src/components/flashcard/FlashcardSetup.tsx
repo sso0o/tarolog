@@ -65,7 +65,7 @@ export function FlashcardSetup({ allCards, memorizedIds, onStart }: Props) {
 
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 6, px: { xs: 4, sm: 6, md: 8 }, py: { xs: 6, md: 10 } }}>
-            <PageHeader chapter="CHAPTER 02 · STUDY" title="학습 설정" compact />
+            <PageHeader title="학습 설정" compact />
 
             <SetupSection number="01" title="의미 방향">
                 <ToggleButtonGroup
@@ -123,7 +123,7 @@ export function FlashcardSetup({ allCards, memorizedIds, onStart }: Props) {
                                     setCount(Number.isNaN(next) ? 1 : Math.min(Math.max(next, 1), maxCount))
                                 }}
                                 slotProps={{ htmlInput: { min: 1, max: maxCount } }}
-                                sx={{ maxWidth: 160 }}
+                                sx={{ width: 240 }}
                             />
                         )}
                     </Box>
