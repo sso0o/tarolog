@@ -1,14 +1,13 @@
 // src/pages/JournalNewPage.tsx
 import { useMemo, useState } from 'react'
+import Alert from '@mui/material/Alert'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Chip from '@mui/material/Chip'
 import FormControlLabel from '@mui/material/FormControlLabel'
-import Snackbar from '@mui/material/Snackbar'
 import Switch from '@mui/material/Switch'
 import TextField from '@mui/material/TextField'
 import Typography from '@mui/material/Typography'
-import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
@@ -19,6 +18,9 @@ import { getCustomSpreads } from '../lib/journal/spreads.ts'
 import { getAllCards } from '../lib/shared/cards.ts'
 import { SpreadPicker } from '../components/journal/SpreadPicker.tsx'
 import { CardPicker } from '../components/journal/CardPicker.tsx'
+import { FocusLayout } from '../components/shared/FocusLayout.tsx'
+import { SetupSection } from '../components/shared/SetupSection.tsx'
+import { ExitConfirmDialog } from '../components/shared/ExitConfirmDialog.tsx'
 import type { SpreadTemplate, ReadingCard } from '../types/journal'
 import type { Card } from '../types/card'
 
@@ -38,7 +40,13 @@ export function JournalNewPage() {
     const [interpretation, setInterpretation] = useState('')
     const [spreadPickerOpen, setSpreadPickerOpen] = useState(false)
     const [cardPickerPosition, setCardPickerPosition] = useState<string | null>(null)
-    const [snackbar, setSnackbar] = useState(false)
+    const [saveFailed, setSaveFailed] = useState(false)
+    const [confirmingExit, setConfirmingExit] = useState(false)
+
+    const hasDraft = question.trim() !== ''
+        || spread !== null
+        || cardSlots.some((slot) => slot.cardId !== '')
+        || interpretation.trim() !== ''
 
     function handleSelectSpread(s: SpreadTemplate) {
         setSpread(s)
@@ -63,6 +71,7 @@ export function JournalNewPage() {
     }
 
     function handleSave() {
+        setSaveFailed(false)
         if (!spread) return
         try {
             addReading({
@@ -74,152 +83,162 @@ export function JournalNewPage() {
             })
             navigate('/journal')
         } catch {
-            setSnackbar(true)
+            setSaveFailed(true)
         }
+    }
+
+    function handleRequestExit() {
+        if (!hasDraft) {
+            navigate('/journal')
+            return
+        }
+        setConfirmingExit(true)
+    }
+
+    function handleConfirmExit() {
+        setConfirmingExit(false)
+        navigate('/journal')
     }
 
     return (
         <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <Box sx={{ px: 4, py: 4, pb: '88px', display: 'flex', flexDirection: 'column', gap: 4 }}>
-                <Button
-                    startIcon={<ArrowBackIcon />}
-                    onClick={() => navigate('/journal')}
-                    sx={{ alignSelf: 'flex-start' }}
+            <>
+                <FocusLayout
+                    title="새 리딩 기록"
+                    onExit={handleRequestExit}
+                    actions={
+                        <Button variant="contained" fullWidth disabled={!spread} onClick={handleSave} sx={{ minHeight: 52 }}>
+                            저장
+                        </Button>
+                    }
                 >
-                    일지
-                </Button>
+                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+                        <SetupSection number="01" title="날짜와 질문">
+                            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+                                <DateTimePicker
+                                    label="날짜/시간"
+                                    value={date}
+                                    onChange={(value) => value && setDate(value)}
+                                    slotProps={{ textField: { fullWidth: true } }}
+                                />
+                                <TextField
+                                    label="질문/의도"
+                                    multiline
+                                    minRows={2}
+                                    fullWidth
+                                    value={question}
+                                    onChange={(event) => setQuestion(event.target.value)}
+                                    placeholder="오늘의 리딩 주제나 질문을 적어주세요."
+                                />
+                            </Box>
+                        </SetupSection>
 
-                <Typography variant="h6">새 리딩 기록</Typography>
+                        <SetupSection number="02" title="스프레드">
+                            {spread ? (
+                                <Chip
+                                    label={spread.name}
+                                    onDelete={() => { setSpread(null); setCardSlots([]) }}
+                                />
+                            ) : (
+                                <Button
+                                    variant="outlined"
+                                    onClick={() => setSpreadPickerOpen(true)}
+                                    sx={{ minHeight: 48 }}
+                                >
+                                    스프레드 선택
+                                </Button>
+                            )}
+                        </SetupSection>
 
-                <DateTimePicker
-                    label="날짜/시간"
-                    value={date}
-                    onChange={(v) => v && setDate(v)}
-                    slotProps={{ textField: { fullWidth: true } }}
-                />
+                        <SetupSection number="03" title="카드 배치">
+                            {spread ? (
+                                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                                    {cardSlots.map((slot) => {
+                                        const card = slot.cardId ? cardMap.get(slot.cardId) : undefined
+                                        return (
+                                            <Box
+                                                key={slot.position}
+                                                sx={{ display: 'flex', alignItems: 'center', gap: 2, flexWrap: 'wrap' }}
+                                            >
+                                                <Typography variant="body2" color="text.secondary" sx={{ minWidth: 80 }}>
+                                                    {slot.position}
+                                                </Typography>
+                                                <Button
+                                                    variant={card ? 'contained' : 'outlined'}
+                                                    size="small"
+                                                    onClick={() => setCardPickerPosition(slot.position)}
+                                                    sx={{ minHeight: 48, flex: 1, justifyContent: 'flex-start' }}
+                                                >
+                                                    {card ? card.nameKo : '카드 선택'}
+                                                </Button>
+                                                {card && (
+                                                    <FormControlLabel
+                                                        control={
+                                                            <Switch
+                                                                checked={slot.reversed}
+                                                                onChange={() => handleToggleReversed(slot.position)}
+                                                                size="small"
+                                                            />
+                                                        }
+                                                        label="역방향"
+                                                    />
+                                                )}
+                                            </Box>
+                                        )
+                                    })}
+                                </Box>
+                            ) : (
+                                <Typography color="text.secondary">먼저 스프레드를 선택하세요.</Typography>
+                            )}
+                        </SetupSection>
 
-                <TextField
-                    label="질문/의도"
-                    multiline
-                    minRows={2}
-                    fullWidth
-                    value={question}
-                    onChange={(e) => setQuestion(e.target.value)}
-                    placeholder="오늘의 리딩 주제나 질문을 적어주세요."
-                />
-
-                <Box>
-                    <Typography variant="overline" color="text.secondary">스프레드</Typography>
-                    <Box sx={{ mt: 1 }}>
-                        {spread ? (
-                            <Chip
-                                label={spread.name}
-                                onDelete={() => { setSpread(null); setCardSlots([]) }}
+                        <SetupSection number="04" title="해석">
+                            <TextField
+                                label="해석"
+                                multiline
+                                minRows={4}
+                                fullWidth
+                                value={interpretation}
+                                onChange={(event) => setInterpretation(event.target.value)}
+                                placeholder="리딩 해석을 자유롭게 적어주세요."
                             />
-                        ) : (
-                            <Button
-                                variant="outlined"
-                                onClick={() => setSpreadPickerOpen(true)}
-                                sx={{ minHeight: 48 }}
+                        </SetupSection>
+
+                        {saveFailed && (
+                            <Alert
+                                severity="error"
+                                role="alert"
+                                action={<Button onClick={handleSave}>다시 시도</Button>}
+                                onClose={() => setSaveFailed(false)}
                             >
-                                스프레드 선택
-                            </Button>
+                                저장에 실패했습니다. 작성 내용은 그대로 유지됩니다.
+                            </Alert>
                         )}
                     </Box>
-                </Box>
+                </FocusLayout>
 
-                {spread && (
-                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                        <Typography variant="overline" color="text.secondary">카드 배치</Typography>
-                        {cardSlots.map((slot) => {
-                            const card = slot.cardId ? cardMap.get(slot.cardId) : undefined
-                            return (
-                                <Box
-                                    key={slot.position}
-                                    sx={{ display: 'flex', alignItems: 'center', gap: 2, flexWrap: 'wrap' }}
-                                >
-                                    <Typography
-                                        variant="body2"
-                                        color="text.secondary"
-                                        sx={{ minWidth: 80 }}
-                                    >
-                                        {slot.position}
-                                    </Typography>
-                                    <Button
-                                        variant={card ? 'contained' : 'outlined'}
-                                        size="small"
-                                        onClick={() => setCardPickerPosition(slot.position)}
-                                        sx={{ minHeight: 48, flex: 1, justifyContent: 'flex-start' }}
-                                    >
-                                        {card ? card.nameKo : '카드 선택'}
-                                    </Button>
-                                    {card && (
-                                        <FormControlLabel
-                                            control={
-                                                <Switch
-                                                    checked={slot.reversed}
-                                                    onChange={() => handleToggleReversed(slot.position)}
-                                                    size="small"
-                                                />
-                                            }
-                                            label="역방향"
-                                        />
-                                    )}
-                                </Box>
-                            )
-                        })}
-                    </Box>
-                )}
-
-                <TextField
-                    label="해석"
-                    multiline
-                    minRows={4}
-                    fullWidth
-                    value={interpretation}
-                    onChange={(e) => setInterpretation(e.target.value)}
-                    placeholder="리딩 해석을 자유롭게 적어주세요."
+                <SpreadPicker
+                    open={spreadPickerOpen}
+                    customSpreads={customSpreads}
+                    onSelect={handleSelectSpread}
+                    onClose={() => setSpreadPickerOpen(false)}
                 />
-            </Box>
 
-            <Box
-                sx={{
-                    position: 'fixed', bottom: 56, left: 0, right: 0,
-                    px: 4, py: 2,
-                    bgcolor: 'background.paper',
-                    borderTop: 1, borderColor: 'divider',
-                }}
-            >
-                <Button
-                    variant="contained"
-                    fullWidth
-                    disabled={!spread}
-                    onClick={handleSave}
-                    sx={{ minHeight: 48 }}
-                >
-                    저장
-                </Button>
-            </Box>
+                <CardPicker
+                    open={cardPickerPosition !== null}
+                    onSelect={handleSelectCard}
+                    onClose={() => setCardPickerPosition(null)}
+                />
 
-            <SpreadPicker
-                open={spreadPickerOpen}
-                customSpreads={customSpreads}
-                onSelect={handleSelectSpread}
-                onClose={() => setSpreadPickerOpen(false)}
-            />
-
-            <CardPicker
-                open={cardPickerPosition !== null}
-                onSelect={handleSelectCard}
-                onClose={() => setCardPickerPosition(null)}
-            />
-
-            <Snackbar
-                open={snackbar}
-                onClose={() => setSnackbar(false)}
-                message="저장에 실패했습니다. 다시 시도해주세요."
-                autoHideDuration={3000}
-            />
+                <ExitConfirmDialog
+                    open={confirmingExit}
+                    title="작성 중인 리딩을 나갈까요?"
+                    description="저장하지 않은 작성 내용은 사라집니다."
+                    confirmLabel="나가기"
+                    onCancel={() => setConfirmingExit(false)}
+                    onConfirm={handleConfirmExit}
+                />
+            </>
         </LocalizationProvider>
     )
 }

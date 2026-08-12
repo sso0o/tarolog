@@ -18,11 +18,23 @@ interface Props {
 
 export function SpreadPicker({ open, customSpreads, onSelect, onClose }: Props) {
     return (
-        <Drawer anchor="bottom" open={open} onClose={onClose}>
-            <Box sx={{ px: 2, pt: 2, pb: 1 }}>
+        <Drawer
+            anchor="bottom"
+            open={open}
+            onClose={onClose}
+            PaperProps={{
+                sx: {
+                    maxHeight: '80vh',
+                    borderRadius: 0,
+                    borderTop: '3px solid',
+                    borderColor: 'text.primary',
+                },
+            }}
+        >
+            <Box sx={{ px: 2, pt: 2, pb: 1, position: 'sticky', top: 0, bgcolor: 'background.paper', zIndex: 1 }}>
                 <Typography variant="subtitle1" fontWeight={600}>스프레드 선택</Typography>
             </Box>
-            <List>
+            <List sx={{ pb: 'calc(16px + env(safe-area-inset-bottom))' }}>
                 <Typography variant="overline" color="text.secondary" sx={{ px: 2 }}>기본</Typography>
                 {PRESET_SPREADS.map((s) => (
                     <ListItemButton
@@ -49,7 +61,6 @@ export function SpreadPicker({ open, customSpreads, onSelect, onClose }: Props) 
                     </>
                 )}
             </List>
-            <Box sx={{ pb: 2 }} />
         </Drawer>
     )
 }

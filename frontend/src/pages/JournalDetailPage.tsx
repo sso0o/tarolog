@@ -12,6 +12,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import { useNavigate, useParams } from 'react-router'
 import { getReadingById, deleteReading } from '../lib/journal/journal.ts'
 import { getAllCards } from '../lib/shared/cards.ts'
+import { PageHeader } from '../components/shared/PageHeader.tsx'
 import type { Reading } from '../types/journal'
 import type { Card } from '../types/card'
 
@@ -50,7 +51,7 @@ export function JournalDetailPage() {
     }
 
     return (
-        <Box sx={{ px: 4, py: 4, display: 'flex', flexDirection: 'column', gap: 3, pb: '80px' }}>
+        <Box sx={{ px: { xs: 4, sm: 6, md: 8 }, py: { xs: 6, md: 10 }, display: 'flex', flexDirection: 'column', gap: 4 }}>
             <Button
                 startIcon={<ArrowBackIcon />}
                 onClick={() => navigate('/journal')}
@@ -59,55 +60,72 @@ export function JournalDetailPage() {
                 목록
             </Button>
 
-            <Typography variant="caption" color="text.secondary">{date}</Typography>
-
-            <Box>
-                <Typography variant="overline" color="text.secondary">질문/의도</Typography>
-                <Typography variant="body1">{reading.question || '(없음)'}</Typography>
-            </Box>
-
-            <Divider />
-
-            <Box>
-                <Typography variant="overline" color="text.secondary">스프레드</Typography>
-                <Typography variant="body1">{reading.spread.name}</Typography>
-            </Box>
-
-            <Divider />
-
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                <Typography variant="overline" color="text.secondary">카드 배치</Typography>
-                {reading.cards.map((c) => {
-                    const card = cardMap.get(c.cardId)
-                    return (
-                        <Box key={c.position} sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                            <Typography variant="body2" color="text.secondary" sx={{ minWidth: 80 }}>
-                                {c.position}
-                            </Typography>
-                            <Typography variant="body1">{card?.nameKo ?? c.cardId}</Typography>
-                            {c.reversed && <Chip label="역방향" size="small" />}
-                        </Box>
-                    )
-                })}
-            </Box>
-
-            <Divider />
-
-            <Box>
-                <Typography variant="overline" color="text.secondary">해석</Typography>
-                <Typography variant="body1" sx={{ whiteSpace: 'pre-wrap' }}>
-                    {reading.interpretation || '(없음)'}
-                </Typography>
-            </Box>
-
-            <Button
-                color="error"
-                variant="outlined"
-                onClick={() => setConfirming(true)}
-                sx={{ mt: 2, minHeight: 48 }}
+            <Box
+                sx={{
+                    width: '100%',
+                    maxWidth: 900,
+                    mx: 'auto',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: 3,
+                    p: { xs: 4, sm: 6 },
+                    bgcolor: 'background.paper',
+                    border: '3px solid',
+                    borderColor: 'text.primary',
+                    boxShadow: 4,
+                }}
             >
-                삭제
-            </Button>
+                <PageHeader chapter="CHAPTER 05 · JOURNAL" title="리딩 상세" compact />
+                <Typography variant="overline" color="text.secondary">{date}</Typography>
+
+                <Box>
+                    <Typography variant="overline" color="text.secondary">질문/의도</Typography>
+                    <Typography variant="body1">{reading.question || '(없음)'}</Typography>
+                </Box>
+
+                <Divider sx={{ borderColor: 'text.primary' }} />
+
+                <Box>
+                    <Typography variant="overline" color="text.secondary">스프레드</Typography>
+                    <Typography variant="body1">{reading.spread.name}</Typography>
+                </Box>
+
+                <Divider sx={{ borderColor: 'text.primary' }} />
+
+                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                    <Typography variant="overline" color="text.secondary">카드 배치</Typography>
+                    {reading.cards.map((cardSlot) => {
+                        const card = cardMap.get(cardSlot.cardId)
+                        return (
+                            <Box key={cardSlot.position} sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                                <Typography variant="body2" color="text.secondary" sx={{ minWidth: 80 }}>
+                                    {cardSlot.position}
+                                </Typography>
+                                <Typography variant="body1">{card?.nameKo ?? cardSlot.cardId}</Typography>
+                                {cardSlot.reversed && <Chip label="역방향" size="small" />}
+                            </Box>
+                        )
+                    })}
+                </Box>
+
+                <Divider sx={{ borderColor: 'text.primary' }} />
+
+                <Box>
+                    <Typography variant="overline" color="text.secondary">해석</Typography>
+                    <Typography variant="body1" sx={{ whiteSpace: 'pre-wrap' }}>
+                        {reading.interpretation || '(없음)'}
+                    </Typography>
+                </Box>
+
+                <Button
+                    color="error"
+                    variant="outlined"
+                    onClick={() => setConfirming(true)}
+                    sx={{ mt: 2, minHeight: 48, borderColor: 'error.main', color: 'error.main' }}
+                >
+                    삭제
+                </Button>
+            </Box>
 
             <Dialog open={confirming} onClose={() => setConfirming(false)}>
                 <DialogTitle>이 리딩 기록을 삭제할까요?</DialogTitle>

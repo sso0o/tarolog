@@ -31,7 +31,14 @@ export function CardPicker({ open, onSelect, onClose }: Props) {
             anchor="bottom"
             open={open}
             onClose={handleClose}
-            PaperProps={{ sx: { maxHeight: '80vh' } }}
+            PaperProps={{
+                sx: {
+                    maxHeight: '80vh',
+                    borderRadius: 0,
+                    borderTop: '3px solid',
+                    borderColor: 'text.primary',
+                },
+            }}
         >
             <Box
                 sx={{
@@ -50,7 +57,7 @@ export function CardPicker({ open, onSelect, onClose }: Props) {
                     autoFocus={open}
                 />
             </Box>
-            <List>
+            <List sx={{ pb: 'calc(16px + env(safe-area-inset-bottom))' }}>
                 {filtered.map((card) => (
                     <ListItemButton
                         key={card.id}

@@ -2,12 +2,12 @@
 import { useState, useEffect } from 'react'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
-import Fab from '@mui/material/Fab'
-import Typography from '@mui/material/Typography'
 import AddIcon from '@mui/icons-material/Add'
 import { useNavigate } from 'react-router'
 import { getReadings } from '../lib/journal/journal.ts'
 import { JournalCard } from '../components/journal/JournalCard.tsx'
+import { PageHeader } from '../components/shared/PageHeader.tsx'
+import { EmptyState } from '../components/shared/EmptyState.tsx'
 import type { Reading } from '../types/journal'
 
 export function JournalPage() {
@@ -19,17 +19,28 @@ export function JournalPage() {
     }, [])
 
     return (
-        <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: 'calc(100svh - 56px)' }}>
-            <Box sx={{ display: 'flex', justifyContent: 'flex-end', px: 4, pt: 4 }}>
-                <Button variant="outlined" size="small" onClick={() => navigate('/journal/spreads')}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 6, px: { xs: 4, sm: 6, md: 8 }, py: { xs: 6, md: 10 } }}>
+            <PageHeader
+                chapter="CHAPTER 05 · JOURNAL"
+                title="리딩 일지"
+                description="질문과 카드 배치, 나만의 해석을 기록하세요."
+            />
+            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2 }}>
+                <Button variant="contained" startIcon={<AddIcon />} onClick={() => navigate('/journal/new')}>
+                    새 리딩 기록
+                </Button>
+                <Button variant="outlined" onClick={() => navigate('/journal/spreads')}>
                     스프레드 관리
                 </Button>
             </Box>
-            <Box sx={{ flex: 1, px: 4, py: 4, display: 'flex', flexDirection: 'column', gap: 3 }}>
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
                 {readings.length === 0 ? (
-                    <Typography color="text.secondary" sx={{ textAlign: 'center', mt: 8 }}>
-                        아직 기록된 리딩이 없습니다.
-                    </Typography>
+                    <EmptyState
+                        title="아직 리딩 기록이 없습니다"
+                        description="첫 리딩을 기록해 나만의 타로 아카이브를 시작하세요."
+                        actionLabel="새 리딩 기록"
+                        onAction={() => navigate('/journal/new')}
+                    />
                 ) : (
                     readings.map((reading) => (
                         <JournalCard
@@ -40,14 +51,6 @@ export function JournalPage() {
                     ))
                 )}
             </Box>
-            <Fab
-                color="primary"
-                aria-label="새 리딩 기록"
-                sx={{ position: 'fixed', bottom: 72, right: 16 }}
-                onClick={() => navigate('/journal/new')}
-            >
-                <AddIcon />
-            </Fab>
         </Box>
     )
 }

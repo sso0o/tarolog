@@ -2,7 +2,6 @@
 import { useState } from 'react'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
-import Divider from '@mui/material/Divider'
 import IconButton from '@mui/material/IconButton'
 import List from '@mui/material/List'
 import ListItem from '@mui/material/ListItem'
@@ -15,6 +14,8 @@ import DeleteIcon from '@mui/icons-material/Delete'
 import { useNavigate } from 'react-router'
 import { PRESET_SPREADS } from '../lib/journal/presets.ts'
 import { getCustomSpreads, addCustomSpread, deleteCustomSpread } from '../lib/journal/spreads.ts'
+import { PageHeader } from '../components/shared/PageHeader.tsx'
+import { SetupSection } from '../components/shared/SetupSection.tsx'
 import type { SpreadTemplate } from '../types/journal'
 
 export function SpreadManagePage() {
@@ -46,7 +47,7 @@ export function SpreadManagePage() {
     }
 
     return (
-        <Box sx={{ px: 4, py: 4, display: 'flex', flexDirection: 'column', gap: 4, pb: '80px' }}>
+        <Box sx={{ px: { xs: 4, sm: 6, md: 8 }, py: { xs: 6, md: 10 }, display: 'flex', flexDirection: 'column', gap: 6 }}>
             <Button
                 startIcon={<ArrowBackIcon />}
                 onClick={() => navigate('/journal')}
@@ -55,10 +56,9 @@ export function SpreadManagePage() {
                 일지
             </Button>
 
-            <Typography variant="h6">스프레드 관리</Typography>
+            <PageHeader chapter="CHAPTER 05 · JOURNAL" title="스프레드 관리" compact />
 
-            <Box>
-                <Typography variant="overline" color="text.secondary">기본 스프레드</Typography>
+            <SetupSection number="01" title="기본 스프레드">
                 <List disablePadding>
                     {PRESET_SPREADS.map((s) => (
                         <ListItem key={s.id} disablePadding sx={{ py: 1 }}>
@@ -69,12 +69,9 @@ export function SpreadManagePage() {
                         </ListItem>
                     ))}
                 </List>
-            </Box>
+            </SetupSection>
 
-            <Divider />
-
-            <Box>
-                <Typography variant="overline" color="text.secondary">커스텀 스프레드</Typography>
+            <SetupSection number="02" title="커스텀 스프레드">
                 {customs.length === 0 ? (
                     <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
                         아직 커스텀 스프레드가 없습니다.
@@ -105,36 +102,35 @@ export function SpreadManagePage() {
                         ))}
                     </List>
                 )}
-            </Box>
+            </SetupSection>
 
-            <Divider />
-
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                <Typography variant="overline" color="text.secondary">새 커스텀 스프레드 추가</Typography>
-                <TextField
-                    label="스프레드 이름"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    fullWidth
-                />
-                <TextField
-                    label="포지션 (쉼표로 구분)"
-                    placeholder="과거, 현재, 미래"
-                    value={positionsInput}
-                    onChange={(e) => setPositionsInput(e.target.value)}
-                    fullWidth
-                    helperText="예: 과거, 현재, 미래"
-                />
-                <Button
-                    variant="contained"
-                    startIcon={<AddIcon />}
-                    onClick={handleAdd}
-                    disabled={!name.trim() || !positionsInput.trim()}
-                    sx={{ minHeight: 48 }}
-                >
-                    추가
-                </Button>
-            </Box>
+            <SetupSection number="03" title="새 커스텀 스프레드 추가">
+                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                    <TextField
+                        label="스프레드 이름"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        fullWidth
+                    />
+                    <TextField
+                        label="포지션 (쉼표로 구분)"
+                        placeholder="과거, 현재, 미래"
+                        value={positionsInput}
+                        onChange={(e) => setPositionsInput(e.target.value)}
+                        fullWidth
+                        helperText="예: 과거, 현재, 미래"
+                    />
+                    <Button
+                        variant="contained"
+                        startIcon={<AddIcon />}
+                        onClick={handleAdd}
+                        disabled={!name.trim() || !positionsInput.trim()}
+                        sx={{ minHeight: 48 }}
+                    >
+                        추가
+                    </Button>
+                </Box>
+            </SetupSection>
         </Box>
     )
 }
