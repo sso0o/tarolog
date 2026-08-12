@@ -26,12 +26,6 @@ export function SplashScreen({ fading }: Props) {
                 zIndex: 9999,
             }}
         >
-            <Typography
-                variant="overline"
-                sx={{ color: colors.gold, fontFamily: '"Roboto Mono", monospace' }}
-            >
-                CHAPTER · 00
-            </Typography>
             <Typography aria-hidden sx={{ color: colors.lavender, fontSize: '3rem', lineHeight: 1 }}>
                 ✦
             </Typography>

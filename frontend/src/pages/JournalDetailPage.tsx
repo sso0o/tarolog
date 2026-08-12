@@ -75,7 +75,7 @@ export function JournalDetailPage() {
                     boxShadow: 4,
                 }}
             >
-                <PageHeader chapter="CHAPTER 05 · JOURNAL" title="리딩 상세" compact />
+                <PageHeader title="리딩 상세" compact />
                 <Typography variant="overline" color="text.secondary">{date}</Typography>
 
                 <Box>

@@ -1,6 +1,6 @@
 # 타로그 (tarolog)
 
-타로 카드 78장의 의미를 찾아보고(사전), 외웠는지 확인하는(플래시카드·퀴즈·카드-의미 매칭 게임) 학습 도구. 운세/리딩 서비스가 아니라 학습 참고서.
+타로 카드 78장의 의미를 찾아보고(사전), 외웠는지 확인하는(플래시카드·퀴즈·카드-의미 매칭 게임) 학습 도구. 리딩 기록을 남기는 일지 기능도 있으며, 운세/리딩 서비스가 아니라 학습 참고서.
 
 **데모:** https://sso0o.github.io/tarolog/
 
@@ -27,7 +27,7 @@ mobile/     안드로이드 앱 (Capacitor로 frontend/ 빌드를 감싼 네이�
 cd frontend
 npm install
 npm run dev       # 개발 서버
-npm run test      # 유닛 테스트 (lib/cards.ts, lib/progress.ts)
+npm run test      # 유닛 테스트 (src/lib/ 하위 순수 함수)
 npm run build     # 프로덕션 빌드
 ```
 
