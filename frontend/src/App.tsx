@@ -16,10 +16,13 @@ import { JournalNewPage } from './pages/JournalNewPage'
 import { PrivacyPage } from './pages/PrivacyPage'
 import { featureAccents, featureFromPath, isFocusPath } from './design/system.ts'
 import {useRequestFocusExit} from "./contexts/FocusExitContext.tsx";
+import { useAdmobBanner } from './hooks/useAdmobBanner.ts'
+import { AdBannerSpacer } from './components/shared/AdBannerSpacer.tsx'
 
 export function App() {
     const requestFocusExit = useRequestFocusExit()
     useNativeAppSetup(requestFocusExit)
+    useAdmobBanner()
 
     const [showSplash, setShowSplash] = useState(true)
     const [fading, setFading] = useState(false)
@@ -52,7 +55,13 @@ export function App() {
                     minHeight: '100svh',
                 }}
             >
-                <Box sx={{ flex: 1, pb: focusMode ? 0 : 'calc(66px + env(safe-area-inset-bottom))' }}>
+                <AdBannerSpacer />
+                <Box
+                    sx={{
+                        flex: 1,
+                        pb: focusMode ? 0 : 'calc(66px + env(safe-area-inset-bottom))',
+                    }}
+                >
                     <Routes>
                         <Route path="/" element={<Navigate to="/dictionary" replace />} />
                         <Route path="/dictionary" element={<DictionaryPage />} />
