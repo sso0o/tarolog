@@ -1,15 +1,8 @@
 // src/App.tsx
 import { useState, useEffect } from 'react'
 import { SplashScreen } from './components/shared/SplashScreen'
-import BottomNavigation from '@mui/material/BottomNavigation'
-import BottomNavigationAction from '@mui/material/BottomNavigationAction'
+import { AppNavigation } from './components/shared/AppNavigation.tsx'
 import Box from '@mui/material/Box'
-import Paper from '@mui/material/Paper'
-import MenuBookIcon from '@mui/icons-material/MenuBook'
-import StyleIcon from '@mui/icons-material/Style'
-import QuizIcon from '@mui/icons-material/Quiz'
-import ExtensionIcon from '@mui/icons-material/Extension'
-import AutoStoriesIcon from '@mui/icons-material/AutoStories'
 import { Navigate, Route, Routes, useLocation, useNavigate } from 'react-router'
 import { DictionaryPage } from './pages/DictionaryPage'
 import { FlashcardPage } from './pages/FlashcardPage'
@@ -21,19 +14,7 @@ import { JournalDetailPage } from './pages/JournalDetailPage'
 import { SpreadManagePage } from './pages/SpreadManagePage'
 import { JournalNewPage } from './pages/JournalNewPage'
 import { PrivacyPage } from './pages/PrivacyPage'
-
-const TABS = [
-    { path: '/dictionary', label: '사전', icon: <MenuBookIcon /> },
-    { path: '/flashcard', label: '학습', icon: <StyleIcon /> },
-    { path: '/quiz', label: '퀴즈', icon: <QuizIcon /> },
-    { path: '/matching', label: '매칭', icon: <ExtensionIcon /> },
-    { path: '/journal', label: '일지', icon: <AutoStoriesIcon /> },
-] as const
-
-function activeTab(pathname: string): string {
-    const tab = TABS.find((t) => pathname.startsWith(t.path))
-    return tab ? tab.path : '/dictionary'
-}
+import { featureAccents, featureFromPath, isFocusPath } from './design/system.ts'
 
 export function App() {
     useNativeAppSetup()
@@ -43,6 +24,9 @@ export function App() {
 
     const location = useLocation()
     const navigate = useNavigate()
+    const feature = featureFromPath(location.pathname)
+    const normalizedPath = location.pathname.replace(/\/+$/, '') || '/'
+    const focusMode = isFocusPath(normalizedPath)
 
     useEffect(() => {
         const fadeTimer = setTimeout(() => setFading(true), 1000)
@@ -56,8 +40,17 @@ export function App() {
     return (
         <>
             {showSplash && <SplashScreen fading={fading} />}
-            <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100svh' }}>
-                <Box sx={{ flex: 1, pb: '56px' }}>
+            <Box
+                data-testid="app-shell"
+                data-feature={feature}
+                sx={{
+                    '--feature-accent': featureAccents[feature],
+                    display: 'flex',
+                    flexDirection: 'column',
+                    minHeight: '100svh',
+                }}
+            >
+                <Box sx={{ flex: 1, pb: focusMode ? 0 : 'calc(66px + env(safe-area-inset-bottom))' }}>
                     <Routes>
                         <Route path="/" element={<Navigate to="/dictionary" replace />} />
                         <Route path="/dictionary" element={<DictionaryPage />} />
@@ -71,27 +64,9 @@ export function App() {
                         <Route path="/privacy" element={<PrivacyPage />} />
                     </Routes>
                 </Box>
-                <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
-                    <BottomNavigation
-                        value={activeTab(location.pathname)}
-                        onChange={(_, path: string) => {
-                            if (path === '/flashcard') { navigate('/flashcard/setup'); return }
-                            if (path === '/quiz') { navigate('/quiz/setup'); return }
-                            if (path === '/matching') { navigate('/matching/setup'); return }
-                            navigate(path)
-                        }}
-                        showLabels
-                    >
-                        {TABS.map((tab) => (
-                            <BottomNavigationAction
-                                key={tab.path}
-                                value={tab.path}
-                                label={tab.label}
-                                icon={tab.icon}
-                            />
-                        ))}
-                    </BottomNavigation>
-                </Paper>
+                {!focusMode && (
+                    <AppNavigation pathname={location.pathname} onNavigate={(path) => navigate(path)} />
+                )}
             </Box>
         </>
     )
