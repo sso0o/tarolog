@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Serif+KR:wght@500;600;700&family=Roboto+Mono:wght@500&display=swap');
 
 * { box-sizing: border-box; }
-html { background: #F3EAD4; }
-body { margin: 0; min-width: 320px; }
+html { background: #F3EAD4; overscroll-behavior-y: contain; }
+body { margin: 0; min-width: 320px; overscroll-behavior-y: contain; }
 button, input, textarea, select { font: inherit; }
+button, a { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
 
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
