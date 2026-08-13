@@ -32,3 +32,7 @@ npm run build     # 프로덕션 빌드
 ## 테스트 원칙
 
 `src/lib/`의 순수 함수는 테스트를 작성합니다. 컴포넌트 테스트는 현재 없으며, 새로 강제하지 않습니다.
+
+## 무료/유료 빌드
+
+`isPremium()`(`src/lib/shared/tier.ts`)이 `VITE_APP_TIER`로 등급을 가릅니다. Pro 전용 카드 해설(`detailUp`/`detailRev`의 `love`·`work`·`relationship`·`innerMind`)은 화면에서 가리는 것만으로는 번들에서 읽히므로, `vite.config.ts`의 `stripProCardFields` 플러그인이 무료 빌드에서 아예 잘라냅니다. 새 Pro 전용 필드를 추가하면 이 목록에도 넣어야 합니다.

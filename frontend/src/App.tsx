@@ -1,19 +1,22 @@
 // src/App.tsx
-import { useState, useEffect } from 'react'
+import { useState, useEffect, lazy, Suspense } from 'react'
 import { SplashScreen } from './components/shared/SplashScreen'
 import { AppNavigation } from './components/shared/AppNavigation.tsx'
 import Box from '@mui/material/Box'
 import { Navigate, Route, Routes, useLocation, useNavigate } from 'react-router'
 import { DictionaryPage } from './pages/DictionaryPage'
-import { FlashcardPage } from './pages/FlashcardPage'
-import { QuizPage } from './pages/QuizPage'
-import { MatchingPage } from './pages/MatchingPage'
 import { useNativeAppSetup } from './hooks/useNativeAppSetup.ts'
-import { JournalPage } from './pages/JournalPage'
-import { JournalDetailPage } from './pages/JournalDetailPage'
-import { SpreadManagePage } from './pages/SpreadManagePage'
-import { JournalNewPage } from './pages/JournalNewPage'
-import { PrivacyPage } from './pages/PrivacyPage'
+
+// 첫 화면인 사전만 즉시 로드하고 나머지는 분리한다. 특히 일지 작성은
+// @mui/x-date-pickers + dayjs를 끌고 오는데 다른 화면은 쓰지 않는다.
+const FlashcardPage = lazy(() => import('./pages/FlashcardPage').then((m) => ({ default: m.FlashcardPage })))
+const QuizPage = lazy(() => import('./pages/QuizPage').then((m) => ({ default: m.QuizPage })))
+const MatchingPage = lazy(() => import('./pages/MatchingPage').then((m) => ({ default: m.MatchingPage })))
+const JournalPage = lazy(() => import('./pages/JournalPage').then((m) => ({ default: m.JournalPage })))
+const JournalDetailPage = lazy(() => import('./pages/JournalDetailPage').then((m) => ({ default: m.JournalDetailPage })))
+const SpreadManagePage = lazy(() => import('./pages/SpreadManagePage').then((m) => ({ default: m.SpreadManagePage })))
+const JournalNewPage = lazy(() => import('./pages/JournalNewPage').then((m) => ({ default: m.JournalNewPage })))
+const PrivacyPage = lazy(() => import('./pages/PrivacyPage').then((m) => ({ default: m.PrivacyPage })))
 import { featureAccents, featureFromPath, isFocusPath } from './design/system.ts'
 import {useRequestFocusExit} from "./contexts/FocusExitContext.tsx";
 import { useAdmobBanner } from './hooks/useAdmobBanner.ts'
@@ -62,6 +65,7 @@ export function App() {
                         pb: focusMode ? 0 : 'calc(66px + env(safe-area-inset-bottom))',
                     }}
                 >
+                    <Suspense fallback={null}>
                     <Routes>
                         <Route path="/" element={<Navigate to="/dictionary" replace />} />
                         <Route path="/dictionary" element={<DictionaryPage />} />
@@ -74,6 +78,7 @@ export function App() {
                         <Route path="/journal/new" element={<JournalNewPage />} />
                         <Route path="/privacy" element={<PrivacyPage />} />
                     </Routes>
+                    </Suspense>
                 </Box>
                 {!focusMode && (
                     <AppNavigation pathname={location.pathname} onNavigate={(path) => navigate(path)} />
