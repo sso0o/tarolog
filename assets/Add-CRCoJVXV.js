@@ -1,0 +1,1 @@
+import{N as e}from"./Typography-BfA_R6bY.js";import{o as t}from"./Paper-9gxBvAy9.js";var n=e(),r=t((0,n.jsx)(`path`,{d:`M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z`}),`Add`);export{r as t};
