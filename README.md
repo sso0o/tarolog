@@ -6,7 +6,7 @@
 
 ## 기술 스택
 
-React + TypeScript + Vite (SPA, 백엔드 없음) · localStorage(학습 진도) · GitHub Pages(배포) · Capacitor(안드로이드 앱)
+React + TypeScript + Vite (SPA, 백엔드 없음) · MUI + Emotion(UI) · react-router(라우팅) · dayjs(날짜) · localStorage(학습 진도) · GitHub Pages(배포) · Capacitor + AdMob(안드로이드 앱, 광고)
 
 ## 프로젝트 구조
 
