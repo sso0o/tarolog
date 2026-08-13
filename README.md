@@ -39,6 +39,7 @@ npm run build     # 프로덕션 빌드
 cd frontend
 node scripts/fetch-cards.mjs      # tarotapi.dev → data/cards.raw.json
 node scripts/fetch-images.mjs     # Wikimedia Commons → public/cards/*.jpg
+node scripts/optimize-images.mjs  # 카드 이미지 600px로 축소·재압축 (22MB → 10MB)
 # data/cards.raw.json을 data/cards.ko.json으로 번역(LLM 보조) 후:
 node scripts/validate-cards.mjs   # cards.ko.json 구조 검증
 ```
