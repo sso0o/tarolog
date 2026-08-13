@@ -2,6 +2,8 @@
 import { readFile } from 'node:fs/promises'
 
 const REQUIRED = ['id', 'nameEn', 'nameKo', 'arcana', 'suit', 'number', 'meaningUpKo', 'meaningRevKo', 'keywordsKo', 'image']
+const DETAIL_FIELDS = ['love', 'work', 'relationship', 'innerMind', 'health']
+const OX_VALUES = ['O', 'X', '△']
 const cards = JSON.parse(await readFile('data/cards.ko.json', 'utf-8'))
 const errors = []
 
@@ -20,6 +22,15 @@ for (const card of cards) {
     if (!card.meaningUpKo?.trim()) errors.push(`${card.id}: empty meaningUpKo`)
     if (!card.meaningRevKo?.trim()) errors.push(`${card.id}: empty meaningRevKo`)
     if (!Array.isArray(card.keywordsKo) || card.keywordsKo.length === 0) errors.push(`${card.id}: keywordsKo empty`)
+
+    for (const key of ['detailUp', 'detailRev']) {
+        const detail = card[key]
+        if (!detail) continue
+        for (const field of DETAIL_FIELDS) {
+            if (!detail[field]?.trim()) errors.push(`${card.id}: ${key}.${field} missing`)
+        }
+        if (!OX_VALUES.includes(detail.ox)) errors.push(`${card.id}: ${key}.ox invalid (${JSON.stringify(detail.ox)})`)
+    }
 }
 
 const majors = cards.filter((c) => c.arcana === 'major').length
