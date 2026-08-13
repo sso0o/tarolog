@@ -21,11 +21,13 @@ import { CardPicker } from '../components/journal/CardPicker.tsx'
 import { FocusLayout } from '../components/shared/FocusLayout.tsx'
 import { SetupSection } from '../components/shared/SetupSection.tsx'
 import { ExitConfirmDialog } from '../components/shared/ExitConfirmDialog.tsx'
+import { useInterstitialAd } from '../hooks/useInterstitialAd.ts'
 import type { SpreadTemplate, ReadingCard } from '../types/journal'
 import type { Card } from '../types/card'
 
 export function JournalNewPage() {
     const navigate = useNavigate()
+    const showThenRun = useInterstitialAd()
     const location = useLocation()
     const presetCardIds = (location.state as { presetCardIds?: string[] } | null)?.presetCardIds
     const [customSpreads, setCustomSpreads] = useState<SpreadTemplate[]>(getCustomSpreads)
@@ -75,18 +77,20 @@ export function JournalNewPage() {
     function handleSave() {
         setSaveFailed(false)
         if (!spread) return
-        try {
-            addReading({
-                createdAt: date.toISOString(),
-                question,
-                spread: { name: spread.name, positions: spread.positions },
-                cards: cardSlots.filter((s) => s.cardId !== ''),
-                interpretation,
-            })
-            navigate('/journal')
-        } catch {
-            setSaveFailed(true)
-        }
+        showThenRun(() => {
+            try {
+                addReading({
+                    createdAt: date.toISOString(),
+                    question,
+                    spread: { name: spread.name, positions: spread.positions },
+                    cards: cardSlots.filter((s) => s.cardId !== ''),
+                    interpretation,
+                })
+                navigate('/journal')
+            } catch {
+                setSaveFailed(true)
+            }
+        })
     }
 
     function handleRequestExit() {

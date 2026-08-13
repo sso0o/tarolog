@@ -11,6 +11,7 @@ import type { QuizQuestion, QuizType } from '../lib/quiz/quiz.ts'
 import { QuizSetup } from '../components/quiz/QuizSetup.tsx'
 import { QuizQuestionCard } from '../components/quiz/QuizQuestionCard.tsx'
 import { QuizResult } from '../components/quiz/QuizResult.tsx'
+import { useInterstitialAd } from '../hooks/useInterstitialAd.ts'
 import type { Card } from '../types/card'
 
 interface QuizSession {
@@ -22,6 +23,7 @@ interface QuizSession {
 
 export function QuizPage() {
     const navigate = useNavigate()
+    const showThenRun = useInterstitialAd()
     const allCards = useMemo(() => getAllCards(), [])
     const [session, setSession] = useState<QuizSession | null>(null)
     const [index, setIndex] = useState(0)
@@ -29,11 +31,13 @@ export function QuizPage() {
     const [confirmingEnd, setConfirmingEnd] = useState(false)
 
     function handleStart(pool: Card[], quizType: QuizType, direction: MeaningDirection, count: number) {
-        const questions = buildQuiz(pool, quizType, direction, count)
-        setSession({ questions, pool, quizType, direction })
-        setIndex(0)
-        setAnswers([])
-        navigate('/quiz/playing')
+        showThenRun(() => {
+            const questions = buildQuiz(pool, quizType, direction, count)
+            setSession({ questions, pool, quizType, direction })
+            setIndex(0)
+            setAnswers([])
+            navigate('/quiz/playing')
+        })
     }
 
     function handleAnswerChoice(choiceIndex: number) {
