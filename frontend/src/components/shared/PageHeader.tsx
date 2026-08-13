@@ -11,7 +11,15 @@ interface Props {
 export function PageHeader({ title, description, compact = false }: Props) {
     return (
         <Box component="header" sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-            <Typography variant={compact ? 'h3' : 'h1'} sx={compact ? undefined : { fontSize: { xs: '1.75rem', sm: '2.5rem' } }}>{title}</Typography>
+            <Typography
+                variant={compact ? 'h3' : 'h1'}
+                sx={compact ? undefined : {
+                    fontSize: { xs: '1.75rem', sm: '2.5rem' },
+                    '@media (max-width: 400px)': { fontSize: '1.5rem' },
+                }}
+            >
+                {title}
+            </Typography>
             {description && <Typography color="text.secondary">{description}</Typography>}
         </Box>
     )
