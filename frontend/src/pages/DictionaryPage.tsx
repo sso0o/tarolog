@@ -153,30 +153,23 @@ export function DictionaryPage() {
                     </Button>
                 </Box>
             )}
-            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <Typography variant="body2" color="text.secondary">
-                    {memorized === 'memorized'
-                        ? `${memorizedIds.size} / ${allCards.length}장 외웠어요`
-                        : `${visibleCards.length}장`}
-                </Typography>
-                <Box>
-                    <IconButton
-                        onClick={() => handleViewModeChange('grid')}
-                        color={viewMode === 'grid' ? 'primary' : 'inherit'}
-                        size="small"
-                        aria-label="그리드 뷰"
-                    >
-                        <GridViewIcon />
-                    </IconButton>
-                    <IconButton
-                        onClick={() => handleViewModeChange('list')}
-                        color={viewMode === 'list' ? 'primary' : 'inherit'}
-                        size="small"
-                        aria-label="리스트 뷰"
-                    >
-                        <ViewListIcon />
-                    </IconButton>
-                </Box>
+            <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+                <IconButton
+                    onClick={() => handleViewModeChange('grid')}
+                    color={viewMode === 'grid' ? 'primary' : 'inherit'}
+                    size="small"
+                    aria-label="그리드 뷰"
+                >
+                    <GridViewIcon />
+                </IconButton>
+                <IconButton
+                    onClick={() => handleViewModeChange('list')}
+                    color={viewMode === 'list' ? 'primary' : 'inherit'}
+                    size="small"
+                    aria-label="리스트 뷰"
+                >
+                    <ViewListIcon />
+                </IconButton>
             </Box>
             {selected && <CardDetail card={selected} onClose={() => setSelected(null)} />}
             {visibleCards.length === 0 ? (
