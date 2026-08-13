@@ -37,7 +37,7 @@ function PremiumDetailFields({ detail }: { detail: OrientationDetail }) {
     if (!isPremium()) {
         return (
             <Typography variant="caption" color="text.secondary">
-                {DETAIL_FIELDS.map(f => f.label).join('·')}: 유료판에서 확인 가능
+                {DETAIL_FIELDS.map(f => f.label).join('·')}는 Pro 에서!
             </Typography>
         )
     }
