@@ -2,6 +2,7 @@
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
+import { headingFontSizeSx } from '../../design/system.ts'
 
 interface Props {
     title: string
@@ -27,7 +28,7 @@ export function EmptyState({ title, description, actionLabel, onAction }: Props)
                 borderColor: 'text.primary',
             }}
         >
-            <Typography variant="h4">{title}</Typography>
+            <Typography variant="h1" sx={headingFontSizeSx}>{title}</Typography>
             <Typography color="text.secondary">{description}</Typography>
             {hasAction && (
                 <Button
