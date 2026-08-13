@@ -47,9 +47,13 @@ export function SpreadPicker({ open, customSpreads, minPositions, onSelect, onSp
     function handleCreate() {
         const positions = positionsInput.split(',').map((p) => p.trim()).filter(Boolean)
         if (!name.trim() || positions.length === 0) return
-        const spread = addCustomSpread({ name: name.trim(), positions })
-        onSpreadCreated?.(spread)
-        handlePick(spread)
+        try {
+            const spread = addCustomSpread({ name: name.trim(), positions })
+            onSpreadCreated?.(spread)
+            handlePick(spread)
+        } catch {
+            // localStorage 저장 실패 — 추가하지 않음
+        }
     }
 
     return (
