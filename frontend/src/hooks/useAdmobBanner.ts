@@ -3,10 +3,11 @@ import { useEffect } from 'react'
 import { Capacitor } from '@capacitor/core'
 import { AdMob, BannerAdPosition, BannerAdSize } from '@capacitor-community/admob'
 import { ADMOB_BANNER_AD_UNIT_ID } from '../lib/admobConfig'
+import { isPremium } from '../lib/shared/tier.ts'
 
 export function useAdmobBanner() {
     useEffect(() => {
-        if (!Capacitor.isNativePlatform()) return
+        if (!Capacitor.isNativePlatform() || isPremium()) return
 
         AdMob.initialize()
         AdMob.showBanner({
