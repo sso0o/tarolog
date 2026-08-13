@@ -1,6 +1,7 @@
-import { createHash } from 'node:crypto'
 import { describe, expect, it } from 'vitest'
 import cards from '../../../data/cards.ko.json'
+
+const expectedOx = [["ar00","긍정","부정"],["ar01","긍정","부정"],["ar02","모호함","부정"],["ar03","긍정","모호함"],["ar04","긍정","모호함"],["ar05","긍정","부정"],["ar06","긍정","모호함"],["ar07","긍정","부정"],["ar08","긍정","모호함"],["ar09","모호함","부정"],["ar10","긍정","모호함"],["ar11","긍정","부정"],["ar12","모호함","부정"],["ar13","모호함","부정"],["ar14","긍정","부정"],["ar15","부정","모호함"],["ar16","부정","모호함"],["ar17","긍정","모호함"],["ar18","부정","모호함"],["ar19","긍정","모호함"],["ar20","긍정","부정"],["ar21","긍정","모호함"],["waac","긍정","부정"],["wa02","모호함","부정"],["wa03","긍정","모호함"],["wa04","긍정","모호함"],["wa05","부정","부정"],["wa06","긍정","모호함"],["wa07","모호함","부정"],["wa08","긍정","부정"],["wa09","모호함","부정"],["wa10","부정","모호함"],["wapa","긍정","모호함"],["wakn","모호함","부정"],["waqu","긍정","모호함"],["waki","긍정","모호함"],["cuac","긍정","부정"],["cu02","긍정","모호함"],["cu03","긍정","모호함"],["cu04","부정","모호함"],["cu05","부정","모호함"],["cu06","긍정","모호함"],["cu07","부정","모호함"],["cu08","모호함","부정"],["cu09","긍정","모호함"],["cu10","긍정","모호함"],["cupa","모호함","부정"],["cukn","긍정","부정"],["cuqu","긍정","모호함"],["cuki","긍정","모호함"],["swac","긍정","부정"],["sw02","모호함","부정"],["sw03","부정","부정"],["sw04","모호함","긍정"],["sw05","부정","부정"],["sw06","긍정","모호함"],["sw07","부정","모호함"],["sw08","부정","모호함"],["sw09","부정","부정"],["sw10","부정","모호함"],["swpa","모호함","부정"],["swkn","모호함","부정"],["swqu","긍정","모호함"],["swki","긍정","모호함"],["peac","긍정","부정"],["pe02","모호함","부정"],["pe03","긍정","모호함"],["pe04","모호함","부정"],["pe05","부정","모호함"],["pe06","긍정","모호함"],["pe07","모호함","부정"],["pe08","긍정","모호함"],["pe09","긍정","모호함"],["pe10","긍정","모호함"],["pepa","모호함","부정"],["pekn","긍정","부정"],["pequ","긍정","모호함"],["peki","긍정","모호함"]]
 
 const expectedMeanings: Record<string, Partial<{ meaningUpKo: string; meaningRevKo: string }>> = {
   ar02: { meaningRevKo: '직관이 막히거나 내면의 목소리를 무시해 중요한 진실을 놓치는 상태.' },
@@ -41,10 +42,6 @@ describe('modern RWS card meanings', () => {
   })
 
   it('preserves every upright and reversed ox detail', () => {
-    const oxFingerprint = createHash('sha256')
-      .update(JSON.stringify(cards.map((card) => [card.id, card.detailUp.ox, card.detailRev.ox])))
-      .digest('hex')
-
-    expect(oxFingerprint).toBe('dba8938cc170e32c937fbd8cca72d0780e8c06cb8d4f43dfbe07fa0518f4b4a8')
+    expect(cards.map((card) => [card.id, card.detailUp.ox, card.detailRev.ox])).toEqual(expectedOx)
   })
 })
