@@ -4,10 +4,10 @@ import { searchCards, filterCards, filterByMemorized, selectStudyCards } from '.
 import type { Card } from '../../types/card.ts'
 
 const fixture: Card[] = [
-    { id: 'ar00', nameEn: 'The Fool', nameKo: '바보', arcana: 'major', suit: null, number: 0, meaningUpKo: '새로운 시작', meaningRevKo: '경솔함', keywordsKo: ['시작', '순수'], image: '/cards/ar00.jpg' },
-    { id: 'ar01', nameEn: 'The Magician', nameKo: '마법사', arcana: 'major', suit: null, number: 1, meaningUpKo: '창조와 의지', meaningRevKo: '기만', keywordsKo: ['능력', '의지'], image: '/cards/ar01.jpg' },
-    { id: 'wa01', nameEn: 'Ace of Wands', nameKo: '완드 에이스', arcana: 'minor', suit: 'wands', number: 1, meaningUpKo: '영감과 활력', meaningRevKo: '지연', keywordsKo: ['영감', '열정'], image: '/cards/wa01.jpg' },
-    { id: 'cu01', nameEn: 'Ace of Cups', nameKo: '컵 에이스', arcana: 'minor', suit: 'cups', number: 1, meaningUpKo: '새로운 감정', meaningRevKo: '억압된 감정', keywordsKo: ['사랑', '감정'], image: '/cards/cu01.jpg' },
+    { id: 'ar00', nameEn: 'The Fool', nameKo: '바보', arcana: 'major', suit: null, number: 0, meaningUpKo: '새로운 시작', meaningRevKo: '경솔함', keywordsUpKo: ['시작', '순수'], keywordsRevKo: ['부주의'], image: '/cards/ar00.jpg' },
+    { id: 'ar01', nameEn: 'The Magician', nameKo: '마법사', arcana: 'major', suit: null, number: 1, meaningUpKo: '창조와 의지', meaningRevKo: '기만', keywordsUpKo: ['능력', '의지'], keywordsRevKo: ['불안정'], image: '/cards/ar01.jpg' },
+    { id: 'wa01', nameEn: 'Ace of Wands', nameKo: '완드 에이스', arcana: 'minor', suit: 'wands', number: 1, meaningUpKo: '영감과 활력', meaningRevKo: '지연', keywordsUpKo: ['영감', '열정'], keywordsRevKo: ['지연'], image: '/cards/wa01.jpg' },
+    { id: 'cu01', nameEn: 'Ace of Cups', nameKo: '컵 에이스', arcana: 'minor', suit: 'cups', number: 1, meaningUpKo: '새로운 감정', meaningRevKo: '억압된 감정', keywordsUpKo: ['사랑', '감정'], keywordsRevKo: ['억압'], image: '/cards/cu01.jpg' },
 ]
 
 describe('searchCards', () => {
@@ -19,8 +19,12 @@ describe('searchCards', () => {
         expect(searchCards(fixture, 'fool')).toEqual([fixture[0]])
     })
 
-    it('matches keywords', () => {
+    it('matches upright keywords', () => {
         expect(searchCards(fixture, '열정')).toEqual([fixture[2]])
+    })
+
+    it('matches reversed keywords', () => {
+        expect(searchCards(fixture, '억압')).toEqual([fixture[3]])
     })
 
     it('returns all cards for an empty query', () => {

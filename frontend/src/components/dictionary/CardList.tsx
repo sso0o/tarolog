@@ -50,7 +50,7 @@ export function CardList({ cards, onSelect }: Props) {
                                 {card.nameKo}
                             </Typography>
                             <Typography variant="caption" color="text.secondary">
-                                {card.keywordsKo.slice(0, 3).join(' · ')}
+                                {card.keywordsUpKo.slice(0, 3).join(' · ')}
                             </Typography>
                         </Box>
                     </ListItemButton>

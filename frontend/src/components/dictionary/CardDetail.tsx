@@ -29,9 +29,6 @@ export function CardDetail({ card, onClose }: Props) {
                     />
                     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1, pt: 0.5 }}>
                         <Typography variant="h6">{card.nameKo}</Typography>
-                        <Typography variant="caption" color="text.secondary">
-                            {card.keywordsKo.join(', ')}
-                        </Typography>
                     </Box>
                 </Box>
                 <Divider sx={{ borderColor: 'text.primary' }} />
@@ -49,6 +46,9 @@ export function CardDetail({ card, onClose }: Props) {
                         }}
                     >
                         <Typography variant="body2" fontWeight={600}>정방향</Typography>
+                        <Typography variant="caption" color="text.secondary">
+                            {card.keywordsUpKo.join(', ')}
+                        </Typography>
                         <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.7 }}>{card.meaningUpKo}</Typography>
                     </Box>
                     <Box
@@ -64,6 +64,9 @@ export function CardDetail({ card, onClose }: Props) {
                         }}
                     >
                         <Typography variant="body2" fontWeight={600}>역방향</Typography>
+                        <Typography variant="caption" color="text.secondary">
+                            {card.keywordsRevKo.join(', ')}
+                        </Typography>
                         <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.7 }}>{card.meaningRevKo}</Typography>
                     </Box>
                 </Box>

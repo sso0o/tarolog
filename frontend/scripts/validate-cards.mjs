@@ -1,9 +1,9 @@
 // scripts/validate-cards.mjs
 import { readFile } from 'node:fs/promises'
 
-const REQUIRED = ['id', 'nameEn', 'nameKo', 'arcana', 'suit', 'number', 'meaningUpKo', 'meaningRevKo', 'keywordsKo', 'image']
-const DETAIL_FIELDS = ['love', 'work', 'relationship', 'innerMind', 'health']
-const OX_VALUES = ['O', 'X', '△']
+const REQUIRED = ['id', 'nameEn', 'nameKo', 'arcana', 'suit', 'number', 'meaningUpKo', 'meaningRevKo', 'keywordsUpKo', 'keywordsRevKo', 'image']
+const DETAIL_FIELDS = ['love', 'work', 'relationship', 'innerMind']
+const OX_VALUES = ['긍정', '부정', '모호함']
 const cards = JSON.parse(await readFile('data/cards.ko.json', 'utf-8'))
 const errors = []
 
@@ -21,7 +21,8 @@ for (const card of cards) {
     if (!card.nameKo?.trim()) errors.push(`${card.id}: empty nameKo`)
     if (!card.meaningUpKo?.trim()) errors.push(`${card.id}: empty meaningUpKo`)
     if (!card.meaningRevKo?.trim()) errors.push(`${card.id}: empty meaningRevKo`)
-    if (!Array.isArray(card.keywordsKo) || card.keywordsKo.length === 0) errors.push(`${card.id}: keywordsKo empty`)
+    if (!Array.isArray(card.keywordsUpKo) || card.keywordsUpKo.length === 0) errors.push(`${card.id}: keywordsUpKo empty`)
+    if (!Array.isArray(card.keywordsRevKo) || card.keywordsRevKo.length === 0) errors.push(`${card.id}: keywordsRevKo empty`)
 
     for (const key of ['detailUp', 'detailRev']) {
         const detail = card[key]
