@@ -12,8 +12,8 @@ import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 import dayjs from 'dayjs'
-import { useNavigate } from 'react-router'
-import { addReading } from '../lib/journal/journal.ts'
+import { useLocation, useNavigate } from 'react-router'
+import { addReading, fillPositionsWithCards } from '../lib/journal/journal.ts'
 import { getCustomSpreads } from '../lib/journal/spreads.ts'
 import { getAllCards } from '../lib/shared/cards.ts'
 import { SpreadPicker } from '../components/journal/SpreadPicker.tsx'
@@ -26,7 +26,9 @@ import type { Card } from '../types/card'
 
 export function JournalNewPage() {
     const navigate = useNavigate()
-    const customSpreads = useMemo(() => getCustomSpreads(), [])
+    const location = useLocation()
+    const presetCardIds = (location.state as { presetCardIds?: string[] } | null)?.presetCardIds
+    const [customSpreads, setCustomSpreads] = useState<SpreadTemplate[]>(getCustomSpreads)
     const allCards = useMemo(() => getAllCards(), [])
     const cardMap = useMemo(
         () => new Map<string, Card>(allCards.map((c) => [c.id, c])),
@@ -38,7 +40,7 @@ export function JournalNewPage() {
     const [spread, setSpread] = useState<SpreadTemplate | null>(null)
     const [cardSlots, setCardSlots] = useState<ReadingCard[]>([])
     const [interpretation, setInterpretation] = useState('')
-    const [spreadPickerOpen, setSpreadPickerOpen] = useState(false)
+    const [spreadPickerOpen, setSpreadPickerOpen] = useState(() => Boolean(presetCardIds && presetCardIds.length > 0))
     const [cardPickerPosition, setCardPickerPosition] = useState<string | null>(null)
     const [saveFailed, setSaveFailed] = useState(false)
     const [confirmingExit, setConfirmingExit] = useState(false)
@@ -50,7 +52,7 @@ export function JournalNewPage() {
 
     function handleSelectSpread(s: SpreadTemplate) {
         setSpread(s)
-        setCardSlots(s.positions.map((p) => ({ position: p, cardId: '', reversed: false })))
+        setCardSlots(fillPositionsWithCards(s.positions, presetCardIds ?? []))
     }
 
     function handleSelectCard(card: Card) {
@@ -233,7 +235,9 @@ export function JournalNewPage() {
                 <SpreadPicker
                     open={spreadPickerOpen}
                     customSpreads={customSpreads}
+                    minPositions={presetCardIds?.length}
                     onSelect={handleSelectSpread}
+                    onSpreadCreated={(s) => setCustomSpreads((prev) => [...prev, s])}
                     onClose={() => setSpreadPickerOpen(false)}
                 />
 
