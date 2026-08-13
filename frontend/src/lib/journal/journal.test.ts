@@ -1,6 +1,6 @@
 // src/lib/journal/journal.test.ts
 import { beforeEach, describe, expect, it, vi } from 'vitest'
-import { getReadings, getReadingById, addReading, deleteReading } from './journal.ts'
+import { getReadings, getReadingById, addReading, deleteReading, fillPositionsWithCards } from './journal.ts'
 import type { Reading } from '../../types/journal'
 
 const SAMPLE: Omit<Reading, 'id'> = {
@@ -73,5 +73,30 @@ describe('deleteReading', () => {
         deleteReading(toDelete.id)
         expect(getReadings()).toHaveLength(1)
         expect(getReadings()[0].question).toBe('남을 것')
+    })
+})
+
+describe('fillPositionsWithCards', () => {
+    it('카드 수와 포지션 수가 같으면 순서대로 채움', () => {
+        const result = fillPositionsWithCards(['과거', '현재', '미래'], ['ar00', 'ar01', 'wa01'])
+        expect(result).toEqual([
+            { position: '과거', cardId: 'ar00', reversed: false },
+            { position: '현재', cardId: 'ar01', reversed: false },
+            { position: '미래', cardId: 'wa01', reversed: false },
+        ])
+    })
+
+    it('카드 수가 포지션 수보다 적으면 남는 포지션은 빈 채로 둠', () => {
+        const result = fillPositionsWithCards(['과거', '현재', '미래'], ['ar00'])
+        expect(result).toEqual([
+            { position: '과거', cardId: 'ar00', reversed: false },
+            { position: '현재', cardId: '', reversed: false },
+            { position: '미래', cardId: '', reversed: false },
+        ])
+    })
+
+    it('카드 ID가 없으면 전부 빈 슬롯', () => {
+        const result = fillPositionsWithCards(['카드'], [])
+        expect(result).toEqual([{ position: '카드', cardId: '', reversed: false }])
     })
 })

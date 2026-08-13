@@ -13,7 +13,8 @@ function makeCard(id: string): Card {
         number: 0,
         meaningUpKo: `${id}-up`,
         meaningRevKo: `${id}-rev`,
-        keywordsKo: [],
+        keywordsUpKo: [],
+        keywordsRevKo: [],
         image: `/cards/${id}.jpg`,
     }
 }

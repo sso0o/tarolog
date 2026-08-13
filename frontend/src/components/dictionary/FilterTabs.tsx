@@ -7,12 +7,15 @@ import type { Arcana, Suit } from '../../types/card.ts'
 
 export type ArcanaFilter = Arcana | 'all'
 export type SuitFilter = Suit | 'all'
+export type MemorizedFilter = 'all' | 'memorized' | 'unmemorized'
 
 interface Props {
     arcana: ArcanaFilter
     suit: SuitFilter
+    memorized?: MemorizedFilter
     onArcanaChange: (arcana: ArcanaFilter) => void
     onSuitChange: (suit: SuitFilter) => void
+    onMemorizedChange?: (memorized: MemorizedFilter) => void
 }
 
 const ARCANA_OPTIONS: { value: ArcanaFilter; label: string }[] = [
@@ -29,7 +32,13 @@ const SUIT_OPTIONS: { value: SuitFilter; label: string }[] = [
     { value: 'pentacles', label: '펜타클' },
 ]
 
-export function FilterTabs({ arcana, suit, onArcanaChange, onSuitChange }: Props) {
+const MEMORIZED_OPTIONS: { value: MemorizedFilter; label: string }[] = [
+    { value: 'all', label: '전체' },
+    { value: 'memorized', label: '외운 카드' },
+    { value: 'unmemorized', label: '안 외운 카드' },
+]
+
+export function FilterTabs({ arcana, suit, memorized, onArcanaChange, onSuitChange, onMemorizedChange }: Props) {
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
@@ -64,6 +73,24 @@ export function FilterTabs({ arcana, suit, onArcanaChange, onSuitChange }: Props
                     ))}
                 </ToggleButtonGroup>
             </Box>
+            {memorized !== undefined && onMemorizedChange !== undefined && (
+                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+                    <Typography variant="overline">암기 진도</Typography>
+                    <ToggleButtonGroup
+                        value={memorized}
+                        exclusive
+                        onChange={(_, v: MemorizedFilter | null) => { if (v) onMemorizedChange(v) }}
+                        aria-label="암기 진도 필터"
+                        sx={{ display: 'flex', flexWrap: 'wrap' }}
+                    >
+                        {MEMORIZED_OPTIONS.map((opt) => (
+                            <ToggleButton key={opt.value} value={opt.value}>
+                                {opt.label}
+                            </ToggleButton>
+                        ))}
+                    </ToggleButtonGroup>
+                </Box>
+            )}
         </Box>
     )
 }

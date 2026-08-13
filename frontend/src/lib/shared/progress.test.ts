@@ -1,6 +1,6 @@
 // src/lib/progress.test.ts
 import { beforeEach, describe, expect, it, vi } from 'vitest'
-import { getMemorizedIds, isMemorized, toggleMemorized, markAllMemorized } from './progress.ts'
+import { getMemorizedIds, isMemorized, toggleMemorized, markAllMemorized, clearAllMemorized } from './progress.ts'
 
 beforeEach(() => {
     localStorage.clear()
@@ -55,6 +55,22 @@ describe('markAllMemorized', () => {
             throw new Error('storage disabled')
         })
         expect(() => markAllMemorized(['ar00'])).not.toThrow()
+        spy.mockRestore()
+    })
+})
+
+describe('clearAllMemorized', () => {
+    it('저장된 항목을 모두 지움', () => {
+        markAllMemorized(['ar00', 'ar01'])
+        clearAllMemorized()
+        expect(getMemorizedIds()).toEqual([])
+    })
+
+    it('localStorage.setItem 실패해도 throw하지 않음', () => {
+        const spy = vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
+            throw new Error('storage disabled')
+        })
+        expect(() => clearAllMemorized()).not.toThrow()
         spy.mockRestore()
     })
 })

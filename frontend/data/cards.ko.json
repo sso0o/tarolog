@@ -6,10 +6,25 @@
     "arcana": "major",
     "suit": null,
     "number": 0,
-    "meaningUpKo": "새로운 시작을 향한 순수하고 거침없는 발걸음. 두려움 없는 도전이지만 무모함으로 흐를 수 있다.",
-    "meaningRevKo": "부주의함과 무관심, 방향을 잃은 상태.",
-    "keywordsKo": ["새로운 시작", "순수", "자유", "무모함"],
-    "image": "/cards/ar00.jpg"
+    "meaningUpKo": "순수한 마음으로 미지의 가능성을 향해 믿음의 도약을 시작하는 자유로운 발걸음",
+    "meaningRevKo": "부주의함과 무관심, 방향을 잃은 상태",
+    "keywordsUpKo": ["새로운 시작", "순수", "자유", "믿음의 도약"],
+    "keywordsRevKo": ["부주의","무관심","방향 상실"],
+    "image": "/cards/ar00.jpg",
+    "detailUp": {
+      "love": "예측불가한 설렘, 계산 없이 다가가는 마음",
+      "work": "새로운 가능성을 믿고 낯선 분야에 첫발을 내딛는 시기",
+      "relationship": "격식 없이 편안하게 마음을 여는 관계",
+      "innerMind": "미지의 가능성을 믿고 가볍게 출발하는 기대감",
+      "ox": "긍정"
+    },
+    "detailRev": {
+      "love": "앞뒤 재지 않은 성급한 끌림, 곧 식을 수 있음",
+      "work": "무계획한 시작이 부르는 실수",
+      "relationship": "책임감 없이 발을 빼는 태도",
+      "innerMind": "불안을 못 본 척하는 회피",
+      "ox": "부정"
+    }
   },
   {
     "id": "ar01",
@@ -18,10 +33,25 @@
     "arcana": "major",
     "suit": null,
     "number": 1,
-    "meaningUpKo": "뛰어난 기술과 의지력으로 가진 것을 활용해 원하는 것을 창조해내는 능력.",
-    "meaningRevKo": "능력의 오용, 자신감 과잉에서 오는 불안정함.",
-    "keywordsKo": ["창조력", "의지", "능력", "자신감"],
-    "image": "/cards/ar01.jpg"
+    "meaningUpKo": "뛰어난 기술과 의지력으로 가진 것을 활용해 원하는 것을 창조해내는 능력",
+    "meaningRevKo": "능력의 오용, 자신감 과잉에서 오는 불안정함",
+    "keywordsUpKo": ["창조력", "의지", "능력", "자신감"],
+    "keywordsRevKo": ["능력 오용","자만","불안정"],
+    "image": "/cards/ar01.jpg",
+    "detailUp": {
+      "love": "적극적으로 다가가 마음을 얻어내는 매력",
+      "work": "능력을 발휘해 원하는 결과를 만들어내는 시기",
+      "relationship": "주도권을 쥐고 관계를 이끌어가는 태도",
+      "innerMind": "뭐든 해낼 수 있다는 자신감",
+      "ox": "긍정"
+    },
+    "detailRev": {
+      "love": "진심 없이 상대를 이용하려는 태도",
+      "work": "능력을 과신하다 그르치는 계획",
+      "relationship": "조종하려 들다 신뢰를 잃음",
+      "innerMind": "자신감이 과대망상으로 번짐",
+      "ox": "부정"
+    }
   },
   {
     "id": "ar02",
@@ -30,10 +60,25 @@
     "arcana": "major",
     "suit": null,
     "number": 2,
-    "meaningUpKo": "아직 드러나지 않은 비밀과 직관적 지혜. 침묵 속에서 진실을 지키는 태도.",
-    "meaningRevKo": "겉핥기식 지식과 절제되지 않은 감정.",
-    "keywordsKo": ["직관", "비밀", "지혜", "침묵"],
-    "image": "/cards/ar02.jpg"
+    "meaningUpKo": "아직 드러나지 않은 비밀과 직관적 지혜. 침묵 속에서 진실을 지키는 태도",
+    "meaningRevKo": "직관이 막히거나 내면의 목소리를 무시해 중요한 진실을 놓치는 상태",
+    "keywordsUpKo": ["직관", "비밀", "지혜", "침묵"],
+    "keywordsRevKo": ["직관 차단", "내면의 목소리 무시", "숨겨진 정보"],
+    "image": "/cards/ar02.jpg",
+    "detailUp": {
+      "love": "말하지 않아도 서로를 알아가는 조용한 끌림",
+      "work": "드러나지 않은 정보나 기회를 직관으로 포착",
+      "relationship": "겉으로 드러내지 않는 깊은 신뢰",
+      "innerMind": "답은 이미 내 안에 있다는 감각",
+      "ox": "모호함"
+    },
+    "detailRev": {
+      "love": "속내를 감추다 오해를 부르는 관계",
+      "work": "중요한 정보를 놓치거나 과신한 판단",
+      "relationship": "거리감이 벽처럼 느껴지는 관계",
+      "innerMind": "직관을 무시하고 감정에 휩쓸림",
+      "ox": "부정"
+    }
   },
   {
     "id": "ar03",
@@ -42,10 +87,25 @@
     "arcana": "major",
     "suit": null,
     "number": 3,
-    "meaningUpKo": "풍요와 생산성, 적극적인 실행력. 자연스러운 성장과 돌봄.",
-    "meaningRevKo": "밝혀지는 진실, 또는 우유부단함.",
-    "keywordsKo": ["풍요", "생산성", "돌봄", "성장"],
-    "image": "/cards/ar03.jpg"
+    "meaningUpKo": "풍요와 비옥함, 창조적인 가능성을 사랑으로 돌보며 자연스럽게 성장시키는 힘",
+    "meaningRevKo": "창조성이 막히고 자신을 돌보지 못하거나, 돌봄이 과잉보호와 의존으로 흐르는 상태",
+    "keywordsUpKo": ["풍요", "비옥함", "창조성", "돌봄"],
+    "keywordsRevKo": ["창조성 저하", "자기 돌봄 부족", "과잉보호", "의존"],
+    "image": "/cards/ar03.jpg",
+    "detailUp": {
+      "love": "넉넉하고 포근하게 상대를 품는 사랑",
+      "work": "아이디어가 결실로 이어지는 생산적인 시기",
+      "relationship": "서로를 돌보며 자라나는 관계",
+      "innerMind": "채워져 있다는 안정감과 여유",
+      "ox": "긍정"
+    },
+    "detailRev": {
+      "love": "상대에게 과하게 헌신하다 지치는 관계",
+      "work": "과로나 방만함으로 생산성이 떨어짐",
+      "relationship": "지나친 간섭이 부담으로 다가옴",
+      "innerMind": "채워지지 않는 결핍감",
+      "ox": "모호함"
+    }
   },
   {
     "id": "ar04",
@@ -54,10 +114,25 @@
     "arcana": "major",
     "suit": null,
     "number": 4,
-    "meaningUpKo": "안정과 권위를 바탕으로 한 통제력. 확고한 의지로 현실을 구축함.",
-    "meaningRevKo": "미성숙한 권위, 또는 관대함으로 누그러진 통제.",
-    "keywordsKo": ["권위", "안정", "통제", "실현"],
-    "image": "/cards/ar04.jpg"
+    "meaningUpKo": "안정과 권위를 바탕으로 한 통제력. 확고한 의지로 현실을 구축함",
+    "meaningRevKo": "권위가 독단과 경직으로 변하거나, 반대로 자신감과 규율이 부족해 통제력을 잃는 상태",
+    "keywordsUpKo": ["권위", "안정", "통제", "실현"],
+    "keywordsRevKo": ["독단", "경직", "통제력 상실", "규율 부족"],
+    "image": "/cards/ar04.jpg",
+    "detailUp": {
+      "love": "든든하게 관계를 이끌고 지켜주는 사랑",
+      "work": "체계를 세워 확실한 성과를 만들어내는 시기",
+      "relationship": "서로의 역할이 분명한 안정적인 관계",
+      "innerMind": "상황을 통제하고 있다는 확신",
+      "ox": "긍정"
+    },
+    "detailRev": {
+      "love": "지나친 통제가 숨 막히게 느껴지는 관계",
+      "work": "고집스러운 방식이 융통성을 잃게 함",
+      "relationship": "권위로 억누르려다 반발을 부름",
+      "innerMind": "완고함으로 유연함을 잃은 상태",
+      "ox": "모호함"
+    }
   },
   {
     "id": "ar05",
@@ -66,10 +141,25 @@
     "arcana": "major",
     "suit": null,
     "number": 5,
-    "meaningUpKo": "전통과 제도를 따르는 결합, 정신적 안내와 가르침.",
-    "meaningRevKo": "지나친 순응이나 우유부단한 관대함.",
-    "keywordsKo": ["전통", "가르침", "제도", "결합"],
-    "image": "/cards/ar05.jpg"
+    "meaningUpKo": "전통적 가치와 제도 안에서 정신적 안내와 교육을 받고 검증된 길을 따르는 태도",
+    "meaningRevKo": "관습에 의문을 품고 새로운 방식을 찾거나, 반대로 경직된 형식주의가 성장을 막는 상태",
+    "keywordsUpKo": ["전통적 가치", "정신적 안내", "교육", "제도"],
+    "keywordsRevKo": ["전통에 대한 도전", "새로운 방식", "형식주의", "개인적 신념"],
+    "image": "/cards/ar05.jpg",
+    "detailUp": {
+      "love": "정석대로, 안정적으로 발전하는 관계",
+      "work": "검증된 방식과 조언을 따르면 좋은 결과",
+      "relationship": "서로 다짐하고 약속을 다지는 관계",
+      "innerMind": "옳은 길을 따르고 있다는 안도감",
+      "ox": "긍정"
+    },
+    "detailRev": {
+      "love": "형식에 얽매여 답답하게 느껴지는 관계",
+      "work": "낡은 방식을 고집하다 기회를 놓침",
+      "relationship": "순응만 강요받는 일방적인 관계",
+      "innerMind": "관습에 얽매여 스스로를 억누름",
+      "ox": "부정"
+    }
   },
   {
     "id": "ar06",
@@ -78,10 +168,25 @@
     "arcana": "major",
     "suit": null,
     "number": 6,
-    "meaningUpKo": "끌림과 사랑, 시련을 넘어선 관계와 선택.",
-    "meaningRevKo": "잘못된 선택, 어긋난 관계.",
-    "keywordsKo": ["사랑", "끌림", "선택", "관계"],
-    "image": "/cards/ar06.jpg"
+    "meaningUpKo": "끌림과 사랑, 시련을 넘어선 관계와 선택",
+    "meaningRevKo": "잘못된 선택, 어긋난 관계",
+    "keywordsUpKo": ["사랑", "끌림", "선택", "관계"],
+    "keywordsRevKo": ["잘못된 선택","어긋난 관계","유혹"],
+    "image": "/cards/ar06.jpg",
+    "detailUp": {
+      "love": "강하게 끌리는 인연, 진심으로 마음을 나누는 시기",
+      "work": "가치관이 맞는 동료·파트너와의 좋은 협업",
+      "relationship": "깊은 신뢰와 조화로 이어지는 관계",
+      "innerMind": "이 사람(이 길)이 맞다는 확신",
+      "ox": "긍정"
+    },
+    "detailRev": {
+      "love": "갈등과 유혹 사이에서 흔들리는 관계",
+      "work": "손발이 안 맞는 협업, 잘못된 선택",
+      "relationship": "신뢰가 깨지거나 어긋난 관계",
+      "innerMind": "우유부단함으로 결정을 미루는 상태",
+      "ox": "모호함"
+    }
   },
   {
     "id": "ar07",
@@ -90,10 +195,25 @@
     "arcana": "major",
     "suit": null,
     "number": 7,
-    "meaningUpKo": "의지로 상반된 힘을 통제해 얻는 승리와 전진.",
-    "meaningRevKo": "통제력 상실, 방향을 잃은 다툼.",
-    "keywordsKo": ["승리", "전진", "통제", "의지"],
-    "image": "/cards/ar07.jpg"
+    "meaningUpKo": "의지로 상반된 힘을 통제해 얻는 승리와 전진",
+    "meaningRevKo": "통제력 상실, 방향을 잃은 다툼",
+    "keywordsUpKo": ["승리", "전진", "통제", "의지"],
+    "keywordsRevKo": ["통제력 상실","방향 상실","다툼"],
+    "image": "/cards/ar07.jpg",
+    "detailUp": {
+      "love": "망설임 없이 밀어붙여 얻어내는 관계",
+      "work": "강한 추진력으로 목표를 향해 질주",
+      "relationship": "함께 같은 방향으로 나아가는 관계",
+      "innerMind": "반드시 해낸다는 강한 의지",
+      "ox": "긍정"
+    },
+    "detailRev": {
+      "love": "밀어붙이기만 하다 엇나가는 관계",
+      "work": "방향을 잃고 제자리를 맴도는 계획",
+      "relationship": "주도권 다툼으로 삐걱대는 관계",
+      "innerMind": "조급함에 휘둘려 판단력이 흐려짐",
+      "ox": "부정"
+    }
   },
   {
     "id": "ar08",
@@ -102,10 +222,25 @@
     "arcana": "major",
     "suit": null,
     "number": 8,
-    "meaningUpKo": "부드러움으로 다스리는 강인함, 두려움을 이겨내는 용기와 인내.",
-    "meaningRevKo": "힘의 남용 또는 자신감 상실.",
-    "keywordsKo": ["용기", "인내", "내면의 힘", "자제력"],
-    "image": "/cards/ar08.jpg"
+    "meaningUpKo": "부드러움으로 다스리는 강인함, 두려움을 이겨내는 용기와 인내",
+    "meaningRevKo": "힘의 남용 또는 자신감 상실",
+    "keywordsUpKo": ["용기", "인내", "내면의 힘", "자제력"],
+    "keywordsRevKo": ["힘의 남용","자신감 상실","위축"],
+    "image": "/cards/ar08.jpg",
+    "detailUp": {
+      "love": "부드러움으로 상대의 마음을 움직이는 사랑",
+      "work": "압박 속에서도 침착하게 버텨내는 저력",
+      "relationship": "강요 없이 서로를 이끄는 성숙한 관계",
+      "innerMind": "두려움을 다스릴 수 있다는 용기",
+      "ox": "긍정"
+    },
+    "detailRev": {
+      "love": "감정을 억누르다 결국 폭발하는 관계",
+      "work": "자신감을 잃고 위축되는 상태",
+      "relationship": "힘겨루기로 지쳐가는 관계",
+      "innerMind": "스스로를 믿지 못하는 불안",
+      "ox": "모호함"
+    }
   },
   {
     "id": "ar09",
@@ -114,10 +249,25 @@
     "arcana": "major",
     "suit": null,
     "number": 9,
-    "meaningUpKo": "홀로 물러나 성찰하며 얻는 신중함과 내면의 빛.",
-    "meaningRevKo": "지나친 고립이나 근거 없는 경계.",
-    "keywordsKo": ["성찰", "신중함", "고독", "내면의 빛"],
-    "image": "/cards/ar09.jpg"
+    "meaningUpKo": "홀로 물러나 성찰하며 얻는 신중함과 내면의 빛",
+    "meaningRevKo": "지나친 고립이나 근거 없는 경계",
+    "keywordsUpKo": ["성찰", "신중함", "고독", "내면의 빛"],
+    "keywordsRevKo": ["과도한 고립","근거 없는 경계","불안"],
+    "image": "/cards/ar09.jpg",
+    "detailUp": {
+      "love": "서두르지 않고 신중하게 살피는 마음",
+      "work": "혼자만의 시간으로 답을 찾는 시기",
+      "relationship": "거리를 두되 서로를 존중하는 관계",
+      "innerMind": "스스로를 돌아보며 얻는 깨달음",
+      "ox": "모호함"
+    },
+    "detailRev": {
+      "love": "마음의 문을 닫고 홀로 있으려는 태도",
+      "work": "지나친 고립이 소통 단절로 이어짐",
+      "relationship": "거리감이 외로움으로 바뀜",
+      "innerMind": "근거 없는 불안과 의심에 사로잡힘",
+      "ox": "부정"
+    }
   },
   {
     "id": "ar10",
@@ -126,10 +276,25 @@
     "arcana": "major",
     "suit": null,
     "number": 10,
-    "meaningUpKo": "피할 수 없는 운명의 전환점, 상승하는 흐름.",
-    "meaningRevKo": "과도함, 또는 흐름이 정체되는 변화.",
-    "keywordsKo": ["운명", "전환점", "순환", "행운"],
-    "image": "/cards/ar10.jpg"
+    "meaningUpKo": "피할 수 없는 운명의 전환점, 상승하는 흐름",
+    "meaningRevKo": "예상 밖의 악재와 정체 속에서 흐름을 통제하려 하거나 변화에 저항하는 상태",
+    "keywordsUpKo": ["운명", "전환점", "순환", "행운"],
+    "keywordsRevKo": ["불운", "정체", "통제력 상실", "변화 저항"],
+    "image": "/cards/ar10.jpg",
+    "detailUp": {
+      "love": "뜻밖의 인연이 찾아오는 좋은 타이밍",
+      "work": "흐름을 타고 상황이 유리하게 바뀜",
+      "relationship": "자연스러운 계기로 가까워지는 관계",
+      "innerMind": "흐름에 몸을 맡기는 편안함",
+      "ox": "긍정"
+    },
+    "detailRev": {
+      "love": "좋았던 흐름이 갑자기 꺾이는 관계",
+      "work": "예상 밖의 변수로 계획이 틀어짐",
+      "relationship": "타이밍이 어긋나 스쳐 지나가는 인연",
+      "innerMind": "통제할 수 없는 상황에 대한 무력감",
+      "ox": "모호함"
+    }
   },
   {
     "id": "ar11",
@@ -138,10 +303,25 @@
     "arcana": "major",
     "suit": null,
     "number": 11,
-    "meaningUpKo": "공정한 판단과 원인에 따른 정당한 결과.",
-    "meaningRevKo": "편향된 판단이나 지나치게 가혹한 처사.",
-    "keywordsKo": ["공정", "균형", "인과", "판단"],
-    "image": "/cards/ar11.jpg"
+    "meaningUpKo": "공정한 판단과 원인에 따른 정당한 결과",
+    "meaningRevKo": "편향된 판단이나 지나치게 가혹한 처사",
+    "keywordsUpKo": ["공정", "균형", "인과", "판단"],
+    "keywordsRevKo": ["편향된 판단","가혹함","불공정"],
+    "image": "/cards/ar11.jpg",
+    "detailUp": {
+      "love": "서로에게 솔직하고 공평한 관계",
+      "work": "노력한 만큼 정당하게 인정받는 결과",
+      "relationship": "균형 잡힌, 어느 한쪽으로 치우치지 않는 관계",
+      "innerMind": "옳고 그름을 냉정하게 가려내는 명료함",
+      "ox": "긍정"
+    },
+    "detailRev": {
+      "love": "한쪽만 손해 보는 불공평한 관계",
+      "work": "부당한 평가나 결과로 억울함이 남음",
+      "relationship": "균형이 깨져 갈등이 불거지는 관계",
+      "innerMind": "편향된 판단으로 스스로를 속임",
+      "ox": "부정"
+    }
   },
   {
     "id": "ar12",
@@ -150,10 +330,25 @@
     "arcana": "major",
     "suit": null,
     "number": 12,
-    "meaningUpKo": "관점을 뒤바꾸는 자발적 희생과 그로부터 얻는 통찰.",
-    "meaningRevKo": "무의미한 희생, 또는 타인에게 휩쓸리는 태도.",
-    "keywordsKo": ["희생", "통찰", "전환", "기다림"],
-    "image": "/cards/ar12.jpg"
+    "meaningUpKo": "관점을 뒤바꾸는 자발적 희생과 그로부터 얻는 통찰",
+    "meaningRevKo": "무의미한 희생, 또는 타인에게 휩쓸리는 태도",
+    "keywordsUpKo": ["희생", "통찰", "전환", "기다림"],
+    "keywordsRevKo": ["무의미한 희생","휩쓸림","정체"],
+    "image": "/cards/ar12.jpg",
+    "detailUp": {
+      "love": "상대를 위해 기꺼이 감수하는 마음",
+      "work": "잠시 멈춰 다른 관점으로 상황을 바라봄",
+      "relationship": "한쪽의 배려로 유지되는 관계",
+      "innerMind": "내려놓았을 때 비로소 보이는 것들",
+      "ox": "모호함"
+    },
+    "detailRev": {
+      "love": "일방적인 희생만 계속되는 관계",
+      "work": "의미 없는 정체, 진전 없는 기다림",
+      "relationship": "끌려다니기만 하는 수동적인 관계",
+      "innerMind": "상황에 휩쓸려 스스로 결정하지 못함",
+      "ox": "부정"
+    }
   },
   {
     "id": "ar13",
@@ -162,10 +357,25 @@
     "arcana": "major",
     "suit": null,
     "number": 13,
-    "meaningUpKo": "하나의 국면이 완전히 끝나고 새로운 단계로 넘어가는 변화.",
-    "meaningRevKo": "변화에 저항하며 정체된 상태.",
-    "keywordsKo": ["끝", "변화", "전환", "재생"],
-    "image": "/cards/ar13.jpg"
+    "meaningUpKo": "하나의 국면이 완전히 끝나고 새로운 단계로 넘어가는 변화",
+    "meaningRevKo": "변화에 저항하며 정체된 상태",
+    "keywordsUpKo": ["끝", "변화", "전환", "재생"],
+    "keywordsRevKo": ["변화 저항","정체","미련"],
+    "image": "/cards/ar13.jpg",
+    "detailUp": {
+      "love": "한 시절이 끝나고 다른 국면으로 넘어감",
+      "work": "낡은 방식을 완전히 정리하고 새로 시작",
+      "relationship": "관계의 형태가 근본적으로 바뀜",
+      "innerMind": "끝을 받아들이고 다음으로 나아가는 용기",
+      "ox": "모호함"
+    },
+    "detailRev": {
+      "love": "끝내야 할 관계를 붙잡고 있는 미련",
+      "work": "변화를 거부하며 정체된 상태",
+      "relationship": "끝난 관계를 정리하지 못하는 상태",
+      "innerMind": "변화가 두려워 제자리에 머무름",
+      "ox": "부정"
+    }
   },
   {
     "id": "ar14",
@@ -174,10 +384,25 @@
     "arcana": "major",
     "suit": null,
     "number": 14,
-    "meaningUpKo": "서로 다른 요소를 조화시키는 균형과 절제.",
-    "meaningRevKo": "균형을 잃은 조합, 어울리지 않는 결합.",
-    "keywordsKo": ["균형", "조화", "절제", "치유"],
-    "image": "/cards/ar14.jpg"
+    "meaningUpKo": "서로 다른 요소를 조화시키는 균형과 절제",
+    "meaningRevKo": "균형을 잃은 조합, 어울리지 않는 결합",
+    "keywordsUpKo": ["균형", "조화", "절제", "치유"],
+    "keywordsRevKo": ["불균형","어울리지 않는 결합","부조화"],
+    "image": "/cards/ar14.jpg",
+    "detailUp": {
+      "love": "서두르지 않고 서서히 맞춰가는 관계",
+      "work": "여러 요소를 조율해 안정적으로 진행되는 일",
+      "relationship": "다름을 인정하며 조화를 이루는 관계",
+      "innerMind": "극단으로 치우치지 않는 차분한 마음",
+      "ox": "긍정"
+    },
+    "detailRev": {
+      "love": "서로 맞지 않아 삐걱대는 관계",
+      "work": "균형을 잃고 무리하게 진행되는 일",
+      "relationship": "엇박자가 계속되는 불편한 관계",
+      "innerMind": "절제하지 못하고 극단으로 치우침",
+      "ox": "부정"
+    }
   },
   {
     "id": "ar15",
@@ -186,10 +411,25 @@
     "arcana": "major",
     "suit": null,
     "number": 15,
-    "meaningUpKo": "스스로를 얽매는 집착과 물질적 속박.",
-    "meaningRevKo": "속박에서 벗어날 기회를 보지 못하는 무지.",
-    "keywordsKo": ["속박", "집착", "유혹", "물질주의"],
-    "image": "/cards/ar15.jpg"
+    "meaningUpKo": "스스로를 얽매는 집착과 물질적 속박",
+    "meaningRevKo": "속박을 알아차리고 집착이나 나쁜 습관에서 벗어나 통제력을 되찾는 과정",
+    "keywordsUpKo": ["속박", "집착", "유혹", "물질주의"],
+    "keywordsRevKo": ["해방", "집착 내려놓기", "통제력 회복", "자유"],
+    "image": "/cards/ar15.jpg",
+    "detailUp": {
+      "love": "벗어나기 힘든 집착적인 끌림",
+      "work": "눈앞의 이익에 얽매여 놓지 못하는 상황",
+      "relationship": "서로에게 의존하며 얽매인 관계",
+      "innerMind": "알면서도 끊어내지 못하는 유혹",
+      "ox": "부정"
+    },
+    "detailRev": {
+      "love": "얽매였던 관계에서 서서히 벗어남",
+      "work": "옭아맸던 상황에서 조금씩 자유로워짐",
+      "relationship": "집착을 내려놓기 시작하는 관계",
+      "innerMind": "속박을 알아차리고 벗어나려는 의지",
+      "ox": "모호함"
+    }
   },
   {
     "id": "ar16",
@@ -198,10 +438,25 @@
     "arcana": "major",
     "suit": null,
     "number": 16,
-    "meaningUpKo": "거짓 위에 세운 것이 갑작스럽게 무너지는 충격적 변화.",
-    "meaningRevKo": "같은 붕괴가 더 완만하거나 억눌린 형태로 나타남.",
-    "keywordsKo": ["붕괴", "충격", "급변", "각성"],
-    "image": "/cards/ar16.jpg"
+    "meaningUpKo": "거짓된 기반이 갑작스럽게 무너지며 충격 속에서 진실과 해방, 새로운 각성을 맞는 변화",
+    "meaningRevKo": "같은 붕괴가 더 완만하거나 억눌린 형태로 나타남",
+    "keywordsUpKo": ["갑작스러운 변화", "붕괴", "각성", "해방"],
+    "keywordsRevKo": ["완만한 붕괴","억눌린 충격","더딘 각성"],
+    "image": "/cards/ar16.jpg",
+    "detailUp": {
+      "love": "갑작스러운 이별이나 충격적인 폭로",
+      "work": "예고 없는 계획 붕괴, 급작스러운 변동",
+      "relationship": "거짓된 기반이 무너지며 관계의 진실이 드러나는 사건",
+      "innerMind": "그동안 외면했던 진실과 충돌하며 낡은 믿음에서 깨어남",
+      "ox": "부정"
+    },
+    "detailRev": {
+      "love": "곪아있던 문제가 서서히 드러남",
+      "work": "서서히 드러나는 위기, 아직 손쓸 여지는 있음",
+      "relationship": "완만하지만 피할 수 없는 균열",
+      "innerMind": "억눌러온 불안이 스멀스멀 올라옴",
+      "ox": "모호함"
+    }
   },
   {
     "id": "ar17",
@@ -210,10 +465,25 @@
     "arcana": "major",
     "suit": null,
     "number": 17,
-    "meaningUpKo": "상실 이후 찾아오는 희망과 회복의 빛.",
-    "meaningRevKo": "근거 없는 오만함, 무력감.",
-    "keywordsKo": ["희망", "치유", "영감", "회복"],
-    "image": "/cards/ar17.jpg"
+    "meaningUpKo": "어려움 뒤에 다시 찾아오는 희망과 영감, 영적 안내를 믿으며 회복하는 빛",
+    "meaningRevKo": "희망과 자신감을 잃고 회복이 더디거나 자신의 가능성을 믿지 못하는 상태",
+    "keywordsUpKo": ["희망", "영감", "영적 안내", "치유"],
+    "keywordsRevKo": ["희망 상실", "낙담", "자신감 부족", "회복 지연"],
+    "image": "/cards/ar17.jpg",
+    "detailUp": {
+      "love": "힘든 시간을 지나 다시 찾아오는 설렘",
+      "work": "지친 뒤 다시 떠오르는 좋은 아이디어와 기회",
+      "relationship": "상처를 딛고 회복되는 관계",
+      "innerMind": "더 나은 미래와 내면의 안내를 다시 믿는 희망",
+      "ox": "긍정"
+    },
+    "detailRev": {
+      "love": "기대만큼 채워지지 않는 아쉬운 관계",
+      "work": "확신 없이 흔들리는 계획",
+      "relationship": "회복이 더디게 느껴지는 관계",
+      "innerMind": "희망을 잃고 무력해지는 마음",
+      "ox": "모호함"
+    }
   },
   {
     "id": "ar18",
@@ -222,10 +492,25 @@
     "arcana": "major",
     "suit": null,
     "number": 18,
-    "meaningUpKo": "불확실함 속에서 마주하는 두려움과 착각.",
-    "meaningRevKo": "동요와 불안정함이 다소 누그러진 형태.",
-    "keywordsKo": ["불안", "환상", "무의식", "불확실함"],
-    "image": "/cards/ar18.jpg"
+    "meaningUpKo": "환상과 무의식의 두려움이 뒤섞인 불확실함 속에서 꿈과 직관으로 숨겨진 진실을 탐색하는 상태",
+    "meaningRevKo": "동요와 불안정함이 다소 누그러진 형태",
+    "keywordsUpKo": ["환상", "직관", "무의식", "숨겨진 진실"],
+    "keywordsRevKo": ["누그러진 불안","동요","점진적 안정"],
+    "image": "/cards/ar18.jpg",
+    "detailUp": {
+      "love": "환상과 직감이 뒤섞여 숨겨진 감정을 살펴야 하는 관계",
+      "work": "정보가 불명확해 직관을 따르되 사실 확인도 필요한 상황",
+      "relationship": "드러나지 않은 진실과 감정의 흐름을 살펴야 하는 관계",
+      "innerMind": "꿈과 무의식에서 올라오는 두려움과 직관을 함께 바라보는 마음",
+      "ox": "부정"
+    },
+    "detailRev": {
+      "love": "오해가 조금씩 풀리며 명확해지는 관계",
+      "work": "불확실했던 상황이 서서히 정리됨",
+      "relationship": "불안이 가라앉고 진실이 드러남",
+      "innerMind": "혼란스러웠던 마음이 조금씩 정리됨",
+      "ox": "모호함"
+    }
   },
   {
     "id": "ar19",
@@ -234,10 +519,25 @@
     "arcana": "major",
     "suit": null,
     "number": 19,
-    "meaningUpKo": "명료한 기쁨과 만족, 성취와 활력.",
-    "meaningRevKo": "같은 기쁨이 다소 약화된 형태로 나타남.",
-    "keywordsKo": ["기쁨", "성취", "활력", "명료함"],
-    "image": "/cards/ar19.jpg"
+    "meaningUpKo": "명료한 기쁨과 만족, 성취와 활력",
+    "meaningRevKo": "같은 기쁨이 다소 약화된 형태로 나타남",
+    "keywordsUpKo": ["기쁨", "성취", "활력", "명료함"],
+    "keywordsRevKo": ["약화된 기쁨","소소한 만족","더딘 성취"],
+    "image": "/cards/ar19.jpg",
+    "detailUp": {
+      "love": "숨김없이 밝고 즐거운 관계",
+      "work": "노력한 만큼 명확하게 드러나는 성과",
+      "relationship": "걱정 없이 편안하고 즐거운 관계",
+      "innerMind": "거리낌 없는 순수한 기쁨과 만족",
+      "ox": "긍정"
+    },
+    "detailRev": {
+      "love": "즐거움이 예전만 못한 관계",
+      "work": "성과가 기대보다 작게 느껴지는 상황",
+      "relationship": "밝음이 다소 옅어진 관계",
+      "innerMind": "만족감이 온전히 채워지지 않는 상태",
+      "ox": "모호함"
+    }
   },
   {
     "id": "ar20",
@@ -246,10 +546,25 @@
     "arcana": "major",
     "suit": null,
     "number": 20,
-    "meaningUpKo": "지난 일을 되돌아보고 새롭게 거듭나는 각성의 순간.",
-    "meaningRevKo": "결단력 부족, 또는 신중한 재고.",
-    "keywordsKo": ["각성", "재생", "결단", "용서"],
-    "image": "/cards/ar20.jpg"
+    "meaningUpKo": "지난 일을 되돌아보고 새롭게 거듭나는 각성의 순간",
+    "meaningRevKo": "내면의 부름과 각성을 외면하거나 스스로를 가혹하게 판단해 변화가 지연되는 상태",
+    "keywordsUpKo": ["각성", "재생", "결단", "용서"],
+    "keywordsRevKo": ["각성에 대한 저항", "가혹한 자기 판단", "내면의 부름 외면", "변화 지연"],
+    "image": "/cards/ar20.jpg",
+    "detailUp": {
+      "love": "지난 일을 정리하고 새롭게 다가서는 관계",
+      "work": "그동안의 노력을 인정받는 전환점",
+      "relationship": "오해를 풀고 화해하는 관계",
+      "innerMind": "지난 일을 되돌아보고 얻는 깨달음",
+      "ox": "긍정"
+    },
+    "detailRev": {
+      "love": "용서와 관계의 갱신을 거부한 채 과거의 패턴을 반복하는 관계",
+      "work": "자신에게 맞는 소명을 외면하거나 변화를 두려워하는 상황",
+      "relationship": "서로를 판단하며 화해와 새 출발의 기회를 놓치는 관계",
+      "innerMind": "스스로를 가혹하게 심판하며 내면의 목소리를 외면하는 마음",
+      "ox": "부정"
+    }
   },
   {
     "id": "ar21",
@@ -258,10 +573,25 @@
     "arcana": "major",
     "suit": null,
     "number": 21,
-    "meaningUpKo": "하나의 여정이 완성되는 성취와 통합.",
-    "meaningRevKo": "완결되지 못한 채 정체된 상태.",
-    "keywordsKo": ["완성", "성취", "통합", "여정의 끝"],
-    "image": "/cards/ar21.jpg"
+    "meaningUpKo": "하나의 여정이 완성되는 성취와 통합",
+    "meaningRevKo": "완결되지 못한 채 정체된 상태",
+    "keywordsUpKo": ["완성", "성취", "통합", "여정의 끝"],
+    "keywordsRevKo": ["미완성","정체","지연"],
+    "image": "/cards/ar21.jpg",
+    "detailUp": {
+      "love": "오랜 마음이 결실을 맺는 완성된 관계",
+      "work": "하나의 프로젝트나 목표가 완전히 마무리됨",
+      "relationship": "부족함 없이 완성된 신뢰의 관계",
+      "innerMind": "모든 것이 제자리를 찾은 충만함",
+      "ox": "긍정"
+    },
+    "detailRev": {
+      "love": "완성에 아직 이르지 못한 관계",
+      "work": "마무리 짓지 못하고 미뤄지는 일",
+      "relationship": "한 단계 더 나아가지 못하는 관계",
+      "innerMind": "아직 채워지지 않은 미완의 아쉬움",
+      "ox": "모호함"
+    }
   },
   {
     "id": "waac",
@@ -270,10 +600,25 @@
     "arcana": "minor",
     "suit": "wands",
     "number": 1,
-    "meaningUpKo": "새로운 시작을 알리는 창조적 에너지와 사업의 씨앗.",
-    "meaningRevKo": "동력을 잃고 무너지는 시작.",
-    "keywordsKo": ["시작", "창조", "열정", "동력"],
-    "image": "/cards/waac.jpg"
+    "meaningUpKo": "새로운 시작을 알리는 창조적 에너지와 사업의 씨앗",
+    "meaningRevKo": "동력을 잃고 무너지는 시작",
+    "keywordsUpKo": ["시작", "창조", "열정", "동력"],
+    "keywordsRevKo": ["동력 상실","무너진 시작","지연"],
+    "image": "/cards/waac.jpg",
+    "detailUp": {
+      "love": "뜨겁게 타오르는 새로운 호감",
+      "work": "열정을 쏟을 만한 새 프로젝트의 시작",
+      "relationship": "서로를 향한 에너지가 막 피어나는 단계",
+      "innerMind": "해보고 싶다는 순수한 열망",
+      "ox": "긍정"
+    },
+    "detailRev": {
+      "love": "시작되기도 전에 식어버리는 관심",
+      "work": "동력을 잃고 지지부진해지는 계획",
+      "relationship": "타이밍이 어긋나 진전이 없는 관계",
+      "innerMind": "의욕은 있지만 실행으로 이어지지 않는 답답함",
+      "ox": "부정"
+    }
   },
   {
     "id": "wa02",
@@ -282,10 +627,25 @@
     "arcana": "minor",
     "suit": "wands",
     "number": 2,
-    "meaningUpKo": "이룬 것을 내려다보며 다음 계획을 고민하는 상태.",
-    "meaningRevKo": "예상치 못한 변수에 흔들림.",
-    "keywordsKo": ["계획", "고민", "전망", "선택"],
-    "image": "/cards/wa02.jpg"
+    "meaningUpKo": "이룬 것을 내려다보며 다음 계획을 고민하는 상태",
+    "meaningRevKo": "계획이 부족하거나 변화와 실패가 두려워 결정을 미루고 행동하지 못하는 상태",
+    "keywordsUpKo": ["계획", "고민", "전망", "선택"],
+    "keywordsRevKo": ["계획 부족", "변화에 대한 두려움", "우유부단", "행동 지연"],
+    "image": "/cards/wa02.jpg",
+    "detailUp": {
+      "love": "다음 단계로 나아갈지 저울질하는 관계",
+      "work": "이룬 것을 바탕으로 다음 계획을 구상",
+      "relationship": "미래를 함께 그려보는 단계",
+      "innerMind": "더 큰 그림을 고민하는 신중함",
+      "ox": "모호함"
+    },
+    "detailRev": {
+      "love": "다음 단계로 나아가길 망설이는 관계",
+      "work": "계획만 반복하거나 준비 부족으로 기회를 놓치는 상황",
+      "relationship": "방향을 정하지 못해 답보 상태인 관계",
+      "innerMind": "결정을 미루며 불안해하는 마음",
+      "ox": "부정"
+    }
   },
   {
     "id": "wa03",
@@ -294,10 +654,25 @@
     "arcana": "minor",
     "suit": "wands",
     "number": 3,
-    "meaningUpKo": "사업이 순조롭게 확장되며 협력의 결실을 기다림.",
-    "meaningRevKo": "어려움이 끝나고 숨통이 트임.",
-    "keywordsKo": ["확장", "협력", "성과", "기다림"],
-    "image": "/cards/wa03.jpg"
+    "meaningUpKo": "앞을 내다보며 지평을 넓히고 장기적인 목표와 먼 곳에서 오는 기회를 향해 확장하는 상태",
+    "meaningRevKo": "진행이 지연되고 시야가 좁아져 확장에 장애를 겪는 상태",
+    "keywordsUpKo": ["확장", "선견지명", "장기 목표", "먼 곳의 기회"],
+    "keywordsRevKo": ["지연", "장애물", "시야 부족", "좌절"],
+    "image": "/cards/wa03.jpg",
+    "detailUp": {
+      "love": "관계가 한 단계 넓어지는 시기",
+      "work": "장기적인 전망을 바탕으로 사업과 활동 영역을 넓히는 시기",
+      "relationship": "함께 더 큰 그림을 그리는 관계",
+      "innerMind": "더 넓은 가능성을 내다보며 미래를 준비하는 기대감",
+      "ox": "긍정"
+    },
+    "detailRev": {
+      "love": "관계가 정체된 채 제자리인 상태",
+      "work": "확장이 더뎌지거나 협력이 삐걱거림",
+      "relationship": "기대만큼 나아가지 못하는 관계",
+      "innerMind": "기다림이 길어지며 지쳐가는 마음",
+      "ox": "모호함"
+    }
   },
   {
     "id": "wa04",
@@ -306,10 +681,25 @@
     "arcana": "minor",
     "suit": "wands",
     "number": 4,
-    "meaningUpKo": "안정과 조화 속에서 맞이하는 축하와 결실.",
-    "meaningRevKo": "같은 번영과 기쁨이 이어짐.",
-    "keywordsKo": ["축하", "안정", "조화", "결실"],
-    "image": "/cards/wa04.jpg"
+    "meaningUpKo": "안정과 조화 속에서 맞이하는 축하와 결실",
+    "meaningRevKo": "안정이 흔들리거나 축하가 미뤄지고 공동체 안의 조화가 깨지는 상태",
+    "keywordsUpKo": ["축하", "안정", "조화", "결실"],
+    "keywordsRevKo": ["축하 지연", "불안정", "가정 갈등", "소속감 부족"],
+    "image": "/cards/wa04.jpg",
+    "detailUp": {
+      "love": "함께 기념할 만한 좋은 소식이 있는 관계",
+      "work": "그동안의 노력이 결실을 맺는 안정기",
+      "relationship": "서로를 지지하며 안정된 관계",
+      "innerMind": "편안하고 조화로운 만족감",
+      "ox": "긍정"
+    },
+    "detailRev": {
+      "love": "축하할 일이 미뤄지거나 소소한 갈등이 있는 관계",
+      "work": "안정이 흔들리는 작은 변수 발생",
+      "relationship": "조화가 잠시 깨지는 시기",
+      "innerMind": "만족스럽지만 어딘가 불안한 마음",
+      "ox": "모호함"
+    }
   },
   {
     "id": "wa05",
@@ -318,10 +708,25 @@
     "arcana": "minor",
     "suit": "wands",
     "number": 5,
-    "meaningUpKo": "치열한 경쟁과 다툼, 목표를 향한 힘겨루기.",
-    "meaningRevKo": "갈등이 법적 다툼이나 기만으로 번짐.",
-    "keywordsKo": ["경쟁", "갈등", "힘겨루기", "다툼"],
-    "image": "/cards/wa05.jpg"
+    "meaningUpKo": "치열한 경쟁과 다툼, 목표를 향한 힘겨루기",
+    "meaningRevKo": "갈등을 피하거나 억누르면서 긴장이 안으로 쌓이거나, 경쟁이 파괴적으로 흐르는 상태",
+    "keywordsUpKo": ["경쟁", "갈등", "힘겨루기", "다툼"],
+    "keywordsRevKo": ["갈등 회피", "내적 갈등", "긴장", "파괴적 경쟁"],
+    "image": "/cards/wa05.jpg",
+    "detailUp": {
+      "love": "서로 주장을 굽히지 않는 다툼이 있는 관계",
+      "work": "치열한 경쟁 속에서 자리를 다투는 상황",
+      "relationship": "사소한 일로 자주 부딪히는 관계",
+      "innerMind": "지지 않으려는 팽팽한 긴장감",
+      "ox": "부정"
+    },
+    "detailRev": {
+      "love": "다툼이 법적 분쟁이나 큰 갈등으로 번짐",
+      "work": "경쟁이 부정한 방식으로 흐름",
+      "relationship": "갈등이 걷잡을 수 없이 커지는 관계",
+      "innerMind": "억울함과 분노가 쌓이는 상태",
+      "ox": "부정"
+    }
   },
   {
     "id": "wa06",
@@ -330,10 +735,25 @@
     "arcana": "minor",
     "suit": "wands",
     "number": 6,
-    "meaningUpKo": "노력이 인정받는 승리와 좋은 소식.",
-    "meaningRevKo": "승리가 늦춰지거나 배신의 불안.",
-    "keywordsKo": ["승리", "인정", "성취", "좋은 소식"],
-    "image": "/cards/wa06.jpg"
+    "meaningUpKo": "노력이 인정받는 승리와 좋은 소식",
+    "meaningRevKo": "성과를 인정받지 못하거나 자신감이 흔들려 승리가 지연되는 상태",
+    "keywordsUpKo": ["승리", "인정", "성취", "좋은 소식"],
+    "keywordsRevKo": ["인정 부족", "자신감 저하", "지연된 성공", "과도한 자부심"],
+    "image": "/cards/wa06.jpg",
+    "detailUp": {
+      "love": "주변에서도 인정하는 당당한 관계",
+      "work": "노력이 인정받아 승진이나 좋은 소식",
+      "relationship": "자랑스러워할 만한 관계",
+      "innerMind": "성취에서 오는 자신감",
+      "ox": "긍정"
+    },
+    "detailRev": {
+      "love": "인정받고 싶은 마음이 채워지지 않는 관계",
+      "work": "성과가 늦어지거나 공로를 인정받지 못함",
+      "relationship": "자랑거리였던 관계에 균열이 생김",
+      "innerMind": "자신감이 흔들리는 불안",
+      "ox": "모호함"
+    }
   },
   {
     "id": "wa07",
@@ -342,10 +762,25 @@
     "arcana": "minor",
     "suit": "wands",
     "number": 7,
-    "meaningUpKo": "불리해 보여도 유리한 위치에서 맞서는 용기.",
-    "meaningRevKo": "우유부단함에서 오는 불안.",
-    "keywordsKo": ["방어", "용기", "우위", "맞섬"],
-    "image": "/cards/wa07.jpg"
+    "meaningUpKo": "불리해 보여도 유리한 위치에서 맞서는 용기",
+    "meaningRevKo": "도전에 압도되어 쉽게 포기하거나 자신의 입장을 지킬 자신감을 잃은 상태",
+    "keywordsUpKo": ["방어", "용기", "우위", "맞섬"],
+    "keywordsRevKo": ["포기", "압도됨", "자신감 부족", "방어력 약화"],
+    "image": "/cards/wa07.jpg",
+    "detailUp": {
+      "love": "어려움에도 관계를 지키려는 의지",
+      "work": "불리한 상황에서도 유리한 위치를 지켜냄",
+      "relationship": "외부의 시선에도 흔들리지 않는 관계",
+      "innerMind": "밀리지 않겠다는 단단한 용기",
+      "ox": "모호함"
+    },
+    "detailRev": {
+      "love": "지켜낼 자신이 없어 흔들리는 관계",
+      "work": "도전에 압도되어 자신의 위치를 지키기 어려운 상황",
+      "relationship": "자신 없어 위축되는 관계",
+      "innerMind": "더는 버티기 어렵다는 압박과 자신감 상실",
+      "ox": "부정"
+    }
   },
   {
     "id": "wa08",
@@ -354,10 +789,25 @@
     "arcana": "minor",
     "suit": "wands",
     "number": 8,
-    "meaningUpKo": "빠르게 전개되며 목적지를 향해 나아가는 흐름.",
-    "meaningRevKo": "질투와 내부 갈등으로 흐름이 흐트러짐.",
-    "keywordsKo": ["속도", "진행", "전개", "임박함"],
-    "image": "/cards/wa08.jpg"
+    "meaningUpKo": "빠르게 전개되며 목적지를 향해 나아가는 흐름",
+    "meaningRevKo": "진행이 지연되고 소통이 막히며 조급함 때문에 흐름이 흐트러지는 상태",
+    "keywordsUpKo": ["속도", "진행", "전개", "임박함"],
+    "keywordsRevKo": ["지연", "소통 차단", "조급함", "흐름 정체"],
+    "image": "/cards/wa08.jpg",
+    "detailUp": {
+      "love": "빠르게 가까워지는 인연",
+      "work": "일이 빠르게 진행되며 곧 결과가 나옴",
+      "relationship": "급물살을 타는 관계 진전",
+      "innerMind": "곧 무언가 일어날 것 같은 설렘",
+      "ox": "긍정"
+    },
+    "detailRev": {
+      "love": "급하게 진행되다 오히려 어긋나는 관계",
+      "work": "질투나 내부 갈등으로 흐름이 흐트러짐",
+      "relationship": "속도 차이로 삐걱대는 관계",
+      "innerMind": "조급함이 부르는 실수",
+      "ox": "부정"
+    }
   },
   {
     "id": "wa09",
@@ -366,10 +816,25 @@
     "arcana": "minor",
     "suit": "wands",
     "number": 9,
-    "meaningUpKo": "지친 와중에도 경계를 늦추지 않는 저력.",
-    "meaningRevKo": "거듭된 장애로 지친 상태.",
-    "keywordsKo": ["저력", "경계", "인내", "방어"],
-    "image": "/cards/wa09.jpg"
+    "meaningUpKo": "지친 와중에도 경계를 늦추지 않는 저력",
+    "meaningRevKo": "거듭된 장애로 지친 상태",
+    "keywordsUpKo": ["저력", "경계", "인내", "방어"],
+    "keywordsRevKo": ["거듭된 장애","지침","방어적 태도"],
+    "image": "/cards/wa09.jpg",
+    "detailUp": {
+      "love": "지쳤어도 관계를 놓지 않는 끈기",
+      "work": "마지막까지 경계를 늦추지 않는 저력",
+      "relationship": "힘들어도 서로를 포기하지 않는 관계",
+      "innerMind": "지쳤지만 아직 버틸 수 있다는 의지",
+      "ox": "모호함"
+    },
+    "detailRev": {
+      "love": "지친 나머지 마음을 놓아버리는 관계",
+      "work": "거듭된 장애로 완전히 지쳐버린 상태",
+      "relationship": "더 이상 버틸 힘이 없는 관계",
+      "innerMind": "방어적이고 예민해진 마음",
+      "ox": "부정"
+    }
   },
   {
     "id": "wa10",
@@ -378,10 +843,25 @@
     "arcana": "minor",
     "suit": "wands",
     "number": 10,
-    "meaningUpKo": "성공했지만 그 무게에 짓눌리는 상태.",
-    "meaningRevKo": "부담이 얽히고설킨 문제로 번짐.",
-    "keywordsKo": ["부담", "과로", "책임", "압박"],
-    "image": "/cards/wa10.jpg"
+    "meaningUpKo": "성공했지만 그 무게에 짓눌리는 상태",
+    "meaningRevKo": "과중한 짐을 내려놓거나 다른 사람에게 책임을 나누는 한편, 필요한 책임을 회피할 수도 있는 상태",
+    "keywordsUpKo": ["부담", "과로", "책임", "압박"],
+    "keywordsRevKo": ["부담 내려놓기", "책임 위임", "짐 나누기", "책임 회피"],
+    "image": "/cards/wa10.jpg",
+    "detailUp": {
+      "love": "책임감에 짓눌려 버거운 관계",
+      "work": "성과는 있지만 과중한 업무에 지친 상태",
+      "relationship": "혼자 다 짊어지려는 관계",
+      "innerMind": "짐이 너무 많다고 느끼는 압박감",
+      "ox": "부정"
+    },
+    "detailRev": {
+      "love": "짐을 나누기 시작하며 조금씩 가벼워지는 관계",
+      "work": "부담을 내려놓거나 위임하기 시작함",
+      "relationship": "혼자 짊어지던 것을 나누는 관계",
+      "innerMind": "더는 못 버티겠다는 한계 신호",
+      "ox": "모호함"
+    }
   },
   {
     "id": "wapa",
@@ -390,10 +870,25 @@
     "arcana": "minor",
     "suit": "wands",
     "number": 11,
-    "meaningUpKo": "새로운 소식을 전하는 열정적이고 충직한 젊은이.",
-    "meaningRevKo": "불안정한 소식이나 우유부단함.",
-    "keywordsKo": ["소식", "열정", "호기심", "충직함"],
-    "image": "/cards/wapa.jpg"
+    "meaningUpKo": "젊은 열정과 호기심으로 새로운 가능성을 탐험하며 창조적인 영감과 소식을 전하는 에너지",
+    "meaningRevKo": "방향을 잃고 충동적으로 움직이거나 창조적인 소식과 영감이 막힌 상태",
+    "keywordsUpKo": ["열정", "탐험", "창조적 영감", "새로운 소식"],
+    "keywordsRevKo": ["방향 상실", "충동성", "막힌 소식", "산만한 열정"],
+    "image": "/cards/wapa.jpg",
+    "detailUp": {
+      "love": "설레는 소식이나 고백이 올 수 있는 시기",
+      "work": "새로운 기회나 창조적인 아이디어를 탐험하는 시기",
+      "relationship": "순수한 호기심으로 다가가는 관계",
+      "innerMind": "새로운 것에 대한 들뜬 호기심",
+      "ox": "긍정"
+    },
+    "detailRev": {
+      "love": "진심이 의심되는 불안정한 소식",
+      "work": "미덥지 않은 정보나 갑작스러운 취소",
+      "relationship": "마음을 정하지 못해 오락가락하는 태도",
+      "innerMind": "산만하고 결정을 미루는 마음",
+      "ox": "모호함"
+    }
   },
   {
     "id": "wakn",
@@ -402,10 +897,25 @@
     "arcana": "minor",
     "suit": "wands",
     "number": 12,
-    "meaningUpKo": "충동적으로 떠나거나 변화를 향해 돌진하는 태도.",
-    "meaningRevKo": "성급한 행동이 관계의 단절로 이어짐.",
-    "keywordsKo": ["출발", "모험", "충동", "변화"],
-    "image": "/cards/wakn.jpg"
+    "meaningUpKo": "충동적으로 떠나거나 변화를 향해 돌진하는 태도",
+    "meaningRevKo": "성급한 행동이 관계의 단절로 이어짐",
+    "keywordsUpKo": ["출발", "모험", "충동", "변화"],
+    "keywordsRevKo": ["성급함","단절","충동적 결정"],
+    "image": "/cards/wakn.jpg",
+    "detailUp": {
+      "love": "저돌적으로 다가오는 열정적인 상대",
+      "work": "과감하게 새로운 도전에 뛰어드는 시기",
+      "relationship": "변화를 두려워하지 않는 다이나믹한 관계",
+      "innerMind": "지금 당장 움직이고 싶은 충동",
+      "ox": "모호함"
+    },
+    "detailRev": {
+      "love": "성급하게 떠나버리는 관계",
+      "work": "충동적인 결정이 낭패로 이어짐",
+      "relationship": "갑작스러운 단절이나 다툼",
+      "innerMind": "감정을 다스리지 못하는 조급함",
+      "ox": "부정"
+    }
   },
   {
     "id": "waqu",
@@ -414,10 +924,25 @@
     "arcana": "minor",
     "suit": "wands",
     "number": 13,
-    "meaningUpKo": "따뜻하면서도 당당한, 사업에서도 성과를 내는 사람.",
-    "meaningRevKo": "질투나 불신으로 관계가 흔들림.",
-    "keywordsKo": ["자신감", "매력", "사교성", "성공"],
-    "image": "/cards/waqu.jpg"
+    "meaningUpKo": "따뜻하면서도 당당한, 사업에서도 성과를 내는 사람",
+    "meaningRevKo": "자신감을 잃고 질투에 사로잡히거나 매력과 영향력을 조종에 사용하는 상태",
+    "keywordsUpKo": ["자신감", "매력", "사교성", "성공"],
+    "keywordsRevKo": ["자신감 부족", "질투", "매력의 악용", "조종"],
+    "image": "/cards/waqu.jpg",
+    "detailUp": {
+      "love": "자신감 있게 매력을 발산하는 사랑",
+      "work": "활발한 사교성으로 성과를 이끌어내는 시기",
+      "relationship": "당당하면서도 따뜻하게 이끄는 관계",
+      "innerMind": "흔들리지 않는 단단한 자존감",
+      "ox": "긍정"
+    },
+    "detailRev": {
+      "love": "질투나 불신으로 흔들리는 관계",
+      "work": "자신감을 잃거나 영향력을 이용해 사람을 조종하려는 태도",
+      "relationship": "소유욕이 관계를 불편하게 만듦",
+      "innerMind": "불안을 감추려는 과한 자신감",
+      "ox": "모호함"
+    }
   },
   {
     "id": "waki",
@@ -426,10 +951,25 @@
     "arcana": "minor",
     "suit": "wands",
     "number": 14,
-    "meaningUpKo": "정직하고 책임감 있는 리더십, 뜻밖의 좋은 소식.",
-    "meaningRevKo": "엄격하지만 공정한 태도.",
-    "keywordsKo": ["리더십", "정직", "비전", "결단력"],
-    "image": "/cards/waki.jpg"
+    "meaningUpKo": "큰 그림을 보는 비전과 책임감으로 사람들을 이끄는 리더십",
+    "meaningRevKo": "독단과 권위 남용, 충동적인 결정으로 주변을 몰아붙이는 태도",
+    "keywordsUpKo": ["리더십", "정직", "비전", "결단력"],
+    "keywordsRevKo": ["독단", "권위 남용", "충동적 결정", "과도한 기대"],
+    "image": "/cards/waki.jpg",
+    "detailUp": {
+      "love": "확신을 갖고 이끄는 든든한 관계",
+      "work": "정직하고 비전 있는 리더십으로 좋은 결과",
+      "relationship": "신뢰를 바탕으로 이끄는 안정적인 관계",
+      "innerMind": "방향을 알고 나아가는 확신",
+      "ox": "긍정"
+    },
+    "detailRev": {
+      "love": "고집스러운 태도가 관계를 힘들게 함",
+      "work": "성급한 결단이 무리한 결과를 낳음",
+      "relationship": "엄격함이 부담으로 다가오는 관계",
+      "innerMind": "조급함이 판단을 흐리는 상태",
+      "ox": "모호함"
+    }
   },
   {
     "id": "cuac",
@@ -438,10 +978,25 @@
     "arcana": "minor",
     "suit": "cups",
     "number": 1,
-    "meaningUpKo": "새로운 감정과 관계가 시작되는 충만한 기쁨.",
-    "meaningRevKo": "감정이 흔들리거나 진심이 아닌 상태.",
-    "keywordsKo": ["새로운 감정", "기쁨", "충만함", "사랑"],
-    "image": "/cards/cuac.jpg"
+    "meaningUpKo": "새로운 감정과 관계가 시작되는 충만한 기쁨",
+    "meaningRevKo": "감정이 막히거나 억눌려 사랑을 표현하고 받아들이기 어려운 상태",
+    "keywordsUpKo": ["새로운 감정", "기쁨", "충만함", "사랑"],
+    "keywordsRevKo": ["감정 차단", "억눌린 감정", "사랑 표현의 어려움", "공허함"],
+    "image": "/cards/cuac.jpg",
+    "detailUp": {
+      "love": "벅차게 시작되는 새로운 사랑",
+      "work": "마음이 가는 일에서 얻는 충만한 만족",
+      "relationship": "진심이 오가는 새로운 관계의 시작",
+      "innerMind": "감정이 가득 차오르는 충만함",
+      "ox": "긍정"
+    },
+    "detailRev": {
+      "love": "감정을 표현하거나 상대의 사랑을 받아들이기 어려운 관계",
+      "work": "창의성과 열정이 막혀 마음을 쏟기 어려운 일",
+      "relationship": "감정을 억누른 채 마음이 오가지 않는 관계",
+      "innerMind": "감정이 억눌리거나 표현되지 못함",
+      "ox": "부정"
+    }
   },
   {
     "id": "cu02",
@@ -450,10 +1005,25 @@
     "arcana": "minor",
     "suit": "cups",
     "number": 2,
-    "meaningUpKo": "서로 이끌리며 맺어지는 조화로운 관계.",
-    "meaningRevKo": "욕망이나 질투로 흐려진 관계.",
-    "keywordsKo": ["결합", "사랑", "조화", "파트너십"],
-    "image": "/cards/cu02.jpg"
+    "meaningUpKo": "서로 이끌리며 맺어지는 조화로운 관계",
+    "meaningRevKo": "상호성이 깨지고 소통이 어긋나 관계의 균형과 신뢰가 흔들리는 상태",
+    "keywordsUpKo": ["결합", "사랑", "조화", "파트너십"],
+    "keywordsRevKo": ["불균형", "소통 단절", "긴장", "관계 불화"],
+    "image": "/cards/cu02.jpg",
+    "detailUp": {
+      "love": "서로 자연스럽게 이끌리는 조화로운 사랑",
+      "work": "손발이 잘 맞는 파트너십",
+      "relationship": "균형 잡힌 상호 신뢰의 관계",
+      "innerMind": "통한다는 느낌에서 오는 편안함",
+      "ox": "긍정"
+    },
+    "detailRev": {
+      "love": "욕망이나 오해로 흐려지는 관계",
+      "work": "협업에서 생기는 불균형",
+      "relationship": "질투나 불신이 스며드는 관계",
+      "innerMind": "통하지 않는다는 서운함",
+      "ox": "모호함"
+    }
   },
   {
     "id": "cu03",
@@ -462,10 +1032,25 @@
     "arcana": "minor",
     "suit": "cups",
     "number": 3,
-    "meaningUpKo": "함께 나누는 축하와 기쁨, 좋은 결실.",
-    "meaningRevKo": "지나친 향락으로 흐름.",
-    "keywordsKo": ["축하", "우정", "기쁨", "결실"],
-    "image": "/cards/cu03.jpg"
+    "meaningUpKo": "함께 나누는 축하와 기쁨, 좋은 결실",
+    "meaningRevKo": "공동체 안에서 갈등과 험담이 생기거나 소외되고, 관계가 피상적으로 흐르는 상태",
+    "keywordsUpKo": ["축하", "우정", "기쁨", "결실"],
+    "keywordsRevKo": ["집단 갈등", "소외", "험담", "피상적 관계"],
+    "image": "/cards/cu03.jpg",
+    "detailUp": {
+      "love": "주변의 축복 속에 무르익는 관계",
+      "work": "함께한 이들과 나누는 성과와 기쁨",
+      "relationship": "즐겁게 어울리는 우정 어린 관계",
+      "innerMind": "함께여서 더 커지는 기쁨",
+      "ox": "긍정"
+    },
+    "detailRev": {
+      "love": "주변 사람의 간섭이나 사회적 압력으로 흔들리는 관계",
+      "work": "팀 내 갈등과 정치로 협업이 어긋나는 상황",
+      "relationship": "험담과 질투가 오가거나 겉으로만 친한 관계",
+      "innerMind": "공동체에서 소외됐다고 느끼는 마음",
+      "ox": "모호함"
+    }
   },
   {
     "id": "cu04",
@@ -474,10 +1059,25 @@
     "arcana": "minor",
     "suit": "cups",
     "number": 4,
-    "meaningUpKo": "권태와 무기력 속에서 새로운 기회를 알아채지 못함.",
-    "meaningRevKo": "권태에서 벗어나 새로운 관계나 배움이 시작됨.",
-    "keywordsKo": ["권태", "무관심", "성찰", "새로운 기회"],
-    "image": "/cards/cu04.jpg"
+    "meaningUpKo": "권태와 무기력 속에서 새로운 기회를 알아채지 못함",
+    "meaningRevKo": "권태에서 벗어나 새로운 관계나 배움이 시작됨",
+    "keywordsUpKo": ["권태", "무관심", "성찰", "새로운 기회"],
+    "keywordsRevKo": ["권태 탈출","새로운 시작","깨어난 관심"],
+    "image": "/cards/cu04.jpg",
+    "detailUp": {
+      "love": "익숙함에 무감각해진 관계",
+      "work": "눈앞의 기회를 알아채지 못하는 권태",
+      "relationship": "서로에게 무관심해진 관계",
+      "innerMind": "이유 모를 권태와 무기력함",
+      "ox": "부정"
+    },
+    "detailRev": {
+      "love": "권태를 딛고 다시 관심이 생기는 관계",
+      "work": "새로운 기회나 배움이 시작됨",
+      "relationship": "무관심에서 벗어나 다시 다가서는 관계",
+      "innerMind": "무기력을 깨고 나오려는 의지",
+      "ox": "모호함"
+    }
   },
   {
     "id": "cu05",
@@ -486,10 +1086,25 @@
     "arcana": "minor",
     "suit": "cups",
     "number": 5,
-    "meaningUpKo": "잃은 것에 몰두하느라 아직 남은 것을 보지 못함.",
-    "meaningRevKo": "슬픔을 딛고 관계를 회복하거나 돌아옴.",
-    "keywordsKo": ["상실", "후회", "남은 것", "회복"],
-    "image": "/cards/cu05.jpg"
+    "meaningUpKo": "잃은 것에 몰두하느라 아직 남은 것을 보지 못함",
+    "meaningRevKo": "슬픔을 딛고 관계를 회복하거나 돌아옴",
+    "keywordsUpKo": ["상실", "후회", "남은 것", "회복"],
+    "keywordsRevKo": ["회복","재회","슬픔 극복"],
+    "image": "/cards/cu05.jpg",
+    "detailUp": {
+      "love": "잃은 것에 머물러 아직 아파하는 관계",
+      "work": "실패에 몰두해 남은 기회를 못 보는 상태",
+      "relationship": "후회 속에 머물러 있는 관계",
+      "innerMind": "잃은 것에 대한 미련과 슬픔",
+      "ox": "부정"
+    },
+    "detailRev": {
+      "love": "슬픔을 딛고 관계를 회복하거나 돌아옴",
+      "work": "실패를 딛고 다시 일어서는 시기",
+      "relationship": "화해나 재회의 가능성",
+      "innerMind": "슬픔에서 벗어나려는 회복력",
+      "ox": "모호함"
+    }
   },
   {
     "id": "cu06",
@@ -498,10 +1113,25 @@
     "arcana": "minor",
     "suit": "cups",
     "number": 6,
-    "meaningUpKo": "그리운 과거와 추억이 주는 따뜻함.",
-    "meaningRevKo": "과거 대신 다가올 새로움에 초점이 옮겨감.",
-    "keywordsKo": ["추억", "향수", "순수함", "과거"],
-    "image": "/cards/cu06.jpg"
+    "meaningUpKo": "그리운 과거와 추억이 주는 따뜻함",
+    "meaningRevKo": "과거와 추억을 지나치게 이상화해 현재에 머물지 못하고 앞으로 나아가지 못하는 상태",
+    "keywordsUpKo": ["추억", "향수", "순수함", "과거"],
+    "keywordsRevKo": ["과거에 갇힘", "잘못된 향수", "미련", "성장 정체"],
+    "image": "/cards/cu06.jpg",
+    "detailUp": {
+      "love": "옛 인연이나 순수했던 시절이 떠오르는 관계",
+      "work": "과거의 경험이나 인연에서 오는 도움",
+      "relationship": "오래된 친구처럼 편안한 관계",
+      "innerMind": "그리운 기억이 주는 따뜻함",
+      "ox": "긍정"
+    },
+    "detailRev": {
+      "love": "과거에 머물러 앞으로 나아가지 못하는 관계",
+      "work": "옛 방식에 얽매여 정체된 상태",
+      "relationship": "추억에만 의존하는 관계",
+      "innerMind": "과거를 놓지 못하는 미련",
+      "ox": "모호함"
+    }
   },
   {
     "id": "cu07",
@@ -510,10 +1140,25 @@
     "arcana": "minor",
     "suit": "cups",
     "number": 7,
-    "meaningUpKo": "많은 가능성 앞에서 몽상에 빠지는 상태.",
-    "meaningRevKo": "막연한 몽상이 구체적인 결심으로 바뀜.",
-    "keywordsKo": ["환상", "선택지", "몽상", "혼란"],
-    "image": "/cards/cu07.jpg"
+    "meaningUpKo": "많은 가능성 앞에서 몽상에 빠지는 상태",
+    "meaningRevKo": "막연한 몽상이 구체적인 결심으로 바뀜",
+    "keywordsUpKo": ["환상", "선택지", "몽상", "혼란"],
+    "keywordsRevKo": ["구체화된 결심","현실 직시","선택의 확정"],
+    "image": "/cards/cu07.jpg",
+    "detailUp": {
+      "love": "여러 마음 사이에서 갈피를 못 잡는 상태",
+      "work": "많은 선택지 앞에서 갈팡질팡하는 상황",
+      "relationship": "확신 없이 막연하게 그려보는 관계",
+      "innerMind": "현실감 없는 몽상에 빠진 마음",
+      "ox": "부정"
+    },
+    "detailRev": {
+      "love": "막연했던 마음이 하나로 정해지는 관계",
+      "work": "흩어졌던 생각이 구체적인 결심으로 바뀜",
+      "relationship": "애매했던 관계의 방향이 뚜렷해짐",
+      "innerMind": "몽상에서 벗어나 현실을 직시함",
+      "ox": "모호함"
+    }
   },
   {
     "id": "cu08",
@@ -522,10 +1167,25 @@
     "arcana": "minor",
     "suit": "cups",
     "number": 8,
-    "meaningUpKo": "더 큰 의미를 찾아 익숙한 것을 떠나는 선택.",
-    "meaningRevKo": "떠나지 않고 머무는 데서 오는 기쁨.",
-    "keywordsKo": ["떠남", "환멸", "탐색", "전환"],
-    "image": "/cards/cu08.jpg"
+    "meaningUpKo": "더 큰 의미를 찾아 익숙한 것을 떠나는 선택",
+    "meaningRevKo": "변화와 상실이 두려워 떠나지 못하거나, 이미 떠난 자리로 되돌아가는 상태",
+    "keywordsUpKo": ["떠남", "환멸", "탐색", "전환"],
+    "keywordsRevKo": ["변화에 대한 두려움", "회피", "미련", "되돌아감"],
+    "image": "/cards/cu08.jpg",
+    "detailUp": {
+      "love": "더 큰 의미를 찾아 관계를 떠나는 선택",
+      "work": "익숙한 자리를 떠나 새로운 길을 찾음",
+      "relationship": "채워지지 않아 등을 돌리는 관계",
+      "innerMind": "이대로는 안 되겠다는 결심",
+      "ox": "모호함"
+    },
+    "detailRev": {
+      "love": "떠나지 못하고 미련이 남는 관계",
+      "work": "익숙한 자리를 떠나지 못해 변화가 지연됨",
+      "relationship": "떠날지 남을지 계속 망설이는 관계",
+      "innerMind": "결단을 미루며 제자리를 맴도는 마음",
+      "ox": "부정"
+    }
   },
   {
     "id": "cu09",
@@ -534,10 +1194,25 @@
     "arcana": "minor",
     "suit": "cups",
     "number": 9,
-    "meaningUpKo": "바라던 것을 이룬 뒤 느끼는 만족감.",
-    "meaningRevKo": "만족이 다소 불완전하거나 조건부일 수 있음.",
-    "keywordsKo": ["만족", "성취", "안락함", "자족"],
-    "image": "/cards/cu09.jpg"
+    "meaningUpKo": "바라던 것을 이룬 뒤 느끼는 만족감",
+    "meaningRevKo": "만족이 다소 불완전하거나 조건부일 수 있음",
+    "keywordsUpKo": ["만족", "성취", "안락함", "자족"],
+    "keywordsRevKo": ["불완전한 만족","조건부 행복","아쉬움"],
+    "image": "/cards/cu09.jpg",
+    "detailUp": {
+      "love": "바라던 대로 만족스러운 관계",
+      "work": "원하던 결과를 이루고 느끼는 뿌듯함",
+      "relationship": "부족함 없이 편안한 관계",
+      "innerMind": "있는 그대로에 만족하는 마음",
+      "ox": "긍정"
+    },
+    "detailRev": {
+      "love": "겉으로만 만족스러워 보이는 관계",
+      "work": "성과가 기대에 못 미쳐 아쉬운 상황",
+      "relationship": "조건부로만 유지되는 관계",
+      "innerMind": "채워지지 않은 허전함",
+      "ox": "모호함"
+    }
   },
   {
     "id": "cu10",
@@ -546,10 +1221,25 @@
     "arcana": "minor",
     "suit": "cups",
     "number": 10,
-    "meaningUpKo": "가족과 사랑 안에서 느끼는 완전한 행복.",
-    "meaningRevKo": "겉보기와 달리 흔들리는 가정의 평화.",
-    "keywordsKo": ["행복", "가족", "화합", "정서적 충만"],
-    "image": "/cards/cu10.jpg"
+    "meaningUpKo": "가족과 사랑 안에서 느끼는 완전한 행복",
+    "meaningRevKo": "겉보기와 달리 흔들리는 가정의 평화",
+    "keywordsUpKo": ["행복", "가족", "화합", "정서적 충만"],
+    "keywordsRevKo": ["흔들리는 평화","숨겨진 갈등","겉치레"],
+    "image": "/cards/cu10.jpg",
+    "detailUp": {
+      "love": "오래도록 함께하고 싶은 안정된 사랑",
+      "work": "가족 같은 팀워크로 이루는 화합",
+      "relationship": "흔들림 없이 완전한 신뢰의 관계",
+      "innerMind": "부족함 없는 정서적 충만감",
+      "ox": "긍정"
+    },
+    "detailRev": {
+      "love": "겉으로만 평온해 보이는 관계",
+      "work": "겉으로는 화목해 보여도 속으로 삐걱대는 팀",
+      "relationship": "갈등을 숨기고 있는 가족 같은 관계",
+      "innerMind": "완전해 보이지만 흔들리는 마음",
+      "ox": "모호함"
+    }
   },
   {
     "id": "cupa",
@@ -558,10 +1248,25 @@
     "arcana": "minor",
     "suit": "cups",
     "number": 11,
-    "meaningUpKo": "감수성이 풍부하고 상상력 넘치는 메시지의 전달자.",
-    "meaningRevKo": "감정에 쉽게 휘둘리거나 속기 쉬움.",
-    "keywordsKo": ["상상력", "소식", "감수성", "호기심"],
-    "image": "/cards/cupa.jpg"
+    "meaningUpKo": "새로운 감정과 창조적 영감에 열려 있으며 직관적인 메시지를 받아들이는 순수한 감수성",
+    "meaningRevKo": "창조성과 직관이 막히고 감정적으로 미숙해 내면의 메시지를 외면하는 상태",
+    "keywordsUpKo": ["감정의 메시지", "창조적 영감", "직관", "순수한 감수성"],
+    "keywordsRevKo": ["창조성 차단", "감정적 미숙함", "직관 무시", "예민함"],
+    "image": "/cards/cupa.jpg",
+    "detailUp": {
+      "love": "감성적이고 순수한 고백이나 소식",
+      "work": "창의적인 아이디어나 제안이 들어옴",
+      "relationship": "여리고 다정하게 다가오는 관계",
+      "innerMind": "상상력과 직관에서 새로운 메시지를 받아들이는 열린 마음",
+      "ox": "모호함"
+    },
+    "detailRev": {
+      "love": "감정에 휘둘려 쉽게 속거나 상처받는 관계",
+      "work": "창의적인 아이디어가 막히거나 미숙한 판단을 하는 상황",
+      "relationship": "감정 기복이 심해 불안정한 관계",
+      "innerMind": "직관의 신호를 무시하고 감정에 휘둘리는 마음",
+      "ox": "부정"
+    }
   },
   {
     "id": "cukn",
@@ -570,10 +1275,25 @@
     "arcana": "minor",
     "suit": "cups",
     "number": 12,
-    "meaningUpKo": "낭만적인 제안이나 초대를 들고 다가옴.",
-    "meaningRevKo": "겉모습에 속기 쉬운 기만.",
-    "keywordsKo": ["낭만", "제안", "이상주의", "매력"],
-    "image": "/cards/cukn.jpg"
+    "meaningUpKo": "감정적 진실과 이상을 따라 용기 있게 행동하며 사랑과 창조적인 꿈을 추구하는 태도",
+    "meaningRevKo": "비현실적인 꿈에 빠지거나 감정을 이용해 상대를 조종하고 결과를 생각하지 않고 행동하는 상태",
+    "keywordsUpKo": ["낭만적 추구", "감정적 행동", "꿈을 따름", "이상주의"],
+    "keywordsRevKo": ["비현실적 이상", "감정적 조종", "충동적 행동", "결과 무시"],
+    "image": "/cards/cukn.jpg",
+    "detailUp": {
+      "love": "낭만적인 고백이나 데이트 제안",
+      "work": "마음이 이끄는 창조적인 목표나 꿈의 일을 향해 움직임",
+      "relationship": "로맨틱하고 다정하게 다가오는 관계",
+      "innerMind": "현실적 계산보다 감정의 진실과 꿈을 따르려는 용기",
+      "ox": "긍정"
+    },
+    "detailRev": {
+      "love": "낭만적인 말로 상대를 움직이거나 현실을 외면하는 관계",
+      "work": "감정에 이끌려 결과를 고려하지 않고 선택하는 상황",
+      "relationship": "비현실적인 기대나 감정적 조종이 오가는 관계",
+      "innerMind": "현실보다 이상에 치우친 판단",
+      "ox": "부정"
+    }
   },
   {
     "id": "cuqu",
@@ -582,10 +1302,25 @@
     "arcana": "minor",
     "suit": "cups",
     "number": 13,
-    "meaningUpKo": "직관적이고 헌신적인, 감정을 깊이 이해하는 사람.",
-    "meaningRevKo": "감정이 왜곡되거나 신뢰를 저버림.",
-    "keywordsKo": ["공감", "직관", "헌신", "돌봄"],
-    "image": "/cards/cuqu.jpg"
+    "meaningUpKo": "직관적이고 헌신적인, 감정을 깊이 이해하는 사람",
+    "meaningRevKo": "타인의 감정에 압도되거나 공의존에 빠져 자신의 경계와 돌봄을 잃는 상태",
+    "keywordsUpKo": ["공감", "직관", "헌신", "돌봄"],
+    "keywordsRevKo": ["감정적 압도", "공의존", "경계 상실", "자기 돌봄 부족"],
+    "image": "/cards/cuqu.jpg",
+    "detailUp": {
+      "love": "상대의 감정을 깊이 헤아리는 다정한 사랑",
+      "work": "공감 능력을 살린 상담·돌봄 분야에서 빛을 발함",
+      "relationship": "서로를 있는 그대로 받아주는 편안한 관계",
+      "innerMind": "감정을 있는 그대로 받아들이는 성숙함",
+      "ox": "긍정"
+    },
+    "detailRev": {
+      "love": "감정에 휩쓸려 상대에게 지나치게 의존함",
+      "work": "사적인 감정이 업무 판단을 흐림",
+      "relationship": "서운함을 쌓아두다 한꺼번에 터뜨림",
+      "innerMind": "스스로의 감정에 압도돼 혼란스러움",
+      "ox": "모호함"
+    }
   },
   {
     "id": "cuki",
@@ -594,10 +1329,25 @@
     "arcana": "minor",
     "suit": "cups",
     "number": 14,
-    "meaningUpKo": "감정을 다스릴 줄 아는 노련하고 관대한 리더.",
-    "meaningRevKo": "감정을 이용하거나 신뢰를 저버리는 태도.",
-    "keywordsKo": ["침착함", "관대함", "조언", "감정 조절"],
-    "image": "/cards/cuki.jpg"
+    "meaningUpKo": "감정을 다스릴 줄 아는 노련하고 관대한 리더",
+    "meaningRevKo": "감정을 이용하거나 신뢰를 저버리는 태도",
+    "keywordsUpKo": ["침착함", "관대함", "조언", "감정 조절"],
+    "keywordsRevKo": ["감정 이용","신뢰 저버림","이중적 태도"],
+    "image": "/cards/cuki.jpg",
+    "detailUp": {
+      "love": "감정을 다스릴 줄 아는 안정적인 사랑",
+      "work": "침착한 판단으로 신뢰를 얻는 시기",
+      "relationship": "너그럽게 감싸주는 관대한 관계",
+      "innerMind": "흔들려도 중심을 잃지 않는 침착함",
+      "ox": "긍정"
+    },
+    "detailRev": {
+      "love": "감정을 이용하거나 진심을 숨기는 관계",
+      "work": "겉으로는 침착해도 속으로 흔들리는 판단",
+      "relationship": "신뢰를 저버리는 태도로 실망을 줌",
+      "innerMind": "감정을 억누르다 결국 흔들리는 마음",
+      "ox": "모호함"
+    }
   },
   {
     "id": "swac",
@@ -606,10 +1356,25 @@
     "arcana": "minor",
     "suit": "swords",
     "number": 1,
-    "meaningUpKo": "명료한 통찰과 강한 의지로 얻는 결정적 승리.",
-    "meaningRevKo": "같은 힘이 파괴적으로 작용하거나 새로운 국면의 시작.",
-    "keywordsKo": ["통찰", "명료함", "결단", "돌파구"],
-    "image": "/cards/swac.jpg"
+    "meaningUpKo": "혼란을 가르는 정신적 명료함과 새로운 통찰로 진실을 드러내는 돌파구",
+    "meaningRevKo": "생각이 혼란스럽거나 판단력이 막히고, 지적 힘이 날카롭고 파괴적으로 오용되는 상태",
+    "keywordsUpKo": ["정신적 명료함", "돌파구", "진실", "새로운 통찰"],
+    "keywordsRevKo": ["혼란", "판단 오류", "명료함 부족", "힘의 오용"],
+    "image": "/cards/swac.jpg",
+    "detailUp": {
+      "love": "마음을 분명히 정리하고 다가서는 관계",
+      "work": "명료한 판단으로 돌파구를 찾는 시기",
+      "relationship": "오해 없이 명확하게 소통하는 관계",
+      "innerMind": "흐릿했던 것이 선명해지는 통찰",
+      "ox": "긍정"
+    },
+    "detailRev": {
+      "love": "냉정한 말이 관계에 상처를 남김",
+      "work": "판단력이 오히려 파괴적으로 작용함",
+      "relationship": "날카로운 말로 벌어지는 갈등",
+      "innerMind": "명료함이 지나쳐 냉혹해지는 마음",
+      "ox": "부정"
+    }
   },
   {
     "id": "sw02",
@@ -618,10 +1383,25 @@
     "arcana": "minor",
     "suit": "swords",
     "number": 2,
-    "meaningUpKo": "진실을 마주하지 않은 채 억지로 유지하는 균형.",
-    "meaningRevKo": "억눌러온 갈등이 거짓과 배신으로 드러남.",
-    "keywordsKo": ["교착상태", "회피", "균형", "결정 보류"],
-    "image": "/cards/sw02.jpg"
+    "meaningUpKo": "진실을 마주하지 않은 채 억지로 유지하는 균형",
+    "meaningRevKo": "정보와 감정이 뒤엉켜 선택이 더 어려워지거나, 미뤄온 결정을 더는 피할 수 없는 상태",
+    "keywordsUpKo": ["교착상태", "회피", "균형", "결정 보류"],
+    "keywordsRevKo": ["혼란", "결정 압박", "정보 과부하", "회피의 끝"],
+    "image": "/cards/sw02.jpg",
+    "detailUp": {
+      "love": "마음을 정하지 못하고 미루는 관계",
+      "work": "결정을 내리지 못한 채 정체된 상황",
+      "relationship": "진실을 마주하지 않고 유지되는 관계",
+      "innerMind": "애써 균형을 잡고 있지만 불안한 마음",
+      "ox": "모호함"
+    },
+    "detailRev": {
+      "love": "억눌러온 갈등이 거짓이나 배신으로 드러남",
+      "work": "미뤄왔던 문제가 결국 터짐",
+      "relationship": "감춰졌던 갈등이 표면화되는 관계",
+      "innerMind": "회피하던 진실과 마주하게 됨",
+      "ox": "부정"
+    }
   },
   {
     "id": "sw03",
@@ -630,10 +1410,25 @@
     "arcana": "minor",
     "suit": "swords",
     "number": 3,
-    "meaningUpKo": "가슴을 찌르는 상처와 이별의 아픔.",
-    "meaningRevKo": "상처가 혼란과 착란으로 이어짐.",
-    "keywordsKo": ["상처", "이별", "슬픔", "단절"],
-    "image": "/cards/sw03.jpg"
+    "meaningUpKo": "가슴을 찌르는 상처와 이별의 아픔",
+    "meaningRevKo": "아픔을 받아들이고 용서와 회복을 통해 상처를 놓아주는 과정",
+    "keywordsUpKo": ["상처", "이별", "슬픔", "단절"],
+    "keywordsRevKo": ["회복", "용서", "상처 해소", "앞으로 나아감"],
+    "image": "/cards/sw03.jpg",
+    "detailUp": {
+      "love": "가슴 아픈 이별이나 배신",
+      "work": "실망스러운 결과로 인한 상처",
+      "relationship": "신뢰가 깨지며 벌어지는 단절",
+      "innerMind": "마음 깊이 남는 아픔과 슬픔",
+      "ox": "부정"
+    },
+    "detailRev": {
+      "love": "아픔을 받아들이며 이별이나 배신의 상처를 놓아가는 관계",
+      "work": "실망과 좌절을 정리하고 다시 앞으로 나아가는 시기",
+      "relationship": "쌓인 상처를 인정하고 용서와 회복을 시도하는 관계",
+      "innerMind": "슬픔을 충분히 마주한 뒤 조금씩 평온을 되찾는 마음",
+      "ox": "부정"
+    }
   },
   {
     "id": "sw04",
@@ -642,10 +1437,25 @@
     "arcana": "minor",
     "suit": "swords",
     "number": 4,
-    "meaningUpKo": "싸움을 멈추고 물러나 회복하는 휴식.",
-    "meaningRevKo": "신중한 대비와 관리.",
-    "keywordsKo": ["휴식", "회복", "물러남", "재정비"],
-    "image": "/cards/sw04.jpg"
+    "meaningUpKo": "싸움을 멈추고 물러나 회복하는 휴식",
+    "meaningRevKo": "충분히 쉬지 못해 불안과 번아웃이 쌓이거나, 휴식을 마치고 다시 움직이는 상태",
+    "keywordsUpKo": ["휴식", "회복", "물러남", "재정비"],
+    "keywordsRevKo": ["불안", "번아웃", "휴식 부족", "활동 재개"],
+    "image": "/cards/sw04.jpg",
+    "detailUp": {
+      "love": "잠시 거리를 두고 숨을 고르는 관계",
+      "work": "무리하지 않고 재정비하는 시기",
+      "relationship": "서로 잠시 물러나 회복하는 관계",
+      "innerMind": "조용히 쉬며 마음을 다스리는 시간",
+      "ox": "모호함"
+    },
+    "detailRev": {
+      "love": "쉬어도 여전히 불안한 관계",
+      "work": "재정비가 끝나고 다시 움직일 준비",
+      "relationship": "거리를 좁히며 다시 다가서는 관계",
+      "innerMind": "충분히 쉬고 다시 나아갈 준비가 된 마음",
+      "ox": "긍정"
+    }
   },
   {
     "id": "sw05",
@@ -654,10 +1464,25 @@
     "arcana": "minor",
     "suit": "swords",
     "number": 5,
-    "meaningUpKo": "이겼지만 씁쓸함이 남는 다툼.",
-    "meaningRevKo": "패배와 그 여파가 이어짐.",
-    "keywordsKo": ["패배", "갈등", "공허한 승리", "불명예"],
-    "image": "/cards/sw05.jpg"
+    "meaningUpKo": "이겼지만 씁쓸함이 남는 다툼",
+    "meaningRevKo": "패배와 갈등에서 교훈을 얻고 파괴적인 경쟁을 내려놓으며 화해를 모색하는 상태",
+    "keywordsUpKo": ["패배", "갈등", "공허한 승리", "불명예"],
+    "keywordsRevKo": ["패배에서 배움", "경쟁 내려놓기", "화해", "갈등 회복"],
+    "image": "/cards/sw05.jpg",
+    "detailUp": {
+      "love": "이겼지만 씁쓸함만 남는 다툼",
+      "work": "무리하게 이겼지만 신뢰를 잃는 결과",
+      "relationship": "자존심 싸움으로 상처만 남는 관계",
+      "innerMind": "이겨도 공허한 마음",
+      "ox": "부정"
+    },
+    "detailRev": {
+      "love": "상처를 인정하고 사과하며 관계를 회복하려는 움직임",
+      "work": "경쟁과 갈등에서 배워 협력적인 방식을 찾는 상황",
+      "relationship": "자존심을 내려놓고 화해를 모색하는 관계",
+      "innerMind": "이기는 것보다 갈등을 끝내는 일이 중요하다는 깨달음",
+      "ox": "부정"
+    }
   },
   {
     "id": "sw06",
@@ -666,10 +1491,25 @@
     "arcana": "minor",
     "suit": "swords",
     "number": 6,
-    "meaningUpKo": "어려움을 뒤로하고 더 나은 곳으로 나아가는 이동.",
-    "meaningRevKo": "숨겨온 것을 드러내는 고백.",
-    "keywordsKo": ["이동", "전환", "회복", "안정을 향한 여정"],
-    "image": "/cards/sw06.jpg"
+    "meaningUpKo": "어려움을 뒤로하고 더 나은 곳으로 나아가는 이동",
+    "meaningRevKo": "과거의 짐과 해결되지 않은 문제 때문에 변화를 거부하고 전환이 지연되는 상태",
+    "keywordsUpKo": ["이동", "전환", "회복", "안정을 향한 여정"],
+    "keywordsRevKo": ["전환 지연", "과거의 짐", "변화 저항", "미해결 문제"],
+    "image": "/cards/sw06.jpg",
+    "detailUp": {
+      "love": "어려움을 뒤로하고 나아가는 관계",
+      "work": "힘든 상황을 벗어나 안정을 찾아가는 시기",
+      "relationship": "함께 새로운 국면으로 이동하는 관계",
+      "innerMind": "조금씩 나아지고 있다는 안도감",
+      "ox": "긍정"
+    },
+    "detailRev": {
+      "love": "벗어나고 싶어도 발이 묶인 관계",
+      "work": "전환이 더뎌지거나 되돌아가는 상황",
+      "relationship": "벗어나지 못하고 제자리인 관계",
+      "innerMind": "과거의 문제를 놓지 못해 앞으로 나아가기 어려운 마음",
+      "ox": "모호함"
+    }
   },
   {
     "id": "sw07",
@@ -678,10 +1518,25 @@
     "arcana": "minor",
     "suit": "swords",
     "number": 7,
-    "meaningUpKo": "은밀하게 계획을 실행하지만 실패할 위험이 있음.",
-    "meaningRevKo": "조언을 듣거나, 반대로 소문에 휘말림.",
-    "keywordsKo": ["전략", "은밀함", "위험 부담", "기만"],
-    "image": "/cards/sw07.jpg"
+    "meaningUpKo": "기만이나 절도, 은밀한 전략으로 책임과 결과를 피하려는 영리하지만 의심스러운 행동",
+    "meaningRevKo": "숨겨온 행동이 드러나거나 잘못을 인정하고, 기존 전략을 다시 검토하는 상태",
+    "keywordsUpKo": ["기만", "절도", "은밀함", "결과 회피"],
+    "keywordsRevKo": ["거짓 발각", "고백", "정직", "전략 재검토"],
+    "image": "/cards/sw07.jpg",
+    "detailUp": {
+      "love": "속마음을 숨기며 재는 관계",
+      "work": "공을 가로채거나 부정한 전략으로 이득을 얻으려는 상황",
+      "relationship": "솔직하지 못한 부분이 있는 관계",
+      "innerMind": "영리한 전략으로 책임과 결과를 피하고 싶은 마음",
+      "ox": "부정"
+    },
+    "detailRev": {
+      "love": "숨겼던 마음이나 거짓이 드러나는 관계",
+      "work": "소문이나 발각으로 곤란해지는 상황",
+      "relationship": "기만이 밝혀지며 흔들리는 관계",
+      "innerMind": "숨긴 것을 인정하고 기존 방법을 다시 생각하는 마음",
+      "ox": "모호함"
+    }
   },
   {
     "id": "sw08",
@@ -690,10 +1545,25 @@
     "arcana": "minor",
     "suit": "swords",
     "number": 8,
-    "meaningUpKo": "스스로 만든 제약에 갇혀 옴짝달싹 못하는 상태.",
-    "meaningRevKo": "구속에서 벗어나려 할 때 겪는 혼란.",
-    "keywordsKo": ["속박", "무력감", "불안", "제한된 시야"],
-    "image": "/cards/sw08.jpg"
+    "meaningUpKo": "스스로 만든 제약에 갇혀 옴짝달싹 못하는 상태",
+    "meaningRevKo": "스스로 만든 생각의 감옥을 깨닫고 선택지를 발견하며 자유를 향해 움직이는 상태",
+    "keywordsUpKo": ["속박", "무력감", "불안", "제한된 시야"],
+    "keywordsRevKo": ["속박에서 해방", "선택지 발견", "자기 제한 인식", "자유를 향한 행동"],
+    "image": "/cards/sw08.jpg",
+    "detailUp": {
+      "love": "스스로 갇혀 벗어나지 못하는 관계",
+      "work": "제약에 묶여 옴짝달싹 못하는 상황",
+      "relationship": "벗어날 수 없다고 느끼는 관계",
+      "innerMind": "스스로 만든 생각의 감옥",
+      "ox": "부정"
+    },
+    "detailRev": {
+      "love": "관계를 막던 두려움을 깨닫고 자유로운 선택을 시작함",
+      "work": "제약에서 벗어나려는 시도가 시작됨",
+      "relationship": "조금씩 자유로워지려는 관계",
+      "innerMind": "스스로 만든 한계를 알아차리고 벗어날 용기가 생김",
+      "ox": "모호함"
+    }
   },
   {
     "id": "sw09",
@@ -702,10 +1572,25 @@
     "arcana": "minor",
     "suit": "swords",
     "number": 9,
-    "meaningUpKo": "밤새 떨쳐내지 못하는 불안과 절망.",
-    "meaningRevKo": "불안이 의심과 죄책감으로 이어짐.",
-    "keywordsKo": ["불안", "절망", "불면", "걱정"],
-    "image": "/cards/sw09.jpg"
+    "meaningUpKo": "밤새 떨쳐내지 못하는 불안과 절망",
+    "meaningRevKo": "극심한 불안과 걱정에서 서서히 회복하고 정신적 고통에서 안도감을 찾는 상태",
+    "keywordsUpKo": ["불안", "절망", "불면", "걱정"],
+    "keywordsRevKo": ["불안 회복", "걱정 극복", "안도", "부정적 사고에서 해방"],
+    "image": "/cards/sw09.jpg",
+    "detailUp": {
+      "love": "밤새 상대를 걱정하며 잠 못 이루는 관계",
+      "work": "결과를 알 수 없어 불안에 시달리는 상황",
+      "relationship": "근심으로 마음이 무거운 관계",
+      "innerMind": "떨쳐내지 못하는 불안과 절망감",
+      "ox": "부정"
+    },
+    "detailRev": {
+      "love": "관계에 대한 불안과 과거의 상처에서 회복하기 시작함",
+      "work": "업무 걱정이 줄고 문제의 해결책을 찾는 상황",
+      "relationship": "대화와 이해가 의심과 걱정을 대신하기 시작하는 관계",
+      "innerMind": "부정적인 생각의 고리에서 벗어나 안정을 되찾는 마음",
+      "ox": "부정"
+    }
   },
   {
     "id": "sw10",
@@ -714,10 +1599,25 @@
     "arcana": "minor",
     "suit": "swords",
     "number": 10,
-    "meaningUpKo": "바닥까지 떨어진 고통, 그러나 더 나빠질 것이 없는 끝.",
-    "meaningRevKo": "바닥을 치고 회복이 시작되는 조짐.",
-    "keywordsKo": ["끝", "바닥", "고통", "새로운 시작 직전"],
-    "image": "/cards/sw10.jpg"
+    "meaningUpKo": "바닥까지 떨어진 고통, 그러나 더 나빠질 것이 없는 끝",
+    "meaningRevKo": "바닥을 치고 회복이 시작되는 조짐",
+    "keywordsUpKo": ["끝", "바닥", "고통", "새로운 시작 직전"],
+    "keywordsRevKo": ["회복의 조짐","바닥을 침","전환점"],
+    "image": "/cards/sw10.jpg",
+    "detailUp": {
+      "love": "더는 갈 곳 없는 관계의 끝",
+      "work": "완전히 끝나버린, 되돌릴 수 없는 상황",
+      "relationship": "회복 불가능할 정도로 무너진 관계",
+      "innerMind": "바닥까지 떨어졌지만 더 나빠질 것 없는 상태",
+      "ox": "부정"
+    },
+    "detailRev": {
+      "love": "끝난 관계를 딛고 회복이 시작되는 조짐",
+      "work": "바닥을 치고 서서히 나아지는 상황",
+      "relationship": "완전히 끝맺고 새로 시작할 준비",
+      "innerMind": "고통 속에서도 회복의 기미를 느낌",
+      "ox": "모호함"
+    }
   },
   {
     "id": "swpa",
@@ -726,10 +1626,25 @@
     "arcana": "minor",
     "suit": "swords",
     "number": 11,
-    "meaningUpKo": "예리하게 정보를 살피고 경계하는 기민한 관찰자.",
-    "meaningRevKo": "경계가 지나쳐 의심이나 혼란으로 번짐.",
-    "keywordsKo": ["관찰", "경계", "기민함", "정보"],
-    "image": "/cards/swpa.jpg"
+    "meaningUpKo": "정신적 명료함과 지적 호기심으로 새로운 생각을 배우고 솔직하게 소통하는 기민한 탐구자",
+    "meaningRevKo": "생각이 산만해지고 정보를 험담이나 조종에 쓰며 지적 호기심이 해로운 방향으로 흐르는 상태",
+    "keywordsUpKo": ["정신적 명료함", "지적 호기심", "새로운 생각", "소통"],
+    "keywordsRevKo": ["산만한 사고", "험담", "정보의 악용", "침해적 호기심"],
+    "image": "/cards/swpa.jpg",
+    "detailUp": {
+      "love": "서로의 생각을 궁금해하며 솔직한 대화로 알아가는 관계",
+      "work": "새로운 지식을 배우고 아이디어를 명확하게 전달하는 시기",
+      "relationship": "질문과 대화를 통해 새로운 관점을 배우는 관계",
+      "innerMind": "새로운 정보와 생각을 적극적으로 탐구하는 호기심",
+      "ox": "모호함"
+    },
+    "detailRev": {
+      "love": "사적인 정보를 캐묻거나 말로 상대에게 상처를 주는 관계",
+      "work": "험담과 정보 조작, 산만한 집중력이 문제를 만드는 상황",
+      "relationship": "소문과 부주의한 말이 신뢰를 해치는 관계",
+      "innerMind": "호기심과 지성을 비판과 조종에 사용하려는 마음",
+      "ox": "부정"
+    }
   },
   {
     "id": "swkn",
@@ -738,10 +1653,25 @@
     "arcana": "minor",
     "suit": "swords",
     "number": 12,
-    "meaningUpKo": "거침없이 돌진하는 결단력과 대담함.",
-    "meaningRevKo": "성급함이 부주의한 실수로 이어짐.",
-    "keywordsKo": ["돌진", "대담함", "결단", "충돌"],
-    "image": "/cards/swkn.jpg"
+    "meaningUpKo": "거침없이 돌진하는 결단력과 대담함",
+    "meaningRevKo": "성급함이 부주의한 실수로 이어짐",
+    "keywordsUpKo": ["돌진", "대담함", "결단", "충돌"],
+    "keywordsRevKo": ["성급함","부주의한 실수","충돌"],
+    "image": "/cards/swkn.jpg",
+    "detailUp": {
+      "love": "거침없이 밀어붙이는 저돌적인 구애",
+      "work": "대담하게 밀어붙여 빠른 성과를 냄",
+      "relationship": "강하게 주도하는 다소 급한 관계",
+      "innerMind": "망설임 없이 밀고 나가는 결단력",
+      "ox": "모호함"
+    },
+    "detailRev": {
+      "love": "성급함이 다툼이나 이별로 이어짐",
+      "work": "성급한 행동이 부주의한 실수를 부름",
+      "relationship": "충돌이 잦아지는 관계",
+      "innerMind": "감정을 앞세워 실수하는 조급함",
+      "ox": "부정"
+    }
   },
   {
     "id": "swqu",
@@ -750,10 +1680,25 @@
     "arcana": "minor",
     "suit": "swords",
     "number": 13,
-    "meaningUpKo": "슬픔을 겪어봤기에 냉철하고 독립적인 태도를 지님.",
-    "meaningRevKo": "냉철함이 냉소나 편협함으로 굳어짐.",
-    "keywordsKo": ["냉철함", "독립", "직설", "경험에서 온 지혜"],
-    "image": "/cards/swqu.jpg"
+    "meaningUpKo": "삶의 경험에서 얻은 예리한 지성과 분별력으로 진실을 명확하고 솔직하게 전달하는 태도",
+    "meaningRevKo": "냉철함이 냉소나 편협함으로 굳어짐",
+    "keywordsUpKo": ["예리한 지성", "명확한 소통", "분별력", "독립성"],
+    "keywordsRevKo": ["냉소","편협함","날카로움"],
+    "image": "/cards/swqu.jpg",
+    "detailUp": {
+      "love": "감정에 휘둘리지 않고 진실을 솔직하게 나누는 독립적인 사랑",
+      "work": "냉철한 판단으로 신뢰를 얻는 시기",
+      "relationship": "분명한 경계 안에서 솔직하고 명확하게 소통하는 관계",
+      "innerMind": "경험에서 우러난 단단한 지혜",
+      "ox": "긍정"
+    },
+    "detailRev": {
+      "love": "냉정함이 차갑게 느껴지는 관계",
+      "work": "지나친 직설이 갈등을 부름",
+      "relationship": "냉소적인 태도로 거리감이 생기는 관계",
+      "innerMind": "냉철함이 편협함으로 굳어짐",
+      "ox": "모호함"
+    }
   },
   {
     "id": "swki",
@@ -762,10 +1707,25 @@
     "arcana": "minor",
     "suit": "swords",
     "number": 14,
-    "meaningUpKo": "명료한 논리와 권위로 판단을 내리는 리더.",
-    "meaningRevKo": "권위가 냉혹함이나 조작으로 변질됨.",
-    "keywordsKo": ["논리", "권위", "공정한 판단", "단호함"],
-    "image": "/cards/swki.jpg"
+    "meaningUpKo": "명료한 논리와 권위로 판단을 내리는 리더",
+    "meaningRevKo": "권위가 냉혹함이나 조작으로 변질됨",
+    "keywordsUpKo": ["논리", "권위", "공정한 판단", "단호함"],
+    "keywordsRevKo": ["냉혹함","조작","권위 남용"],
+    "image": "/cards/swki.jpg",
+    "detailUp": {
+      "love": "이성적으로 관계를 판단하고 결정함",
+      "work": "명료한 논리와 권위로 좋은 결과를 이끎",
+      "relationship": "공정하고 단호하게 이끄는 관계",
+      "innerMind": "흔들림 없는 논리적 확신",
+      "ox": "긍정"
+    },
+    "detailRev": {
+      "love": "지나치게 냉정해 정을 못 느끼는 관계",
+      "work": "권위가 냉혹함이나 독단으로 변질됨",
+      "relationship": "강압적으로 느껴지는 관계",
+      "innerMind": "원칙에 매몰되어 융통성을 잃음",
+      "ox": "모호함"
+    }
   },
   {
     "id": "peac",
@@ -774,10 +1734,25 @@
     "arcana": "minor",
     "suit": "pentacles",
     "number": 1,
-    "meaningUpKo": "현실적인 기회의 시작, 물질적 풍요의 씨앗.",
-    "meaningRevKo": "부의 어두운 면, 또는 과도한 물질적 집착.",
-    "keywordsKo": ["기회", "물질적 시작", "풍요", "현실적 기반"],
-    "image": "/cards/peac.jpg"
+    "meaningUpKo": "현실적인 기회의 시작, 물질적 풍요의 씨앗",
+    "meaningRevKo": "현실적인 기회를 놓치거나 준비 부족과 잘못된 판단으로 기반이 흔들리는 상태",
+    "keywordsUpKo": ["기회", "물질적 시작", "풍요", "현실적 기반"],
+    "keywordsRevKo": ["기회 상실", "잘못된 투자", "계획 부족", "불안정한 기반"],
+    "image": "/cards/peac.jpg",
+    "detailUp": {
+      "love": "현실적으로 안정감을 주는 새로운 만남",
+      "work": "눈에 보이는 기회, 새로운 수입원의 시작",
+      "relationship": "안정적인 기반 위에서 시작되는 관계",
+      "innerMind": "착실히 쌓아가고 싶은 안정에 대한 바람",
+      "ox": "긍정"
+    },
+    "detailRev": {
+      "love": "조건만 보고 시작하는 계산적인 관계",
+      "work": "좋은 기회를 놓치거나 계획이 무산됨",
+      "relationship": "물질적인 이유로 흔들리는 관계",
+      "innerMind": "안정에 대한 집착이 부담으로 다가옴",
+      "ox": "부정"
+    }
   },
   {
     "id": "pe02",
@@ -786,10 +1761,25 @@
     "arcana": "minor",
     "suit": "pentacles",
     "number": 2,
-    "meaningUpKo": "두 가지 일을 저글링하듯 균형 잡는 상태.",
-    "meaningRevKo": "균형이 억지스럽거나 겉으로만 유지됨.",
-    "keywordsKo": ["균형", "다중과제", "유연함", "적응"],
-    "image": "/cards/pe02.jpg"
+    "meaningUpKo": "두 가지 일을 저글링하듯 균형 잡는 상태",
+    "meaningRevKo": "너무 많은 책임에 압도되어 시간과 우선순위를 제대로 관리하지 못하는 상태",
+    "keywordsUpKo": ["균형", "다중과제", "유연함", "적응"],
+    "keywordsRevKo": ["책임 과부하", "시간 관리 부족", "우선순위 혼란", "균형 상실"],
+    "image": "/cards/pe02.jpg",
+    "detailUp": {
+      "love": "다른 일과 균형을 맞춰가며 만나는 관계",
+      "work": "여러 일을 능숙하게 조율하는 시기",
+      "relationship": "유연하게 서로에게 맞춰가는 관계",
+      "innerMind": "변화에 유연하게 적응하는 여유",
+      "ox": "모호함"
+    },
+    "detailRev": {
+      "love": "우선순위에서 밀려나는 관계",
+      "work": "여러 일을 감당하지 못해 삐걱대는 상황",
+      "relationship": "균형을 잃고 한쪽이 소홀해지는 관계",
+      "innerMind": "이것저것 신경 쓰다 지치는 마음",
+      "ox": "부정"
+    }
   },
   {
     "id": "pe03",
@@ -798,10 +1788,25 @@
     "arcana": "minor",
     "suit": "pentacles",
     "number": 3,
-    "meaningUpKo": "숙련된 기술과 협업으로 인정받는 성취.",
-    "meaningRevKo": "미숙함이나 협업의 부족으로 성과가 떨어짐.",
-    "keywordsKo": ["숙련", "협업", "장인정신", "인정"],
-    "image": "/cards/pe03.jpg"
+    "meaningUpKo": "숙련된 기술과 협업으로 인정받는 성취",
+    "meaningRevKo": "미숙함이나 협업의 부족으로 성과가 떨어짐",
+    "keywordsUpKo": ["숙련", "협업", "장인정신", "인정"],
+    "keywordsRevKo": ["미숙함","협업 부족","저조한 성과"],
+    "image": "/cards/pe03.jpg",
+    "detailUp": {
+      "love": "함께 만들어가며 신뢰를 쌓는 관계",
+      "work": "실력을 인정받아 협업의 기회가 늘어남",
+      "relationship": "서로의 강점을 존중하는 관계",
+      "innerMind": "꾸준한 노력에 대한 자부심",
+      "ox": "긍정"
+    },
+    "detailRev": {
+      "love": "서로 맞춰가는 노력이 부족한 관계",
+      "work": "협업이 어긋나거나 실력을 인정받지 못함",
+      "relationship": "손발이 안 맞아 아쉬운 관계",
+      "innerMind": "미숙함에 대한 자책",
+      "ox": "모호함"
+    }
   },
   {
     "id": "pe04",
@@ -810,10 +1815,25 @@
     "arcana": "minor",
     "suit": "pentacles",
     "number": 4,
-    "meaningUpKo": "가진 것을 놓지 않으려는 안정 지향과 집착.",
-    "meaningRevKo": "집착이 오히려 정체와 지연을 낳음.",
-    "keywordsKo": ["안정", "소유욕", "집착", "보수적 태도"],
-    "image": "/cards/pe04.jpg"
+    "meaningUpKo": "가진 것을 놓지 않으려는 안정 지향과 집착",
+    "meaningRevKo": "물질에 지나치게 집착하고 인색해지거나, 반대로 무모하게 소비하며 불안을 키우는 상태",
+    "keywordsUpKo": ["안정", "소유욕", "집착", "보수적 태도"],
+    "keywordsRevKo": ["물질적 탐욕", "인색함", "무모한 소비", "재정 불안"],
+    "image": "/cards/pe04.jpg",
+    "detailUp": {
+      "love": "놓치고 싶지 않아 꽉 붙잡는 관계",
+      "work": "가진 것을 지키려는 안정 지향적 태도",
+      "relationship": "변화를 꺼리는 보수적인 관계",
+      "innerMind": "잃을까 봐 불안한 소유욕",
+      "ox": "모호함"
+    },
+    "detailRev": {
+      "love": "집착이 오히려 관계를 옥죄는 상태",
+      "work": "지나친 보수성이 기회를 놓치게 함",
+      "relationship": "소유욕이 부담으로 다가오는 관계",
+      "innerMind": "집착이 정체와 불안을 낳음",
+      "ox": "부정"
+    }
   },
   {
     "id": "pe05",
@@ -822,10 +1842,25 @@
     "arcana": "minor",
     "suit": "pentacles",
     "number": 5,
-    "meaningUpKo": "경제적 어려움과 소외감 속에서 도움을 구하지 못함.",
-    "meaningRevKo": "어려움이 더 깊어지거나 무절제로 악화됨.",
-    "keywordsKo": ["결핍", "소외", "어려움", "도움의 필요"],
-    "image": "/cards/pe05.jpg"
+    "meaningUpKo": "경제적 어려움과 소외감 속에서 도움을 구하지 못함",
+    "meaningRevKo": "어려운 시기를 벗어나 도움을 받아들이며 생활과 재정이 회복되기 시작함",
+    "keywordsUpKo": ["결핍", "소외", "어려움", "도움의 필요"],
+    "keywordsRevKo": ["회복", "도움 수용", "상황 개선", "희망"],
+    "image": "/cards/pe05.jpg",
+    "detailUp": {
+      "love": "경제적, 정서적으로 힘든 시기의 관계",
+      "work": "어려움 속에서 도움을 구하지 못하는 상황",
+      "relationship": "소외감을 느끼며 겉도는 관계",
+      "innerMind": "혼자라는 느낌과 결핍감",
+      "ox": "부정"
+    },
+    "detailRev": {
+      "love": "어려운 시기를 지나 손을 내미는 관계",
+      "work": "도움을 구하거나 상황이 조금씩 나아짐",
+      "relationship": "소외를 딛고 다시 다가서는 관계",
+      "innerMind": "도움을 청할 용기가 생기는 마음",
+      "ox": "모호함"
+    }
   },
   {
     "id": "pe06",
@@ -834,10 +1869,25 @@
     "arcana": "minor",
     "suit": "pentacles",
     "number": 6,
-    "meaningUpKo": "가진 자가 나누는 베풂과 균형 잡힌 도움.",
-    "meaningRevKo": "베풂이 불공정하거나 질투를 부름.",
-    "keywordsKo": ["나눔", "균형", "베풂", "도움"],
-    "image": "/cards/pe06.jpg"
+    "meaningUpKo": "가진 자가 나누는 베풂과 균형 잡힌 도움",
+    "meaningRevKo": "주고받음이 불균형하고 호의에 조건이 붙거나 자원과 권력을 부당하게 사용하는 상태",
+    "keywordsUpKo": ["나눔", "균형", "베풂", "도움"],
+    "keywordsRevKo": ["불균형한 교환", "조건부 호의", "권력 남용", "불공정한 도움"],
+    "image": "/cards/pe06.jpg",
+    "detailUp": {
+      "love": "서로 아낌없이 챙겨주는 관계",
+      "work": "도움을 주고받으며 균형을 이루는 시기",
+      "relationship": "배려가 오가는 따뜻한 관계",
+      "innerMind": "나눌 수 있어 감사한 마음",
+      "ox": "긍정"
+    },
+    "detailRev": {
+      "love": "한쪽으로 치우친 헌신의 관계",
+      "work": "도움이 불공정하게 오가는 상황",
+      "relationship": "도움에 대가와 조건이 붙어 부담스러운 관계",
+      "innerMind": "받기만 하거나 주기만 하는 불편함",
+      "ox": "모호함"
+    }
   },
   {
     "id": "pe07",
@@ -846,10 +1896,25 @@
     "arcana": "minor",
     "suit": "pentacles",
     "number": 7,
-    "meaningUpKo": "지금까지 들인 노력의 결실을 가늠하며 기다림.",
-    "meaningRevKo": "성과에 대한 조바심과 불안.",
-    "keywordsKo": ["결실 평가", "인내", "투자", "조바심"],
-    "image": "/cards/pe07.jpg"
+    "meaningUpKo": "지금까지 들인 노력의 결실을 가늠하며 기다림",
+    "meaningRevKo": "결과를 기다리지 못해 계획을 그르치거나 보상이 더디다고 판단해 일을 너무 일찍 포기하는 상태",
+    "keywordsUpKo": ["결실 평가", "인내", "장기 투자", "성과 점검"],
+    "keywordsRevKo": ["조바심", "장기 계획 부족", "성급한 포기", "보상 지연"],
+    "image": "/cards/pe07.jpg",
+    "detailUp": {
+      "love": "관계에 들인 시간과 정성을 가늠하는 시기",
+      "work": "지금까지의 노력을 평가하며 기다리는 시기",
+      "relationship": "결과를 지켜보며 인내하는 관계",
+      "innerMind": "장기적인 결실을 믿고 현재의 성과를 차분히 살피는 마음",
+      "ox": "모호함"
+    },
+    "detailRev": {
+      "love": "기다림에 지쳐 조급해지는 관계",
+      "work": "장기 계획이 부족하거나 결과가 늦다고 일을 너무 일찍 포기함",
+      "relationship": "인내심이 바닥나는 관계",
+      "innerMind": "노력의 결실을 믿지 못하고 포기하고 싶은 초조한 마음",
+      "ox": "부정"
+    }
   },
   {
     "id": "pe08",
@@ -858,10 +1923,25 @@
     "arcana": "minor",
     "suit": "pentacles",
     "number": 8,
-    "meaningUpKo": "묵묵히 실력을 갈고닦는 성실한 숙련의 과정.",
-    "meaningRevKo": "기술이 얕은 술수나 헛된 야망으로 흐름.",
-    "keywordsKo": ["숙련", "성실함", "반복 훈련", "전문성"],
-    "image": "/cards/pe08.jpg"
+    "meaningUpKo": "묵묵히 실력을 갈고닦는 성실한 숙련의 과정",
+    "meaningRevKo": "완벽주의로 일을 끝내지 못하거나 집중과 노력이 부족해 결과물의 품질이 떨어지는 상태",
+    "keywordsUpKo": ["숙련", "성실함", "반복 훈련", "전문성"],
+    "keywordsRevKo": ["완벽주의", "집중력 부족", "노력 부족", "낮은 작업 품질"],
+    "image": "/cards/pe08.jpg",
+    "detailUp": {
+      "love": "정성을 다해 꾸준히 다가가는 관계",
+      "work": "묵묵히 실력을 갈고닦아 전문성을 쌓는 시기",
+      "relationship": "성실함으로 신뢰를 쌓아가는 관계",
+      "innerMind": "꾸준함이 주는 성취감",
+      "ox": "긍정"
+    },
+    "detailRev": {
+      "love": "완벽한 관계만 찾거나 관계를 가꾸는 노력이 부족한 상태",
+      "work": "완벽주의로 마무리하지 못하거나 요령을 피워 품질이 떨어지는 상황",
+      "relationship": "서로를 위한 꾸준한 노력이 부족한 관계",
+      "innerMind": "집중하지 못하거나 충분한 노력 없이 성과를 바라는 마음",
+      "ox": "모호함"
+    }
   },
   {
     "id": "pe09",
@@ -870,10 +1950,25 @@
     "arcana": "minor",
     "suit": "pentacles",
     "number": 9,
-    "meaningUpKo": "스스로 일군 것 안에서 누리는 독립적인 풍요.",
-    "meaningRevKo": "풍요가 거짓이거나 계획이 무산됨.",
-    "keywordsKo": ["독립", "풍요", "자립", "안락함"],
-    "image": "/cards/pe09.jpg"
+    "meaningUpKo": "스스로 일군 것 안에서 누리는 독립적인 풍요",
+    "meaningRevKo": "재정적 손실이나 타인에 대한 의존으로 자립이 흔들리고, 이룬 성과를 누리지 못하는 상태",
+    "keywordsUpKo": ["독립", "풍요", "자립", "안락함"],
+    "keywordsRevKo": ["재정적 손실", "타인 의존", "자립 불안", "성과를 누리지 못함"],
+    "image": "/cards/pe09.jpg",
+    "detailUp": {
+      "love": "스스로 만족하며 여유 있게 만나는 관계",
+      "work": "혼자 힘으로 이룬 안정과 풍요",
+      "relationship": "서로 독립적이면서도 편안한 관계",
+      "innerMind": "스스로 일군 것에 대한 만족감",
+      "ox": "긍정"
+    },
+    "detailRev": {
+      "love": "정서적·물질적으로 상대에게 지나치게 의존하는 관계",
+      "work": "재정적 차질이나 독립적인 성과를 내기 어려운 상황",
+      "relationship": "자립하지 못해 한쪽에 부담이 쏠리는 관계",
+      "innerMind": "이룬 것을 누리지 못하고 안정감을 잃은 마음",
+      "ox": "모호함"
+    }
   },
   {
     "id": "pe10",
@@ -882,10 +1977,25 @@
     "arcana": "minor",
     "suit": "pentacles",
     "number": 10,
-    "meaningUpKo": "여러 세대에 걸쳐 이어지는 안정된 부와 가문의 유산.",
-    "meaningRevKo": "쌓아온 안정이 뜻밖의 사건으로 흔들림.",
-    "keywordsKo": ["유산", "가족", "안정", "장기적 풍요"],
-    "image": "/cards/pe10.jpg"
+    "meaningUpKo": "여러 세대에 걸쳐 이어지는 안정된 부와 가문의 유산",
+    "meaningRevKo": "가족 안의 돈 갈등이나 재산 손실로 장기적인 안정과 유산을 만들기 어려운 상태",
+    "keywordsUpKo": ["유산", "가족", "안정", "장기적 풍요"],
+    "keywordsRevKo": ["가족 간 금전 갈등", "재산 손실", "장기 안정 실패", "유산 문제"],
+    "image": "/cards/pe10.jpg",
+    "detailUp": {
+      "love": "오래도록 안정적으로 이어지는 관계",
+      "work": "장기적으로 쌓아온 성과와 안정된 기반",
+      "relationship": "가족처럼 든든한 신뢰의 관계",
+      "innerMind": "오래 이어질 것이라는 든든한 확신",
+      "ox": "긍정"
+    },
+    "detailRev": {
+      "love": "가족과 재정 문제로 장기적인 관계의 안정이 깨지는 상황",
+      "work": "쌓아온 자원이나 사업 기반을 잃고 장기적 안정이 흔들림",
+      "relationship": "가족이나 오랜 관계에서 생기는 갈등",
+      "innerMind": "당연했던 안정이 흔들리는 불안",
+      "ox": "모호함"
+    }
   },
   {
     "id": "pepa",
@@ -894,10 +2004,25 @@
     "arcana": "minor",
     "suit": "pentacles",
     "number": 11,
-    "meaningUpKo": "성실하게 배우고 계획을 세우는 학구적인 태도.",
-    "meaningRevKo": "산만함이나 낭비로 흐르는 태도.",
-    "keywordsKo": ["학구열", "계획", "성실함", "현실 감각"],
-    "image": "/cards/pepa.jpg"
+    "meaningUpKo": "성실하게 배우고 계획을 세우는 학구적인 태도",
+    "meaningRevKo": "배움과 현실적인 목표에 집중하지 못해 기회를 놓치거나 비현실적으로 접근하는 상태",
+    "keywordsUpKo": ["학구열", "계획", "성실함", "현실 감각"],
+    "keywordsRevKo": ["집중력 부족", "기회 상실", "비현실적 접근", "배움의 정체"],
+    "image": "/cards/pepa.jpg",
+    "detailUp": {
+      "love": "진지하게 미래를 계획하며 다가서는 관계",
+      "work": "배우려는 자세로 착실히 준비하는 시기",
+      "relationship": "현실적이고 성실하게 만들어가는 관계",
+      "innerMind": "차근차근 배우고 싶은 성실한 마음",
+      "ox": "모호함"
+    },
+    "detailRev": {
+      "love": "계획 없이 산만하게 흘러가는 관계",
+      "work": "배움에 집중하지 못하거나 현실적인 기회를 놓치는 상황",
+      "relationship": "성의 없이 겉도는 관계",
+      "innerMind": "현실적인 계획 없이 관심만 분산되는 마음",
+      "ox": "부정"
+    }
   },
   {
     "id": "pekn",
@@ -906,10 +2031,25 @@
     "arcana": "minor",
     "suit": "pentacles",
     "number": 12,
-    "meaningUpKo": "느리지만 꾸준하고 믿음직한 책임감.",
-    "meaningRevKo": "꾸준함이 나태함이나 정체로 변함.",
-    "keywordsKo": ["꾸준함", "책임감", "신중함", "현실적 노력"],
-    "image": "/cards/pekn.jpg"
+    "meaningUpKo": "느리지만 꾸준하고 믿음직한 책임감",
+    "meaningRevKo": "꾸준함이 나태함이나 정체로 변함",
+    "keywordsUpKo": ["꾸준함", "책임감", "신중함", "현실적 노력"],
+    "keywordsRevKo": ["나태함","정체","안주"],
+    "image": "/cards/pekn.jpg",
+    "detailUp": {
+      "love": "느리지만 진심으로 다가오는 믿음직한 관계",
+      "work": "꾸준하고 신중하게 결과를 만들어내는 시기",
+      "relationship": "변함없이 책임을 다하는 관계",
+      "innerMind": "서두르지 않는 묵묵한 믿음",
+      "ox": "긍정"
+    },
+    "detailRev": {
+      "love": "진전이 없어 답답하게 느껴지는 관계",
+      "work": "꾸준함이 나태함으로 변해 정체되는 상황",
+      "relationship": "발전 없이 제자리인 관계",
+      "innerMind": "안주하려는 마음에 대한 불안",
+      "ox": "부정"
+    }
   },
   {
     "id": "pequ",
@@ -918,10 +2058,25 @@
     "arcana": "minor",
     "suit": "pentacles",
     "number": 13,
-    "meaningUpKo": "현실적 감각과 넉넉함으로 주변을 돌보는 사람.",
-    "meaningRevKo": "안정이 불안이나 의심으로 흔들림.",
-    "keywordsKo": ["풍요", "돌봄", "현실 감각", "안정"],
-    "image": "/cards/pequ.jpg"
+    "meaningUpKo": "현실적 감각과 넉넉함으로 주변을 돌보는 사람",
+    "meaningRevKo": "타인을 돌보느라 자신을 돌보지 못하고 재정적으로 불안해지거나, 돌봄이 지나친 통제로 변하는 상태",
+    "keywordsUpKo": ["풍요", "돌봄", "현실 감각", "안정"],
+    "keywordsRevKo": ["자기 돌봄 부족", "재정 불안", "과도한 통제", "돌봄의 부담"],
+    "image": "/cards/pequ.jpg",
+    "detailUp": {
+      "love": "현실적인 배려로 편안함을 주는 관계",
+      "work": "실속 있게 챙기며 성과를 내는 시기",
+      "relationship": "넉넉한 마음으로 돌보는 관계",
+      "innerMind": "현실을 직시하는 안정된 마음",
+      "ox": "긍정"
+    },
+    "detailRev": {
+      "love": "챙기는 마음이 부담으로 다가오는 관계",
+      "work": "타인의 문제까지 떠안아 자신과 재정을 돌보지 못하는 상황",
+      "relationship": "보살핌이 지나친 간섭과 통제로 변하는 관계",
+      "innerMind": "남을 챙기느라 자신의 필요를 놓치고 불안해지는 마음",
+      "ox": "모호함"
+    }
   },
   {
     "id": "peki",
@@ -930,9 +2085,24 @@
     "arcana": "minor",
     "suit": "pentacles",
     "number": 14,
-    "meaningUpKo": "물질적 성공을 이룬 든든하고 노련한 리더.",
-    "meaningRevKo": "성공이 탐욕이나 부패로 변질됨.",
-    "keywordsKo": ["성공", "현실 감각", "안정된 리더십", "신뢰"],
-    "image": "/cards/peki.jpg"
+    "meaningUpKo": "물질적 성공을 이룬 든든하고 노련한 리더",
+    "meaningRevKo": "성공이 탐욕이나 부패로 변질됨",
+    "keywordsUpKo": ["성공", "현실 감각", "안정된 리더십", "신뢰"],
+    "keywordsRevKo": ["탐욕","부패","변질된 성공"],
+    "image": "/cards/peki.jpg",
+    "detailUp": {
+      "love": "든든하고 안정감 있는 사랑",
+      "work": "물질적 성공과 신뢰를 함께 얻는 시기",
+      "relationship": "믿고 기댈 수 있는 든든한 관계",
+      "innerMind": "현실적인 기반 위의 단단한 확신",
+      "ox": "긍정"
+    },
+    "detailRev": {
+      "love": "물질적인 조건만 따지는 계산적인 관계",
+      "work": "성공에 대한 집착이 탐욕으로 변질됨",
+      "relationship": "신뢰가 이해관계로 흔들리는 관계",
+      "innerMind": "안정 뒤에 숨은 탐욕과 불안",
+      "ox": "모호함"
+    }
   }
 ]
