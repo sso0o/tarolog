@@ -1,5 +1,5 @@
 // src/lib/journal/journal.ts
-import type { Reading } from '../../types/journal'
+import type { Reading, ReadingCard } from '../../types/journal'
 
 const STORAGE_KEY = 'tarolog:readings'
 
@@ -27,4 +27,12 @@ export function addReading(data: Omit<Reading, 'id'>): Reading {
 export function deleteReading(id: string): void {
     const readings = getReadings().filter((r) => r.id !== id)
     localStorage.setItem(STORAGE_KEY, JSON.stringify(readings))
+}
+
+export function fillPositionsWithCards(positions: string[], cardIds: string[]): ReadingCard[] {
+    return positions.map((position, index) => ({
+        position,
+        cardId: cardIds[index] ?? '',
+        reversed: false,
+    }))
 }

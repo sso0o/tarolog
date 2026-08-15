@@ -10,6 +10,7 @@ import { MatchingBoard } from '../components/matching/MatchingBoard.tsx'
 import { MatchingResult } from '../components/matching/MatchingResult.tsx'
 import { FocusLayout } from '../components/shared/FocusLayout.tsx'
 import { ExitConfirmDialog } from '../components/shared/ExitConfirmDialog.tsx'
+import { useInterstitialAd } from '../hooks/useInterstitialAd.ts'
 import type { Card } from '../types/card'
 
 const PAIR_COUNT = 4
@@ -27,25 +28,29 @@ interface MatchingSession {
 
 export function MatchingPage() {
     const navigate = useNavigate()
+    const showThenRun = useInterstitialAd()
     const allCards = useMemo(() => getAllCards(), [])
     const [session, setSession] = useState<MatchingSession | null>(null)
     const [result, setResult] = useState<MatchingSessionResult | null>(null)
     const [confirmingEnd, setConfirmingEnd] = useState(false)
 
+
     function handleStart(pool: Card[], direction: MeaningDirection, roundCount: number) {
-        const rounds = buildMatchingRounds(pool, direction, roundCount, PAIR_COUNT)
-        setSession({
-            rounds,
-            pool,
-            direction,
-            roundCount,
-            startedAt: Date.now(),
-            roundIndex: 0,
-            wrongAttempts: 0,
-            wrongCardIds: new Set(),
+        showThenRun(() => {
+            const rounds = buildMatchingRounds(pool, direction, roundCount, PAIR_COUNT)
+            setSession({
+                rounds,
+                pool,
+                direction,
+                roundCount,
+                startedAt: Date.now(),
+                roundIndex: 0,
+                wrongAttempts: 0,
+                wrongCardIds: new Set(),
+            })
+            setResult(null)
+            navigate('/matching/playing')
         })
-        setResult(null)
-        navigate('/matching/playing')
     }
 
     function handleRoundComplete(outcome: MatchingRoundOutcome) {

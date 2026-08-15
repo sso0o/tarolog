@@ -38,3 +38,11 @@ export function markAllMemorized(ids: string[]): void {
         // localStorage unavailable (e.g. disabled/private mode) — progress just won't persist
     }
 }
+
+export function clearAllMemorized(): void {
+    try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify([]))
+    } catch {
+        // localStorage unavailable (e.g. disabled/private mode) — progress just won't persist
+    }
+}

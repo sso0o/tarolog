@@ -9,6 +9,7 @@ import { FlashcardSetup } from '../components/flashcard/FlashcardSetup.tsx'
 import { Flashcard } from '../components/flashcard/Flashcard.tsx'
 import { FocusLayout } from '../components/shared/FocusLayout.tsx'
 import { ExitConfirmDialog } from '../components/shared/ExitConfirmDialog.tsx'
+import { useInterstitialAd } from '../hooks/useInterstitialAd.ts'
 import type { StudyDirection } from '../types/study.ts'
 import type { Card } from '../types/card'
 
@@ -19,6 +20,7 @@ interface StudySession {
 
 export function FlashcardPage() {
     const navigate = useNavigate()
+    const showThenRun = useInterstitialAd()
     const allCards = useMemo(() => getAllCards(), [])
     const [session, setSession] = useState<StudySession | null>(null)
     const [index, setIndex] = useState(0)
@@ -26,9 +28,11 @@ export function FlashcardPage() {
     const [confirmingEnd, setConfirmingEnd] = useState(false)
 
     function handleStart(pool: Card[], direction: StudyDirection, count: number) {
-        setSession({ cards: selectStudyCards(pool, count), direction })
-        setIndex(0)
-        navigate('/flashcard/playing')
+        showThenRun(() => {
+            setSession({ cards: selectStudyCards(pool, count), direction })
+            setIndex(0)
+            navigate('/flashcard/playing')
+        })
     }
 
     function next() {

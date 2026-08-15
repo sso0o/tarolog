@@ -8,6 +8,7 @@ import { theme } from './theme'
 import './index.css'
 import App from './App.tsx'
 import {FocusExitProvider} from "./contexts/FocusExitContext.tsx";
+import { ErrorBoundary } from './components/shared/ErrorBoundary.tsx'
 
 if ('serviceWorker' in navigator && !Capacitor.isNativePlatform()) {
     window.addEventListener('load', () => {
@@ -19,11 +20,13 @@ createRoot(document.getElementById('root')!).render(
     <StrictMode>
         <ThemeProvider theme={theme}>
             <CssBaseline />
-            <HashRouter>
-                <FocusExitProvider>
-                    <App />
-                </FocusExitProvider>
-            </HashRouter>
+            <ErrorBoundary>
+                <HashRouter>
+                    <FocusExitProvider>
+                        <App />
+                    </FocusExitProvider>
+                </HashRouter>
+            </ErrorBoundary>
         </ThemeProvider>
     </StrictMode>,
 )

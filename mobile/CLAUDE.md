@@ -13,3 +13,12 @@
 ```bash
 cd mobile
 npm run build     # frontend를 모바일용(base=/)으로 빌드하고 android 프로젝트에 동기화
+```
+
+## 배포
+
+Play Store 자동 배포 파이프라인은 없습니다. 릴리즈 빌드는 Android Studio에서 수동으로 만듭니다.
+
+1. `mobile/android/keystore.properties`(gitignore됨, 최초 1회 직접 생성)에 서명 키 정보(`storeFile`, `storePassword`, `keyAlias`, `keyPassword`) 설정
+2. Android Studio에서 `mobile/android`를 열고 **Build > Generate Signed Bundle / APK**로 AAB/APK 생성 (`app/build.gradle`의 `signingConfigs.release`가 위 `keystore.properties`를 읽음)
+3. 생성된 AAB를 Play Console에 업로드

@@ -13,7 +13,8 @@ export function searchCards(cards: Card[], query: string): Card[] {
         (c) =>
             c.nameKo.toLowerCase().includes(q) ||
             c.nameEn.toLowerCase().includes(q) ||
-            c.keywordsKo.some((k) => k.toLowerCase().includes(q)),
+            c.keywordsUpKo.some((k) => k.toLowerCase().includes(q)) ||
+            c.keywordsRevKo.some((k) => k.toLowerCase().includes(q)),
     )
 }
 

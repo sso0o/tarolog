@@ -14,6 +14,11 @@ export const colors = {
     successInk: '#213B21',
 } as const
 
+export const headingFontSizeSx = {
+    fontSize: { xs: '1.75rem', sm: '2.5rem' },
+    '@media (max-width: 400px)': { fontSize: '1.5rem' },
+} as const
+
 export type Feature = 'dictionary' | 'flashcard' | 'quiz' | 'matching' | 'journal'
 
 export const featureAccents: Record<Feature, string> = {
