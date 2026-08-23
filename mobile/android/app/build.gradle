@@ -16,6 +16,22 @@ android {
             ignoreAssetsPattern = '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
         }
     }
+    // 무료/유료 웹 번들을 각각 app/src/free, app/src/paid의 assets/public에 두고
+    // 완전히 분리된 앱으로 빌드한다. Capacitor CLI의 `cap sync`는 flavor를 모르고
+    // 항상 app/src/main/assets/public에 쓰므로, mobile/package.json의 build:free /
+    // build:paid 스크립트가 그 결과를 각 flavor 디렉토리로 복사해 넣는다.
+    flavorDimensions "tier"
+    productFlavors {
+        free {
+            dimension "tier"
+        }
+        paid {
+            dimension "tier"
+            applicationIdSuffix ".pro"
+            versionNameSuffix "-pro"
+            resValue "string", "app_name", "타로그 Pro"
+        }
+    }
     signingConfigs {
         release {
             def keystorePropertiesFile = rootProject.file('keystore.properties')

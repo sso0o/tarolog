@@ -14,6 +14,7 @@
 .vscode/*
 dist
 dist-mobile
+dist-mobile-paid
 dist-ssr
 lerna-debug.log*
 logs
