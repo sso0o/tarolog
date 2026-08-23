@@ -1,4 +1,5 @@
 // src/components/shared/AppNavigation.tsx
+import { useEffect, useRef } from 'react'
 import Box from '@mui/material/Box'
 import ButtonBase from '@mui/material/ButtonBase'
 import Typography from '@mui/material/Typography'
@@ -11,6 +12,8 @@ import AutoStoriesIcon from '@mui/icons-material/AutoStories'
 interface Props {
     pathname: string
     onNavigate: (path: string) => void
+    // 이 네비게이션 바의 실측 높이(px)가 바뀔 때마다 알려준다.
+    onHeightChange?: (height: number) => void
 }
 
 const TABS = [
@@ -21,9 +24,21 @@ const TABS = [
     { root: '/journal', entry: '/journal', label: '일지', icon: <AutoStoriesIcon /> },
 ] as const
 
-export function AppNavigation({ pathname, onNavigate }: Props) {
+export function AppNavigation({ pathname, onNavigate, onHeightChange }: Props) {
+    const navRef = useRef<HTMLElement | null>(null)
+
+    useEffect(() => {
+        if (!onHeightChange) return
+        const el = navRef.current
+        if (!el) return
+        const observer = new ResizeObserver(() => onHeightChange(Math.round(el.getBoundingClientRect().height)))
+        observer.observe(el)
+        return () => observer.disconnect()
+    }, [onHeightChange])
+
     return (
         <Box
+            ref={navRef}
             component="nav"
             aria-label="주요 기능"
             sx={{

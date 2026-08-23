@@ -1,0 +1,41 @@
+diff --git a/node_modules/@capacitor-community/admob/android/src/main/java/com/getcapacitor/community/admob/banner/BannerExecutor.java b/node_modules/@capacitor-community/admob/android/src/main/java/com/getcapacitor/community/admob/banner/BannerExecutor.java
+index c629139..bbbae8b 100644
+--- a/node_modules/@capacitor-community/admob/android/src/main/java/com/getcapacitor/community/admob/banner/BannerExecutor.java
++++ b/node_modules/@capacitor-community/admob/android/src/main/java/com/getcapacitor/community/admob/banner/BannerExecutor.java
+@@ -2,7 +2,6 @@ package com.getcapacitor.community.admob.banner;
+ 
+ import android.app.Activity;
+ import android.content.Context;
+-import android.os.Build;
+ import android.util.DisplayMetrics;
+ import android.util.Log;
+ import android.view.Gravity;
+@@ -103,23 +102,11 @@ public class BannerExecutor extends Executor {
+                     break;
+             }
+ 
+-            // set Safe Area only for Android 15+
+-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM) {
+-                View rootView = activitySupplier.get().getWindow().getDecorView();
+-                rootView.setOnApplyWindowInsetsListener((v, insets) -> {
+-                    int bottomInset = insets.getSystemWindowInsetBottom();
+-                    int topInset = insets.getSystemWindowInsetTop();
+-
+-                    if ("TOP_CENTER".equals(adOptions.position)) {
+-                        mAdViewLayoutParams.setMargins(0, topInset, 0, 0);
+-                    } else {
+-                        mAdViewLayoutParams.setMargins(0, 0, 0, bottomInset);
+-                    }
+-
+-                    mAdViewLayout.setLayoutParams(mAdViewLayoutParams);
+-                    return insets;
+-                });
+-            }
++            // tarolog: Android 15+ 자동 세이프 에어리어 보정을 비활성화한다. 배너 뷰는
++            // 웹뷰와 같은 CoordinatorLayout 컨테이너의 형제뷰라, 이 컨테이너 자체가 이미
++            // 상태바 높이만큼 각 자식을 자동으로 밀어준다(웹뷰가 상태바 아래에서 시작하는
++            // 것과 동일한 메커니즘). 여기서 topInset을 margin으로 또 붙이면 상태바
++            // 높이만큼 이중으로 밀려 배너가 웹뷰 콘텐츠보다 한참 아래에 뜬다.
+ 
+             mAdViewLayout.setLayoutParams(mAdViewLayoutParams);
+ 
