@@ -8,6 +8,7 @@ import { theme } from './theme'
 import './index.css'
 import App from './App.tsx'
 import {FocusExitProvider} from "./contexts/FocusExitContext.tsx";
+import { AdBannerProvider } from './contexts/AdBannerContext.tsx'
 import { ErrorBoundary } from './components/shared/ErrorBoundary.tsx'
 
 if ('serviceWorker' in navigator && !Capacitor.isNativePlatform()) {
@@ -23,7 +24,9 @@ createRoot(document.getElementById('root')!).render(
             <ErrorBoundary>
                 <HashRouter>
                     <FocusExitProvider>
-                        <App />
+                        <AdBannerProvider>
+                            <App />
+                        </AdBannerProvider>
                     </FocusExitProvider>
                 </HashRouter>
             </ErrorBoundary>

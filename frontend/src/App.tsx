@@ -1,5 +1,5 @@
 // src/App.tsx
-import { useState, useEffect, lazy, Suspense } from 'react'
+import { useState, useEffect, useCallback, lazy, Suspense } from 'react'
 import { SplashScreen } from './components/shared/SplashScreen'
 import { AppNavigation } from './components/shared/AppNavigation.tsx'
 import Box from '@mui/material/Box'
@@ -19,22 +19,28 @@ const JournalNewPage = lazy(() => import('./pages/JournalNewPage').then((m) => (
 const PrivacyPage = lazy(() => import('./pages/PrivacyPage').then((m) => ({ default: m.PrivacyPage })))
 import { featureAccents, featureFromPath, isFocusPath } from './design/system.ts'
 import {useRequestFocusExit} from "./contexts/FocusExitContext.tsx";
-import { useAdmobBanner } from './hooks/useAdmobBanner.ts'
+import { useAdBannerTopClearance } from './contexts/AdBannerContext.tsx'
 import { AdBannerSpacer } from './components/shared/AdBannerSpacer.tsx'
 
 export function App() {
     const requestFocusExit = useRequestFocusExit()
     useNativeAppSetup(requestFocusExit)
-    const adBannerClearance = useAdmobBanner()
+    const adBannerTopClearance = useAdBannerTopClearance()
 
     const [showSplash, setShowSplash] = useState(true)
     const [fading, setFading] = useState(false)
+    const [navHeight, setNavHeight] = useState(0)
 
     const location = useLocation()
     const navigate = useNavigate()
     const feature = featureFromPath(location.pathname)
     const normalizedPath = location.pathname.replace(/\/+$/, '') || '/'
     const focusMode = isFocusPath(normalizedPath)
+
+    const handleNavHeightChange = useCallback((h: number) => {
+        console.log('[AdBanner] navHeight', h)
+        setNavHeight(h)
+    }, [])
 
     useEffect(() => {
         const fadeTimer = setTimeout(() => setFading(true), 1000)
@@ -44,6 +50,12 @@ export function App() {
             clearTimeout(hideTimer)
         }
     }, [])
+
+    useEffect(() => {
+        // SPA 라우팅은 스크롤 위치를 유지하므로, 이전 화면에서 아래로 스크롤된 채로 이동하면
+        // 상단 광고 스페이서가 화면 밖으로 밀려나 콘텐츠가 배너 아래로 안 밀린 것처럼 보인다.
+        window.scrollTo(0, 0)
+    }, [location.pathname])
 
     return (
         <>
@@ -58,11 +70,18 @@ export function App() {
                     minHeight: '100svh',
                 }}
             >
-                <AdBannerSpacer clearance={adBannerClearance} />
+                <AdBannerSpacer clearance={adBannerTopClearance} />
                 <Box
                     sx={{
                         flex: 1,
-                        pb: focusMode ? 0 : 'calc(66px + env(safe-area-inset-bottom))',
+                        // navHeight는 AppNavigation 자신의 안전영역 패딩까지 포함한 실측 높이라
+                        // 여기서 안전영역을 또 더하지 않는다. 아직 측정 전(navHeight===0)이면
+                        // 기존 추정치로 폴백한다.
+                        pb: focusMode
+                            ? 0
+                            : navHeight > 0
+                              ? `${navHeight}px`
+                              : 'calc(66px + env(safe-area-inset-bottom))',
                     }}
                 >
                     <Suspense fallback={null}>
@@ -81,7 +100,11 @@ export function App() {
                     </Suspense>
                 </Box>
                 {!focusMode && (
-                    <AppNavigation pathname={location.pathname} onNavigate={(path) => navigate(path)} />
+                    <AppNavigation
+                        pathname={location.pathname}
+                        onNavigate={(path) => navigate(path)}
+                        onHeightChange={handleNavHeightChange}
+                    />
                 )}
             </Box>
         </>
