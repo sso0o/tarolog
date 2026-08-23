@@ -3,21 +3,30 @@ import { createContext, useContext, useEffect, useState } from 'react'
 import type { ReactNode } from 'react'
 import { Capacitor } from '@capacitor/core'
 import { AdMob, BannerAdPluginEvents, BannerAdPosition, BannerAdSize } from '@capacitor-community/admob'
-import { StatusBar } from '@capacitor/status-bar'
 import { ADMOB_BANNER_AD_UNIT_ID } from '../lib/admobConfig'
 import { isPremium } from '../lib/shared/tier.ts'
 
 // AdMob 배너는 웹뷰 위에 뜨는 네이티브 오버레이라 실제 높이/위치를 CSS에서 알 수 없다.
 // 상태바 바로 아래(TOP_CENTER)에 고정한다. 하단(BOTTOM_CENTER) 고정도 시도했었으나,
 // @capacitor-community/admob 8.0.0이 Android 15+(API 35, VANILLA_ICE_CREAM)에서
-// 우리가 넘긴 margin을 무시하고 시스템 네비게이션 바 인셋으로 덮어써버려
-// (BannerExecutor.java의 OnApplyWindowInsetsListener), 배너가 우리 앱의 커스텀 하단
-// 탭바보다 낮은 위치에 붙어 탭바와 겹치는 문제가 있었다. 그래서 상단 고정으로 통일한다.
+// 우리가 넘긴 margin을 무시하고 시스템 인셋으로 덮어써버려(BannerExecutor.java의
+// OnApplyWindowInsetsListener) 배너가 우리 앱의 커스텀 하단 탭바보다 낮은 위치에
+// 붙어 탭바와 겹치는 문제가 있었다. 그래서 상단 고정으로 통일한다.
+//
+// 이 override는 TOP_CENTER에도 버그였다: 우리 웹뷰(CapacitorWebView)는 컨테이너
+// (CoordinatorLayout) 안에서 이미 상태바 높이만큼 자동으로 밀려서 시작하는데, 배너를
+// 담는 RelativeLayout도 같은 컨테이너의 형제뷰라 똑같이 자동으로 밀린다. 그런데
+// 이 플러그인은 Android 15+에서 topInset을 margin으로 한 번 더 얹어서, 배너가
+// 상태바 높이만큼 이중으로 밀려 웹뷰 콘텐츠와 배너 사이에 빈 공간이 생겼다
+// (Android 17/API 37 에뮬레이터 실측: margin 없이 웹뷰=배너=132px, margin으로
+// 상태바 높이를 또 넘기면 배너만 264px). 그래서
+// patches/@capacitor-community+admob+8.0.0.patch로 이 자동 보정을 제거했고,
+// margin 옵션도 넘기지 않는다 — 컨테이너가 이미 정확히 맞춰주기 때문이다.
 // bannerAdSizeChanged로 받은 실제 배너 높이를 반영해 호출부가 정확한 자리를 비울 수
 // 있게 한다.
 
 interface AdBannerValue {
-    // App 최상단에 예약할 높이(px, 상태바+배너).
+    // App 최상단에 예약할 높이(px, 배너 실측 높이).
     topClearance: number
 }
 
@@ -25,7 +34,6 @@ const AdBannerContext = createContext<AdBannerValue | null>(null)
 
 export function AdBannerProvider({ children }: { children: ReactNode }) {
     const [adHeight, setAdHeight] = useState(0)
-    const [statusBarHeight, setStatusBarHeight] = useState(0)
 
     useEffect(() => {
         if (!Capacitor.isNativePlatform() || isPremium()) return
@@ -41,9 +49,6 @@ export function AdBannerProvider({ children }: { children: ReactNode }) {
         })
 
         async function show() {
-            const { height } = await StatusBar.getInfo()
-            if (cancelled) return
-            setStatusBarHeight(height)
             await AdMob.initialize()
             if (cancelled) return
             const options = {
@@ -55,7 +60,6 @@ export function AdBannerProvider({ children }: { children: ReactNode }) {
                 // 그 크기로만 광고를 요청하므로 요청 크기와 실제 렌더링 크기가 항상 일치한다.
                 adSize: BannerAdSize.ADAPTIVE_BANNER,
                 position: BannerAdPosition.TOP_CENTER,
-                margin: height,
             }
             console.log('[AdBanner] showBanner', options)
             await AdMob.showBanner(options)
@@ -71,7 +75,7 @@ export function AdBannerProvider({ children }: { children: ReactNode }) {
     }, [])
 
     const value: AdBannerValue = {
-        topClearance: adHeight > 0 ? statusBarHeight + adHeight : 0,
+        topClearance: adHeight,
     }
 
     return <AdBannerContext.Provider value={value}>{children}</AdBannerContext.Provider>

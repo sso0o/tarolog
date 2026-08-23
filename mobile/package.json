@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "patch-package",
     "sync": "npx cap sync android",
     "build:free": "npm --prefix ../frontend run build:mobile && rm -rf android/app/src/free/assets/public && mkdir -p android/app/src/free/assets && cp -r ../frontend/dist-mobile android/app/src/free/assets/public",
     "build:paid": "npm --prefix ../frontend run build:mobile:paid && rm -rf android/app/src/paid/assets/public && mkdir -p android/app/src/paid/assets && cp -r ../frontend/dist-mobile-paid android/app/src/paid/assets/public",
@@ -22,6 +23,7 @@
     "@capacitor/status-bar": "^8.0.3"
   },
   "devDependencies": {
-    "@capacitor/cli": "^8.5.0"
+    "@capacitor/cli": "^8.5.0",
+    "patch-package": "^8.0.1"
   }
 }
