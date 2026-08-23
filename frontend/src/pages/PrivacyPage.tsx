@@ -10,7 +10,7 @@ export function PrivacyPage() {
                 개인정보 처리방침
             </Typography>
             <Typography variant='body2' color='text.secondary' gutterBottom>
-                시행일: 2026년 8월 9일
+                시행일: 2026년 8월 23일
             </Typography>
 
             <Divider sx={{ my: 3 }} />
@@ -25,13 +25,17 @@ export function PrivacyPage() {
             </Section>
 
             <Section title='3. 광고'>
-                현재 앱 내 광고가 없습니다. 향후 광고가 추가될 경우 제3자 광고
-                SDK가 광고 식별자 등의 정보를 수집할 수 있으며, 변경 사항 발생 시
-                본 처리방침을 업데이트할 예정입니다.
+                타로그 무료 버전은 Google AdMob을 통해 배너 광고와 전면 광고를
+                제공합니다. Pro(유료) 버전에는 광고가 없습니다. AdMob은 광고 제공을
+                위해 광고 식별자(Advertising ID) 등의 정보를 수집할 수 있으며,
+                기기의 광고 설정에서 광고 개인화를 제한할 수 있습니다.
             </Section>
 
             <Section title='4. 제3자 제공'>
-                수집된 개인정보가 없으므로 제3자에게 제공하지 않습니다.
+                타로그는 자체적으로 개인정보를 수집하지 않지만, 무료 버전에 포함된
+                Google AdMob이 광고 제공을 위해 광고 식별자 등의 정보를 Google에
+                제공할 수 있습니다. 자세한 내용은 Google의 개인정보처리방침을
+                참고해 주세요.
             </Section>
 
             <Section title='5. 문의'>
@@ -44,7 +48,7 @@ export function PrivacyPage() {
                 Privacy Policy
             </Typography>
             <Typography variant='body2' color='text.secondary' gutterBottom>
-                Effective Date: August 9, 2026
+                Effective Date: August 23, 2026
             </Typography>
 
             <Divider sx={{ my: 3 }} />
@@ -58,11 +62,11 @@ export function PrivacyPage() {
             </Section>
 
             <Section title='3. Advertisements'>
-                {'There are currently no advertisements in the app. If advertisements are added in the future, third-party ad SDKs may collect information such as advertising identifiers, and this policy will be updated accordingly.'}
+                {'The free version of Tarolog displays banner and interstitial ads via Google AdMob. The Pro (paid) version contains no ads. AdMob may collect information such as the advertising identifier to serve ads, and you can limit ad personalization in your device’s ad settings.'}
             </Section>
 
             <Section title='4. Third-Party Sharing'>
-                Since no personal information is collected, we do not share any data with third parties.
+                {'Tarolog itself does not collect personal information, but Google AdMob, included in the free version, may share information such as the advertising identifier with Google to serve ads. Please refer to Google’s Privacy Policy for details.'}
             </Section>
 
             <Section title='5. Contact'>
