@@ -25,7 +25,7 @@ import { AdBannerSpacer } from './components/shared/AdBannerSpacer.tsx'
 export function App() {
     const requestFocusExit = useRequestFocusExit()
     useNativeAppSetup(requestFocusExit)
-    useAdmobBanner()
+    const adBannerClearance = useAdmobBanner()
 
     const [showSplash, setShowSplash] = useState(true)
     const [fading, setFading] = useState(false)
@@ -58,7 +58,7 @@ export function App() {
                     minHeight: '100svh',
                 }}
             >
-                <AdBannerSpacer />
+                <AdBannerSpacer clearance={adBannerClearance} />
                 <Box
                     sx={{
                         flex: 1,
